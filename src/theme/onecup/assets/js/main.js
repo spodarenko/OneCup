@@ -180,32 +180,16 @@
     });
   }
 
-  /* Steps: on desktop the three steps stack and swap while the section is pinned */
-  const stepsEl = $(".oc-steps");
-  if (stepsEl && matchMedia("(min-width: 1101px)").matches) {
-    const items = $$(".oc-step", stepsEl);
-    stepsEl.classList.add("is-stacked");
-    items.forEach((s) => s.removeAttribute("data-reveal"));
-    const nums = items.map((s) => $(".oc-step__n span", s));
-    const texts = items.map((s) => $$(".oc-step__label, .oc-step__note, .oc-step__body", s));
-    gsap.set(nums.slice(1), { yPercent: 100 });
-    gsap.set(texts.slice(1).flat(), { y: 40, autoAlpha: 0 });
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: stepsEl,
-        start: "top top",
-        end: `+=${(items.length - 1) * 80}%`,
-        pin: true,
-        scrub: 0.6,
-      },
-    });
-    for (let i = 1; i < items.length; i++) {
-      tl.to(nums[i - 1], { yPercent: -100, ease: "power2.inOut" }, i)
-        .to(nums[i], { yPercent: 0, ease: "power2.inOut" }, i)
-        .to(texts[i - 1], { y: -40, autoAlpha: 0, stagger: 0.05, ease: "power2.in" }, i)
-        .to(texts[i], { y: 0, autoAlpha: 1, stagger: 0.08, ease: "power2.out" }, i + 0.15);
-    }
-  }
+  /* Steps: number slides up from a mask, texts follow */
+  $$(".oc-step").forEach((step) => {
+    step.removeAttribute("data-reveal");
+    const tl = gsap.timeline({ scrollTrigger: { trigger: step, start: "top 80%", once: true } });
+    tl.from($(".oc-step__n span", step), { yPercent: 100, duration: 0.9, ease: "power3.out" }).from(
+      $$(".oc-step__label, .oc-step__note, .oc-step__body", step),
+      { y: 30, autoAlpha: 0, duration: 0.7, stagger: 0.08, ease },
+      0.15,
+    );
+  });
 
   /* Blocks fade up */
   $$("[data-reveal]").forEach((el) =>
