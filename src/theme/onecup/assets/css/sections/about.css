@@ -18,6 +18,10 @@
   font-weight: 600;
 }
 
+.oc-about__quote .oc-word {
+  opacity: 0.15;
+}
+
 .oc-about__pill {
   display: inline-block;
   width: 72px;
@@ -41,6 +45,10 @@
   .oc-about__quote {
     font-size: 28px;
     line-height: 36px;
+  }
+
+  .oc-about__quote .oc-word {
+    opacity: 0.15;
   }
 
   .oc-about__pill {

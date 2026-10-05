@@ -54,24 +54,25 @@
 
 .oc-mat__desc {
   margin: 0;
+  margin: var(--oc-space-4) 0 0;
+  min-height: 60px;
   font: var(--oc-body-14);
   color: var(--oc-text-muted-dark);
-  overflow: hidden;
-  max-height: 0;
+  opacity: 0;
+  transform: translateY(8px);
   transition:
-    max-height 0.5s var(--oc-ease),
-    margin 0.5s var(--oc-ease);
+    opacity 0.5s var(--oc-ease),
+    transform 0.5s var(--oc-ease);
 }
 
 .oc-mat__row.is-active .oc-mat__name,
-.oc-mat__row:hover .oc-mat__name,
 .oc-mat__row.is-active .oc-mat__text {
   opacity: 1;
 }
 
 .oc-mat__row.is-active .oc-mat__desc {
-  max-height: 120px;
-  margin-top: var(--oc-space-4);
+  opacity: 1;
+  transform: none;
 }
 
 .oc-mat__media {

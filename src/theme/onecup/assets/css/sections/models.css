@@ -34,6 +34,9 @@
 .oc-models__station img {
   width: 100%;
   mix-blend-mode: lighten;
+  /* Fade the render's edges into the section background */
+  -webkit-mask-image: radial-gradient(closest-side, #000 75%, transparent);
+  mask-image: radial-gradient(closest-side, #000 75%, transparent);
 }
 
 .oc-model {
@@ -58,8 +61,9 @@
   grid-column: 1;
   background: var(--oc-glass);
   border: 1px solid var(--oc-glass-line);
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  /* Figma: Glass effect, radius 54 */
+  -webkit-backdrop-filter: blur(27px) saturate(140%) brightness(1.15);
+  backdrop-filter: blur(27px) saturate(140%) brightness(1.15);
 }
 
 .oc-model--buy {

@@ -124,13 +124,21 @@
     "eyebrow": "[ Wo OneCup steht ]",
     "title": "Überall, wo Menschen<br>Kaffee brauchen",
     "items": [
-      { "img": "where-office", "name": "Büros", "text": "Kaffee fürs Team ohne Küchenmaschine" },
+      {
+        "img": "where-office",
+        "name": "Büros",
+        "text": "Kaffee fürs Team ohne Küchenmaschine"
+      },
       {
         "img": "where-fitness",
         "name": "Fitnessstudios",
         "text": "Nach dem Training — ohne Bar und Personal"
       },
-      { "img": "where-clinic", "name": "Arztpraxen", "text": "Für Patienten im Wartebereich" },
+      {
+        "img": "where-clinic",
+        "name": "Arztpraxen",
+        "text": "Für Patienten im Wartebereich"
+      },
       {
         "img": "where-hotel",
         "name": "Hotels",
@@ -141,9 +149,21 @@
         "name": "Autohäuser",
         "text": "Während Kunden auf die Beratung warten"
       },
-      { "img": "where-mall", "name": "Einkaufszentren", "text": "Coffee to go im Kundenstrom" },
-      { "img": "where-kiosk", "name": "Kioske", "text": "Zusatzumsatz auf derselben Fläche" },
-      { "img": "where-bakery", "name": "Bäckereien", "text": "Kaffee zum Gebäck — ohne Barista" }
+      {
+        "img": "where-mall",
+        "name": "Einkaufszentren",
+        "text": "Coffee to go im Kundenstrom"
+      },
+      {
+        "img": "where-kiosk",
+        "name": "Kioske",
+        "text": "Zusatzumsatz auf derselben Fläche"
+      },
+      {
+        "img": "where-bakery",
+        "name": "Bäckereien",
+        "text": "Kaffee zum Gebäck — ohne Barista"
+      }
     ]
   },
   "faq": {
@@ -180,14 +200,46 @@
     "eyebrow": "[ Schon im Einsatz ]",
     "title": "OneCup-Stationen<br>laufen in Köln",
     "items": [
-      { "img": "live-office", "name": "Büros", "text": "Kaffee fürs Team ohne Küchenmaschine" },
-      { "img": "live-fitness", "name": "Fitnessstudios", "text": "Nach dem Training, ohne Bar" },
-      { "img": "live-hotel", "name": "Hotels", "text": "Rund um die Uhr in der Lobby" },
-      { "img": "live-clinic", "name": "Arztpraxen", "text": "Für Patienten im Wartebereich" },
-      { "img": "live-car", "name": "Autohäuser", "text": "Während Kunden warten" },
-      { "img": "live-mall", "name": "Einkaufszentren", "text": "Coffee to go im Kundenstrom" },
-      { "img": "live-kiosk", "name": "Kioske", "text": "Umsatz auf derselben Fläche" },
-      { "img": "live-bakery", "name": "Bäckereien", "text": "Kaffee zum Gebäck, ohne Barista" }
+      {
+        "img": "live-office",
+        "name": "Büros",
+        "text": "Kaffee fürs Team ohne Küchenmaschine"
+      },
+      {
+        "img": "live-fitness",
+        "name": "Fitnessstudios",
+        "text": "Nach dem Training, ohne Bar"
+      },
+      {
+        "img": "live-hotel",
+        "name": "Hotels",
+        "text": "Rund um die Uhr in der Lobby"
+      },
+      {
+        "img": "live-clinic",
+        "name": "Arztpraxen",
+        "text": "Für Patienten im Wartebereich"
+      },
+      {
+        "img": "live-car",
+        "name": "Autohäuser",
+        "text": "Während Kunden warten"
+      },
+      {
+        "img": "live-mall",
+        "name": "Einkaufszentren",
+        "text": "Coffee to go im Kundenstrom"
+      },
+      {
+        "img": "live-kiosk",
+        "name": "Kioske",
+        "text": "Umsatz auf derselben Fläche"
+      },
+      {
+        "img": "live-bakery",
+        "name": "Bäckereien",
+        "text": "Kaffee zum Gebäck, ohne Barista"
+      }
     ]
   },
   "contact": {
@@ -200,7 +252,10 @@
     "form": "Formular ausfüllen",
     "formNote": "Kauf · Aufstellung · Sonstiges"
   },
-  "slider": { "prev": "Vorheriges Bild", "next": "Nächstes Bild" },
+  "slider": {
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild"
+  },
   "footer": {
     "contacts": "Kontakt",
     "city": "Köln, Deutschland",
@@ -211,5 +266,6 @@
     "hostModel": "Station aufstellen",
     "toTop": "Nach oben",
     "legal": "Impressum · Datenschutz"
-  }
+  },
+  "name": "Deutsch"
 }

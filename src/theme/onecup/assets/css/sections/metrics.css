@@ -12,7 +12,7 @@
   gap: var(--oc-space-12);
   margin: 0 0 var(--oc-space-12);
   font: var(--oc-display-128);
-  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.05em;
 }
 
 .oc-metric__unit {

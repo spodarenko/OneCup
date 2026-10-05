@@ -44,7 +44,12 @@ a {
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    transform 0.3s var(--oc-ease);
+}
+
+.oc-btn:hover {
+  transform: translateY(-2px);
 }
 
 .oc-btn--sm {
@@ -57,7 +62,8 @@ a {
 }
 
 .oc-btn--accent:hover {
-  background: var(--oc-accent);
+  background: var(--oc-text-on-dark);
+  color: var(--oc-bg-dark);
 }
 
 .oc-btn--green {
@@ -86,7 +92,8 @@ a {
 }
 
 .oc-btn--light:hover {
-  background: var(--oc-text-cream);
+  background: var(--oc-accent-strong);
+  color: var(--oc-text-on-dark);
 }
 
 .oc-btn {

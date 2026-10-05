@@ -13,7 +13,7 @@ function header(c, all) {
   const others = all
     .map(
       (l) =>
-        `<li><a href="{{base}}${l.path}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.label}</a></li>`,
+        `<li><a href="{{base}}${l.path}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.name}</a></li>`,
     )
     .join("");
   return `<header class="oc-header">
@@ -32,7 +32,7 @@ function header(c, all) {
       <a class="oc-btn oc-btn--sm oc-btn--outline" href="#contact">${c.nav.request}</a>
     </div>
     <details class="oc-lang">
-      <summary aria-label="${attr(c.nav.language)}">${c.label}${icon("caret-down")}</summary>
+      <summary aria-label="${attr(c.nav.language)}">${c.name}${icon("caret-down")}</summary>
       <ul>${others}</ul>
     </details>
   </div>
@@ -68,7 +68,7 @@ function about(c) {
   return `<section class="oc-about oc-light" aria-labelledby="about-title">
   <div class="oc-about__inner">
     ${eyebrow(a.eyebrow)}
-    <p class="oc-about__quote" id="about-title" data-reveal><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
+    <p class="oc-about__quote" id="about-title" data-fill><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
   </div>
 </section>`;
 }
@@ -119,7 +119,7 @@ function steps(c) {
   const items = s.items
     .map(
       (it) => `<li class="oc-step" data-reveal>
-      <span class="oc-step__n" aria-hidden="true">${it.n}</span>
+      <span class="oc-step__n" aria-hidden="true"><span>${it.n}</span></span>
       <div class="oc-step__text">
         <h3 class="oc-step__label">${it.label}</h3>
         <p class="oc-step__note">${it.note}</p>
@@ -188,7 +188,7 @@ function faq(c) {
   const f = c.faq;
   const items = f.items
     .map(
-      (it) => `<details class="oc-faq__item">
+      (it) => `<details class="oc-faq__item" name="faq">
       <summary><h3>${it.q}</h3>${icon("plus")}</summary>
       <div class="oc-faq__answer"><p>${it.a}</p></div>
     </details>`,
