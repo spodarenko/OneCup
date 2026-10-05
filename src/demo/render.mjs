@@ -68,7 +68,7 @@ function about(c) {
   return `<section class="oc-about oc-light" aria-labelledby="about-title">
   <div class="oc-about__inner">
     ${eyebrow(a.eyebrow)}
-    <p class="oc-about__quote" id="about-title" data-split><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
+    <p class="oc-about__quote" id="about-title" data-reveal><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
   </div>
 </section>`;
 }
@@ -331,12 +331,13 @@ export function render(c, all, site, css) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="{{base}}assets/img/orbit-poster.webp" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}
     <script type="application/ld+json">${JSON.stringify(jsonLd(c, site))}</script>
   </head>
   <body>
-    <a class="oc-skip" href="#main">Skip to content</a>
+    <a class="oc-skip" href="#main">${{ de: "Zum Inhalt springen", en: "Skip to content", uk: "Перейти до змісту" }[c.lang]}</a>
     ${header(c, all)}
     <main id="main">
       ${hero(c)}

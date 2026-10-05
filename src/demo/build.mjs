@@ -28,15 +28,24 @@ const css = [
 ];
 
 rmSync(out, { recursive: true, force: true });
+const bundle = css
+  .map((p) =>
+    readFileSync(
+      new URL(p.startsWith("config/") ? `src/${p}` : `src/theme/onecup/${p}`, root),
+      "utf8",
+    ),
+  )
+  .join("\n");
 mkdirSync(out, { recursive: true });
 cpSync(new URL("src/theme/onecup/assets/", root), new URL("assets/", out), { recursive: true });
 cpSync(new URL("src/config/", root), new URL("config/", out), { recursive: true });
 cpSync(new URL("src/demo/favicon.svg", root), new URL("favicon.svg", out));
+writeFileSync(new URL("assets/css/demo.css", out), bundle);
 
 for (const c of langs) {
   const dir = new URL(c.path, out);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(new URL("index.html", dir), render(c, langs, site, css));
+  writeFileSync(new URL("index.html", dir), render(c, langs, site, ["assets/css/demo.css"]));
 }
 
 writeFileSync(
