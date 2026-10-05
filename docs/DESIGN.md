@@ -28,6 +28,10 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 | 11  | Marquee                       | 191:661    |
 | —   | Footer                        | 174:10541  |
 
+## Interactions
+
+- **Materials** — accordion with 3 items (Beans / Cups / Technology). One item open at a time; the open item shows its description. States in Figma section `191:731`
+
 ## Motion
 
 Main reference for animation: https://www.coffee-tech.com — not analysed yet. Motion spec goes here before implementation.
