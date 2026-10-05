@@ -11,7 +11,11 @@
   --oc-text-muted-dark: #a0a0a5;
   --oc-text-primary: #000000;
   --oc-text-muted: #6f6f73;
+  /* Small muted text on light backgrounds (4.5:1 on --oc-line-light) */
+  --oc-text-muted-strong: #5e5e62;
   --oc-accent: #c8603d;
+  /* Accent behind small white text — darker than --oc-accent to reach WCAG AA 4.5:1 */
+  --oc-accent-strong: #b35230;
   --oc-accent-warm: #c78047;
   --oc-green: #4f6b4a;
   --oc-text-cream: #f3ede3;

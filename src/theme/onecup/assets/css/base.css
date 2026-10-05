@@ -53,11 +53,11 @@ a {
 }
 
 .oc-btn--accent {
-  background: var(--oc-accent);
+  background: var(--oc-accent-strong);
 }
 
 .oc-btn--accent:hover {
-  background: var(--oc-accent-warm);
+  background: var(--oc-accent);
 }
 
 .oc-btn--green {

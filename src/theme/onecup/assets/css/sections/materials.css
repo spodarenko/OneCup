@@ -36,14 +36,14 @@
   font: var(--oc-display-88);
   color: inherit;
   text-align: left;
-  opacity: 0.25;
+  opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.5s var(--oc-ease);
 }
 
 .oc-mat__text {
   grid-column: 3;
-  opacity: 0.4;
+  opacity: 0.55;
   transition: opacity 0.5s var(--oc-ease);
 }
 
@@ -55,7 +55,7 @@
 .oc-mat__desc {
   margin: 0;
   font: var(--oc-body-14);
-  opacity: 0.6;
+  color: var(--oc-text-muted-dark);
   overflow: hidden;
   max-height: 0;
   transition:
