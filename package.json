@@ -8,7 +8,7 @@
     "format": "prettier --write .",
     "check": "prettier --check .",
     "build": "rm -rf dist && mkdir -p dist/onecup && cp -R src/theme/onecup/. dist/onecup && cp -R src/config dist/onecup/config && cd dist && zip -qr onecup.zip onecup",
-    "build:demo": "rm -rf dist/demo && mkdir -p dist/demo && cp -R src/demo/. dist/demo && cp -R src/theme/onecup/assets dist/demo/assets && cp -R src/config dist/demo/config",
+    "build:demo": "node src/demo/build.mjs",
     "preview": "npm run build:demo && npx --yes serve dist/demo"
   },
   "devDependencies": {

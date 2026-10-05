@@ -1,0 +1,128 @@
+/* Two models — Figma 191:699. Station in the middle, glass card left, solid card right. */
+.oc-models {
+  position: relative;
+  padding: var(--oc-space-96) var(--oc-gutter) 0;
+  border-radius: var(--oc-radius-16);
+  overflow: hidden;
+}
+
+.oc-models__head {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--oc-space-16);
+  max-width: 760px;
+}
+
+.oc-models__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 358px 1fr 358px;
+  align-items: center;
+  gap: var(--oc-space-24);
+  margin-top: -160px;
+}
+
+.oc-models__station {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+  width: 640px;
+  max-width: 100%;
+}
+
+.oc-models__station img {
+  width: 100%;
+  mix-blend-mode: lighten;
+}
+
+.oc-model {
+  position: relative;
+  z-index: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-space-20);
+  padding: var(--oc-space-32);
+  border-radius: var(--oc-radius-16);
+  transition:
+    transform var(--oc-dur) var(--oc-ease),
+    border-color var(--oc-dur) var(--oc-ease);
+}
+
+.oc-model:hover {
+  transform: translateY(-6px);
+}
+
+.oc-model--host {
+  grid-column: 1;
+  background: var(--oc-glass);
+  border: 1px solid var(--oc-glass-line);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.oc-model--buy {
+  grid-column: 3;
+  background: var(--oc-bg-card-dark);
+  border: 1px solid var(--oc-card-line);
+}
+
+.oc-model__title {
+  margin: 0;
+  font: var(--oc-h4);
+}
+
+.oc-model__text {
+  margin: 0;
+  font: 400 15px/22px var(--oc-font);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-model__points {
+  display: grid;
+  gap: var(--oc-space-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oc-model__points li {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-12);
+}
+
+.oc-model__points li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: var(--oc-radius-full);
+  background: var(--oc-accent);
+}
+
+.oc-model .oc-btn {
+  padding-block: var(--oc-space-12);
+}
+
+@media (max-width: 1200px) {
+  .oc-models {
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-models__stage {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+
+  .oc-models__station,
+  .oc-model--host,
+  .oc-model--buy {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .oc-models__station {
+    width: min(520px, 100%);
+  }
+}

@@ -1,9 +1,13 @@
-/* Hero — Figma 174:10152 */
+/* Hero — Figma 174:10152. The orbit video is scrubbed by scroll (assets/js/main.js). */
 .oc-hero {
-  padding: calc(var(--oc-space-96) + 98px) 0 var(--oc-space-96);
   background: linear-gradient(180deg, var(--oc-hero-top), var(--oc-hero-bottom));
   text-align: center;
   overflow: hidden;
+}
+
+.oc-hero__pin {
+  position: relative;
+  padding: calc(var(--oc-space-96) + 98px) 0 var(--oc-space-96);
 }
 
 .oc-hero__title {
@@ -11,19 +15,25 @@
   z-index: 1;
   margin: 0 auto;
   max-width: 1184px;
+  padding-inline: var(--oc-space-24);
   font: var(--oc-display-88);
   color: var(--oc-text-cream);
 }
 
 .oc-hero__media {
   position: relative;
-  margin: -20px auto 0;
-  width: min(820px, 100%);
+  margin: -40px auto 0;
+  width: min(1300px, 100%);
+  aspect-ratio: 16 / 9;
 }
 
-.oc-hero__media img {
-  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent);
-  mask-image: linear-gradient(180deg, #000 70%, transparent);
+.oc-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
 }
 
 .oc-hero__body {
@@ -31,8 +41,9 @@
   flex-direction: column;
   align-items: center;
   gap: var(--oc-space-32);
-  margin: var(--oc-space-32) auto 0;
+  margin: 0 auto;
   max-width: 404px;
+  padding-inline: var(--oc-space-24);
 }
 
 .oc-hero__subtitle {
@@ -50,13 +61,12 @@
 
 @media (max-width: 900px) {
   .oc-hero__title {
-    font-size: 48px;
-    line-height: 52px;
-    padding-inline: var(--oc-space-24);
+    font-size: 44px;
+    line-height: 48px;
   }
 
-  .oc-hero__body {
-    padding-inline: var(--oc-space-24);
+  .oc-hero__media {
+    margin-top: 0;
   }
 
   .oc-hero__subtitle {

@@ -1,0 +1,50 @@
+/* About — Figma 174:10169 */
+.oc-about__inner {
+  display: grid;
+  grid-template-columns: 1fr 882px;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-gutter);
+}
+
+.oc-about__quote {
+  margin: 0;
+  font: 600 40px/46px var(--oc-font);
+  color: var(--oc-text-primary);
+}
+
+.oc-about__quote strong,
+.oc-about__mark {
+  color: var(--oc-accent);
+  font-weight: 600;
+}
+
+.oc-about__pill {
+  display: inline-block;
+  width: 72px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: var(--oc-radius-full);
+  vertical-align: middle;
+  transition: transform var(--oc-dur) var(--oc-ease);
+}
+
+.oc-about__pill:hover {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+@media (max-width: 1100px) {
+  .oc-about__inner {
+    grid-template-columns: 1fr;
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-about__quote {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .oc-about__pill {
+    width: 56px;
+    height: 36px;
+  }
+}

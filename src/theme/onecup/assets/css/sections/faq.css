@@ -1,0 +1,70 @@
+/* FAQ — Figma 174:10450 */
+.oc-faq {
+  display: grid;
+  grid-template-columns: 1fr 882px;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-gutter);
+}
+
+.oc-faq__head {
+  display: grid;
+  align-content: start;
+  gap: var(--oc-space-16);
+}
+
+.oc-faq__item {
+  border-bottom: 1px solid rgb(13 14 19 / 0.12);
+}
+
+.oc-faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oc-space-24);
+  padding: var(--oc-space-24) 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.oc-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.oc-faq__item h3 {
+  margin: 0;
+  font: var(--oc-h5);
+  transition: color 0.3s var(--oc-ease);
+}
+
+.oc-faq__item summary:hover h3 {
+  color: var(--oc-accent);
+}
+
+.oc-faq__item .oc-icon {
+  font-size: 20px;
+  transition: transform 0.4s var(--oc-ease);
+}
+
+.oc-faq__item[open] .oc-icon {
+  transform: rotate(45deg);
+}
+
+.oc-faq__answer p {
+  margin: 0;
+  padding-bottom: var(--oc-space-24);
+  max-width: 680px;
+  font: var(--oc-body-18);
+  color: var(--oc-text-muted);
+}
+
+@media (max-width: 1100px) {
+  .oc-faq {
+    grid-template-columns: 1fr;
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-faq__item h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

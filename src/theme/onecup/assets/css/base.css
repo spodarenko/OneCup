@@ -79,3 +79,131 @@ a {
   fill: currentColor;
   flex: none;
 }
+
+.oc-btn--light {
+  background: var(--oc-text-on-dark);
+  color: var(--oc-bg-dark);
+}
+
+.oc-btn--light:hover {
+  background: var(--oc-text-cream);
+}
+
+.oc-btn {
+  overflow: hidden;
+}
+
+.oc-btn:active {
+  transform: scale(0.97);
+}
+
+/* Section shells */
+.oc-light {
+  background: var(--oc-line-light);
+  color: var(--oc-bg-dark);
+}
+
+.oc-dark {
+  background: var(--oc-bg-dark);
+  color: var(--oc-text-on-dark);
+}
+
+.oc-eyebrow {
+  margin: 0;
+  font: 600 14px/20px var(--oc-font);
+}
+
+.oc-eyebrow--muted {
+  opacity: 0.6;
+}
+
+.oc-h2 {
+  margin: 0;
+  font: var(--oc-h2);
+}
+
+.oc-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.oc-skip {
+  position: absolute;
+  left: var(--oc-space-16);
+  top: -100px;
+  z-index: 100;
+  padding: var(--oc-space-8) var(--oc-space-16);
+  background: var(--oc-accent);
+  color: var(--oc-bg-soft);
+  border-radius: var(--oc-radius-8);
+}
+
+.oc-skip:focus {
+  top: var(--oc-space-16);
+}
+
+:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 3px;
+}
+
+/* Link hover: underline grows from the left */
+.oc-link {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size var(--oc-dur) var(--oc-ease);
+}
+
+.oc-link:hover {
+  background-size: 100% 1px;
+}
+
+/* Round icon button (slider controls, back to top) */
+.oc-round {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: var(--oc-radius-full);
+  background: none;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s var(--oc-ease),
+    color 0.3s var(--oc-ease);
+}
+
+.oc-round:hover {
+  background: var(--oc-bg-dark);
+  color: var(--oc-text-cream);
+}
+
+.oc-round--light:hover {
+  background: var(--oc-text-cream);
+  color: var(--oc-bg-dark);
+}
+
+.oc-round:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Split text lines (GSAP SplitText) */
+.oc-line-mask {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

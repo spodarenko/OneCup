@@ -1,0 +1,75 @@
+/* Coffee in 3 steps — Figma 174:10319 */
+.oc-steps {
+  position: relative;
+  padding: var(--oc-space-64) var(--oc-gutter);
+}
+
+.oc-steps > .oc-eyebrow {
+  position: absolute;
+  top: var(--oc-space-64);
+  left: var(--oc-gutter);
+}
+
+.oc-steps__list {
+  margin: 0 0 0 auto;
+  padding: 0;
+  max-width: 882px;
+  list-style: none;
+}
+
+.oc-step {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--oc-space-128);
+  padding: var(--oc-space-64) 0;
+}
+
+.oc-step:first-child {
+  padding-top: 0;
+}
+
+.oc-step__n {
+  font: var(--oc-display-128);
+}
+
+.oc-step__label {
+  margin: 0;
+  font: 600 14px/20px var(--oc-font);
+}
+
+.oc-step__note {
+  margin: 0 0 var(--oc-space-4);
+  font: var(--oc-body-14);
+}
+
+.oc-step__body {
+  margin: 0;
+  font: var(--oc-h5);
+}
+
+@media (max-width: 1100px) {
+  .oc-steps {
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-steps > .oc-eyebrow {
+    position: static;
+    margin-bottom: var(--oc-space-32);
+  }
+
+  .oc-step {
+    grid-template-columns: 1fr;
+    gap: var(--oc-space-16);
+    padding: var(--oc-space-32) 0;
+  }
+
+  .oc-step__n {
+    font-size: 72px;
+    line-height: 72px;
+  }
+
+  .oc-step__body {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

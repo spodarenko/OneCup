@@ -30,4 +30,24 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 
 ## Motion
 
-Main reference for animation: https://www.coffee-tech.com — not analysed yet. Motion spec goes here before implementation.
+Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText, smooth scroll). Implemented in `src/theme/onecup/assets/js/main.js`:
+
+| Where                   | Effect                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------ |
+| Page                    | Lenis smooth scroll; anchor links scroll smoothly                              |
+| Hero                    | Section pins for 120% of the viewport; the `orbit` video is scrubbed by scroll |
+| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)                   |
+| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                              |
+| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                |
+| Metrics                 | Numbers count up                                                               |
+| Materials               | Row hover/click opens it; image follows the row and cross-fades                |
+| Two models              | Station drifts with scroll; cards lift on hover                                |
+| Marquee                 | Loops; speed and direction follow scroll velocity                              |
+| Links / buttons         | Underline grows from the left; buttons change fill                             |
+
+`prefers-reduced-motion` turns all motion off. Without JS the page is fully readable.
+
+## Media
+
+- Images: WebP, resized to 2× their display size (`cwebp`, q 75–82)
+- Hero video: `orbit-6s-scroll.mp4` → `orbit.webm` (VP9) + `orbit.mp4` (H.264), keyframe every 4 frames so scroll scrubbing is smooth; poster `orbit-poster.webp`

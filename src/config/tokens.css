@@ -17,6 +17,14 @@
   --oc-text-cream: #f3ede3;
   --oc-hero-top: #1b191f;
   --oc-hero-bottom: #111116;
+  --oc-line-dark: rgb(255 255 255 / 0.15);
+  --oc-card-line: rgb(255 255 255 / 0.08);
+  --oc-glass: rgb(26 27 33 / 0.2);
+  --oc-glass-line: rgb(255 255 255 / 0.18);
+
+  /* Motion — eases mirror the coffee-tech.com reference (power2.out) */
+  --oc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --oc-dur: 0.6s;
 
   /* Layout */
   --oc-container: 1184px;

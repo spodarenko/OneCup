@@ -1,0 +1,75 @@
+/* Footer — Figma 174:10541 */
+.oc-footer {
+  padding: var(--oc-space-64) var(--oc-gutter);
+}
+
+.oc-footer__top {
+  display: grid;
+  grid-template-columns: 1fr 180px 180px 1fr auto;
+  gap: var(--oc-space-24);
+  padding-bottom: var(--oc-space-96);
+}
+
+.oc-footer__logo {
+  width: 120px;
+}
+
+.oc-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-space-16);
+  font: var(--oc-body-14);
+  color: var(--oc-text-muted);
+}
+
+.oc-footer__col h2 {
+  margin: 0 0 var(--oc-space-16);
+  font: 600 14px/20px var(--oc-font);
+  color: var(--oc-text-cream);
+}
+
+.oc-footer__col address {
+  font-style: normal;
+  line-height: 20px;
+}
+
+.oc-footer__phone {
+  color: var(--oc-accent);
+}
+
+.oc-footer__top-btn {
+  width: 38px;
+  height: 64px;
+  color: var(--oc-text-cream);
+}
+
+.oc-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--oc-space-24);
+  font: var(--oc-body-14);
+  color: var(--oc-text-cream);
+}
+
+.oc-footer__bottom p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .oc-footer {
+    padding: var(--oc-space-48) var(--oc-space-24);
+  }
+
+  .oc-footer__top {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: var(--oc-space-48);
+  }
+
+  .oc-footer__logo {
+    width: 72px;
+  }
+
+  .oc-footer__bottom {
+    flex-direction: column;
+  }
+}
