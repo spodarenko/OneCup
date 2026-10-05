@@ -129,14 +129,26 @@
         "name": "Offices",
         "text": "Coffee for the team without a kitchen machine"
       },
-      { "img": "where-fitness", "name": "Gyms", "text": "After training — no bar, no staff" },
-      { "img": "where-clinic", "name": "Clinics", "text": "For patients in the waiting room" },
+      {
+        "img": "where-fitness",
+        "name": "Gyms",
+        "text": "After training — no bar, no staff"
+      },
+      {
+        "img": "where-clinic",
+        "name": "Clinics",
+        "text": "For patients in the waiting room"
+      },
       {
         "img": "where-hotel",
         "name": "Hotels",
         "text": "Around the clock in the lobby, no room service"
       },
-      { "img": "where-car", "name": "Car dealerships", "text": "While customers wait for advice" },
+      {
+        "img": "where-car",
+        "name": "Car dealerships",
+        "text": "While customers wait for advice"
+      },
       {
         "img": "where-mall",
         "name": "Shopping centres",
@@ -147,7 +159,11 @@
         "name": "Kiosks",
         "text": "Extra revenue from the same square metre"
       },
-      { "img": "where-bakery", "name": "Bakeries", "text": "Coffee with pastries — no barista" }
+      {
+        "img": "where-bakery",
+        "name": "Bakeries",
+        "text": "Coffee with pastries — no barista"
+      }
     ]
   },
   "faq": {
@@ -189,17 +205,41 @@
         "name": "Offices",
         "text": "Coffee for the team without a kitchen machine"
       },
-      { "img": "live-fitness", "name": "Gyms", "text": "After training, no bar" },
-      { "img": "live-hotel", "name": "Hotels", "text": "Around the clock in the lobby" },
-      { "img": "live-clinic", "name": "Clinics", "text": "For patients in the waiting room" },
-      { "img": "live-car", "name": "Car dealerships", "text": "While customers wait" },
+      {
+        "img": "live-fitness",
+        "name": "Gyms",
+        "text": "After training, no bar"
+      },
+      {
+        "img": "live-hotel",
+        "name": "Hotels",
+        "text": "Around the clock in the lobby"
+      },
+      {
+        "img": "live-clinic",
+        "name": "Clinics",
+        "text": "For patients in the waiting room"
+      },
+      {
+        "img": "live-car",
+        "name": "Car dealerships",
+        "text": "While customers wait"
+      },
       {
         "img": "live-mall",
         "name": "Shopping centres",
         "text": "Coffee to go in the flow of shoppers"
       },
-      { "img": "live-kiosk", "name": "Kiosks", "text": "Revenue from the same square metre" },
-      { "img": "live-bakery", "name": "Bakeries", "text": "Coffee with pastries, no barista" }
+      {
+        "img": "live-kiosk",
+        "name": "Kiosks",
+        "text": "Revenue from the same square metre"
+      },
+      {
+        "img": "live-bakery",
+        "name": "Bakeries",
+        "text": "Coffee with pastries, no barista"
+      }
     ]
   },
   "contact": {
@@ -212,7 +252,10 @@
     "form": "Fill in the form",
     "formNote": "Buy · Host · Other"
   },
-  "slider": { "prev": "Previous slide", "next": "Next slide" },
+  "slider": {
+    "prev": "Previous slide",
+    "next": "Next slide"
+  },
   "footer": {
     "contacts": "Contact",
     "city": "Köln, Deutschland",
@@ -223,5 +266,6 @@
     "hostModel": "Host a station",
     "toTop": "Back to top",
     "legal": "Impressum · Datenschutz"
-  }
+  },
+  "name": "English"
 }

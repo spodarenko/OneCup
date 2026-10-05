@@ -1,8 +1,12 @@
 /* Header — Figma 174:10643. Overlays the hero. */
 .oc-header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
-  z-index: 10;
+  z-index: 50;
+  transition:
+    transform 0.5s var(--oc-ease),
+    background-color 0.4s var(--oc-ease),
+    padding 0.4s var(--oc-ease);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,4 +105,16 @@
 .oc-lang li a:hover,
 .oc-lang li a[aria-current] {
   background: var(--oc-line-dark);
+}
+
+/* Scroll states (main.js): hide on scroll down, show on scroll up */
+.oc-header.is-scrolled {
+  padding-block: var(--oc-space-16);
+  background: rgb(13 14 19 / 0.8);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.oc-header.is-hidden {
+  transform: translateY(-100%);
 }

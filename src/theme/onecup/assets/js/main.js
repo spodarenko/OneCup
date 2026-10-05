@@ -12,6 +12,29 @@
     if (lang && lang.open && !lang.contains(e.target)) lang.open = false;
   });
 
+  /* Header: hides on scroll down, shows on scroll up */
+  const header = $(".oc-header");
+  if (header) {
+    let last = scrollY;
+    addEventListener(
+      "scroll",
+      () => {
+        const y = scrollY;
+        header.classList.toggle("is-scrolled", y > 40);
+        header.classList.toggle("is-hidden", y > last && y > 200 && !(lang && lang.open));
+        last = y;
+      },
+      { passive: true },
+    );
+  }
+
+  /* FAQ: one item open at a time (fallback for browsers without <details name>) */
+  $$(".oc-faq__item").forEach((d, _, all) =>
+    d.addEventListener("toggle", () => {
+      if (d.open) all.forEach((o) => o !== d && (o.open = false));
+    }),
+  );
+
   /* Materials: one row open, image follows the active row */
   const mat = $(".oc-mat");
   if (mat) {
@@ -129,6 +152,60 @@
     });
     ScrollTrigger.refresh();
   });
+
+  /* About: words fill in as you scroll */
+  const fill = $("[data-fill]");
+  if (fill) {
+    const walk = (node) =>
+      [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 3 && n.textContent.trim()) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach((w) => {
+            if (!w.trim()) return frag.append(w);
+            const s = document.createElement("span");
+            s.className = "oc-word";
+            s.textContent = w;
+            frag.append(s);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1 && n.tagName !== "IMG") walk(n);
+      });
+    walk(fill);
+    gsap.set($$(".oc-about__pill", fill), { opacity: 0.15 });
+    gsap.to($$(".oc-word, .oc-about__pill", fill), {
+      opacity: 1,
+      ease: "none",
+      stagger: 0.1,
+      scrollTrigger: { trigger: fill, start: "top 80%", end: "bottom 45%", scrub: true },
+    });
+  }
+
+  /* Steps: on desktop the three steps stack and swap while the section is pinned */
+  const stepsEl = $(".oc-steps");
+  if (stepsEl && matchMedia("(min-width: 1101px)").matches) {
+    const items = $$(".oc-step", stepsEl);
+    stepsEl.classList.add("is-stacked");
+    items.forEach((s) => s.removeAttribute("data-reveal"));
+    const nums = items.map((s) => $(".oc-step__n span", s));
+    const texts = items.map((s) => $$(".oc-step__label, .oc-step__note, .oc-step__body", s));
+    gsap.set(nums.slice(1), { yPercent: 100 });
+    gsap.set(texts.slice(1).flat(), { y: 40, autoAlpha: 0 });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: stepsEl,
+        start: "top top",
+        end: `+=${(items.length - 1) * 80}%`,
+        pin: true,
+        scrub: 0.6,
+      },
+    });
+    for (let i = 1; i < items.length; i++) {
+      tl.to(nums[i - 1], { yPercent: -100, ease: "power2.inOut" }, i)
+        .to(nums[i], { yPercent: 0, ease: "power2.inOut" }, i)
+        .to(texts[i - 1], { y: -40, autoAlpha: 0, stagger: 0.05, ease: "power2.in" }, i)
+        .to(texts[i], { y: 0, autoAlpha: 1, stagger: 0.08, ease: "power2.out" }, i + 0.15);
+    }
+  }
 
   /* Blocks fade up */
   $$("[data-reveal]").forEach((el) =>
