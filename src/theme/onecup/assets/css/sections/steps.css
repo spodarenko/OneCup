@@ -74,20 +74,11 @@
   }
 }
 
-/* Stacked mode (main.js, desktop): steps sit on top of each other and swap on scroll */
-.oc-steps.is-stacked .oc-steps__list {
-  position: relative;
-  height: 220px;
-}
-
-.oc-steps.is-stacked .oc-step {
-  position: absolute;
-  inset: 0;
-  padding: 0;
-}
-
-.oc-steps.is-stacked .oc-step__n {
+.oc-step__n {
   display: block;
   overflow: hidden;
-  height: 144px;
+}
+
+.oc-step__n span {
+  display: block;
 }
