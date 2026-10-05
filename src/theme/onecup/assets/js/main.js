@@ -147,19 +147,27 @@
     );
   }
 
-  /* Headings: lines slide up from a mask */
+  /* Headings: coffee-tech.com text reveal — lines rise and unclip (power4.out, 1.6 s, stagger 0.1) */
   document.fonts.ready.then(() => {
     $$("[data-split]").forEach((el) => {
-      const split = SplitText.create(el, { type: "lines", mask: "lines", linesClass: "oc-line" });
+      const split = SplitText.create(el, { type: "lines", linesClass: "oc-line" });
       const inHero = el.closest(".oc-hero");
-      gsap.from(split.lines, {
-        yPercent: 110,
-        duration: inHero ? 1 : 0.9,
-        ease: "power3.out",
-        stagger: 0.08,
-        delay: inHero ? 0.15 : 0,
-        scrollTrigger: inHero ? undefined : { trigger: el, start: "top 85%", once: true },
+      gsap.set(split.lines, { clipPath: "inset(0% 0% 100% 0%)", yPercent: 100, opacity: 0 });
+      const tl = gsap.timeline({
+        delay: inHero ? 0.2 : 0,
+        scrollTrigger: inHero ? undefined : { trigger: el, start: "top 90%", once: true },
       });
+      tl.to(split.lines, { opacity: 1, duration: 0.01, stagger: 0.1 }, 0).to(
+        split.lines,
+        {
+          clipPath: "inset(0% -5% -30% 0%)",
+          yPercent: 0,
+          duration: 1.6,
+          ease: "power4.out",
+          stagger: 0.1,
+        },
+        0,
+      );
     });
     ScrollTrigger.refresh();
   });
