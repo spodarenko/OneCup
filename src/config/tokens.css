@@ -14,6 +14,13 @@
   --oc-accent: #c8603d;
   --oc-accent-warm: #c78047;
   --oc-green: #4f6b4a;
+  --oc-text-cream: #f3ede3;
+  --oc-hero-top: #1b191f;
+  --oc-hero-bottom: #111116;
+
+  /* Layout */
+  --oc-container: 1184px;
+  --oc-gutter: 128px;
 
   /* Spacing */
   --oc-space-2: 2px;
