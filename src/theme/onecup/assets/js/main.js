@@ -134,6 +134,17 @@
         requestAnimationFrame(seek);
       },
     });
+    // The machine lifts up while it turns
+    gsap.fromTo(
+      ".oc-hero__media",
+      { yPercent: 0, scale: 1 },
+      {
+        yPercent: -22,
+        scale: 1.06,
+        ease: "none",
+        scrollTrigger: { trigger: ".oc-hero", start: "top top", end: "+=120%", scrub: true },
+      },
+    );
   }
 
   /* Headings: lines slide up from a mask */

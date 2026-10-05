@@ -27,6 +27,15 @@
   aspect-ratio: 16 / 9;
 }
 
+.oc-hero__media::after {
+  /* Figma orbit-6s overlay: transparent at 47% → #111116 at 81% */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 47%, var(--oc-hero-bottom) 81%);
+  pointer-events: none;
+}
+
 .oc-hero__video {
   display: block;
   width: 100%;
