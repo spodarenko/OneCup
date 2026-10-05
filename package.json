@@ -2,12 +2,14 @@
   "name": "onecup-site",
   "private": true,
   "version": "0.1.0",
-  "description": "OneCup corporate site — WordPress child theme for Hello Elementor",
+  "description": "OneCup corporate site \u2014 WordPress child theme for Hello Elementor",
   "scripts": {
-    "dev": "wp-playground-cli server --blueprint=blueprint.json --mount-before-install=./src/theme/onecup:/wordpress/wp-content/themes/onecup --mount-before-install=./src/config:/wordpress/wp-content/themes/onecup/config",
+    "dev": "npx @wp-playground/cli server --blueprint=blueprint.json --mount-before-install=./src/theme/onecup:/wordpress/wp-content/themes/onecup --mount-before-install=./src/config:/wordpress/wp-content/themes/onecup/config",
     "format": "prettier --write .",
     "check": "prettier --check .",
-    "build": "rm -rf dist && mkdir -p dist/onecup && cp -R src/theme/onecup/. dist/onecup && cp -R src/config dist/onecup/config && cd dist && zip -qr onecup.zip onecup"
+    "build": "rm -rf dist && mkdir -p dist/onecup && cp -R src/theme/onecup/. dist/onecup && cp -R src/config dist/onecup/config && cd dist && zip -qr onecup.zip onecup",
+    "build:demo": "rm -rf dist/demo && mkdir -p dist/demo && cp -R src/demo/. dist/demo && cp -R src/theme/onecup/assets dist/demo/assets && cp -R src/config dist/demo/config",
+    "preview": "npm run build:demo && npx --yes serve dist/demo"
   },
   "devDependencies": {
     "@wp-playground/cli": "^1.0.0",
