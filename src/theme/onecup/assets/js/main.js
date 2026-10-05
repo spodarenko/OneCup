@@ -134,17 +134,21 @@
         requestAnimationFrame(seek);
       },
     });
-    // The machine lifts up while it turns
-    gsap.fromTo(
-      ".oc-hero__media",
-      { yPercent: 0, scale: 1 },
-      {
-        yPercent: -22,
-        scale: 1.06,
-        ease: "none",
-        scrollTrigger: { trigger: ".oc-hero", start: "top top", end: "+=120%", scrub: true },
-      },
-    );
+    // The machine lifts up while it turns, the title rises with it
+    const media = $(".oc-hero__media");
+    const lift = () => -0.22 * media.offsetHeight;
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".oc-hero",
+          start: "top top",
+          end: "+=120%",
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      })
+      .fromTo(media, { y: 0, scale: 1 }, { y: lift, scale: 1.06, ease: "none" }, 0)
+      .fromTo(".oc-hero__title", { y: 0 }, { y: lift, ease: "none" }, 0);
   }
 
   /* Headings: coffee-tech.com text reveal — lines rise and unclip (power4.out, 1.6 s, stagger 0.1) */
