@@ -1,0 +1,227 @@
+{
+  "lang": "en",
+  "label": "EN",
+  "path": "en/",
+  "ogLocale": "en_GB",
+  "meta": {
+    "title": "OneCup — self-service coffee stations from Cologne",
+    "description": "Buy a turnkey self-service coffee station as your own business or have one placed at your venue — we handle the service. Freshly ground beans, delivery across Germany."
+  },
+  "nav": {
+    "buy": "Buy",
+    "host": "Host",
+    "materials": "Materials",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp",
+    "request": "Enquire",
+    "language": "Language",
+    "menu": "Main menu"
+  },
+  "hero": {
+    "title": "Self-service coffee stations",
+    "subtitle": "OneCup – Wake Up. Fresh coffee at the touch of a button: buy the station as a business or host one at your venue — no effort for your team.",
+    "ctaBuy": "Buy a station",
+    "ctaHost": "Host a station",
+    "videoLabel": "OneCup cup inside a glowing orbit with coffee beans"
+  },
+  "about": {
+    "eyebrow": "[ About OneCup ]",
+    "brand": "OneCup",
+    "text": "— self-service coffee stations from Cologne. Freshly ground beans, modern technology and minimalist design. Buy a turnkey station as your own business or host one at your venue — we take care of the service. Delivered across Germany",
+    "inlineAfter": "coffee stations",
+    "imgMachine": "OneCup coffee machine",
+    "imgStation": "OneCup station in a lobby"
+  },
+  "metrics": [
+    {
+      "value": "80",
+      "unit": "%",
+      "title": "Drink coffee daily",
+      "text": "Often several times a day — across all audiences"
+    },
+    {
+      "value": "100",
+      "unit": "%",
+      "title": "Service concept",
+      "text": "Coffee raises satisfaction and time spent on site"
+    },
+    {
+      "value": "165",
+      "unit": "L",
+      "title": "Per person per year",
+      "text": "Germany is Europe’s No. 1 coffee country"
+    }
+  ],
+  "materials": {
+    "eyebrow": "[ Materials ]",
+    "title": "What goes into every OneCup",
+    "items": [
+      {
+        "name": "Beans",
+        "lead": "Freshly ground whole-bean coffee",
+        "text": "Beans are ground right before every cup. No capsules, no instant coffee — café taste.",
+        "img": "material-beans",
+        "alt": "Coffee beans falling through a grinder into a OneCup cup"
+      },
+      {
+        "name": "Cups",
+        "lead": "One cup — and your coffee is to go",
+        "text": "Cups are matched to every drink and easy to take with you.",
+        "img": "material-cups",
+        "alt": "Three OneCup cups in different sizes"
+      },
+      {
+        "name": "Technology",
+        "lead": "A station that looks after itself",
+        "text": "Automatic cleaning, online monitoring and cashless payment. Meets CE and EN 60335 standards.",
+        "img": "material-tech",
+        "alt": "Inner module of the OneCup coffee station"
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "[ How it works ]",
+    "title": "Coffee in 3 steps",
+    "items": [
+      {
+        "n": "01",
+        "label": "Step 1 | Choose",
+        "note": "Cappuccino, latte, americano, mocha — 10+ drinks",
+        "text": "Pick your drink on the station’s touch display. The menu is clear at first glance — no instructions, no barista, no queue."
+      },
+      {
+        "n": "02",
+        "label": "Step 2 | Pay",
+        "note": "Card, smartphone, coins (MDB)",
+        "text": "Pay the way you’re used to: by card, smartphone or coins. The payment terminal is built into the station, so it takes seconds."
+      },
+      {
+        "n": "03",
+        "label": "Step 3 | Coffee",
+        "note": "Freshly ground, a cup in about 1 minute",
+        "text": "Take your fresh coffee in a to-go cup with a lid. Beans are ground for every serving — every cup tastes like a café, just without the wait."
+      }
+    ]
+  },
+  "models": {
+    "eyebrow": "[ Two models ]",
+    "title": "One station.<br>Two ways<br>to use it",
+    "stationAlt": "OneCup coffee station with a living wall, coffee machine and wooden cabinet",
+    "host": {
+      "title": "Host one",
+      "text": "We install and service the station.",
+      "points": ["No investment in equipment", "Service and beans are on us"],
+      "cta": "Request hosting"
+    },
+    "buy": {
+      "title": "Buy a station",
+      "text": "Turnkey station with support at launch.",
+      "points": ["The station is yours", "All sales revenue is yours"],
+      "cta": "Request to buy"
+    }
+  },
+  "where": {
+    "eyebrow": "[ Where OneCup fits ]",
+    "title": "Wherever people<br>need coffee",
+    "items": [
+      {
+        "img": "where-office",
+        "name": "Offices",
+        "text": "Coffee for the team without a kitchen machine"
+      },
+      { "img": "where-fitness", "name": "Gyms", "text": "After training — no bar, no staff" },
+      { "img": "where-clinic", "name": "Clinics", "text": "For patients in the waiting room" },
+      {
+        "img": "where-hotel",
+        "name": "Hotels",
+        "text": "Around the clock in the lobby, no room service"
+      },
+      { "img": "where-car", "name": "Car dealerships", "text": "While customers wait for advice" },
+      {
+        "img": "where-mall",
+        "name": "Shopping centres",
+        "text": "Coffee to go in the flow of shoppers"
+      },
+      {
+        "img": "where-kiosk",
+        "name": "Kiosks",
+        "text": "Extra revenue from the same square metre"
+      },
+      { "img": "where-bakery", "name": "Bakeries", "text": "Coffee with pastries — no barista" }
+    ]
+  },
+  "faq": {
+    "eyebrow": "[ FAQ ]",
+    "title": "Frequently<br>asked",
+    "items": [
+      {
+        "q": "How much space does the station need?",
+        "a": "The station needs a compact spot against a wall. We match the exact dimensions to your venue in a free consultation."
+      },
+      {
+        "q": "Who cleans and refills it?",
+        "a": "If the station is hosted at your venue, we handle service, beans and refills. If you buy the station, we train your team and support you at launch. Daily cleaning is done automatically by the station."
+      },
+      {
+        "q": "Does it need power and water?",
+        "a": "A standard 230 V socket is required. Whether a water connection is needed depends on the model — we’ll advise which option suits your venue."
+      },
+      {
+        "q": "How long is the contract?",
+        "a": "Contract terms depend on the partnership model and the venue. You get an individual offer within 24 hours."
+      },
+      {
+        "q": "How does billing work?",
+        "a": "Guests pay by card, smartphone or coins — the terminal is built into the station. The billing model between us and the venue is agreed individually."
+      },
+      {
+        "q": "How quickly is the station installed?",
+        "a": "It depends on the venue and the model. We deliver across Germany and agree the installation date right after the offer is accepted."
+      }
+    ]
+  },
+  "live": {
+    "eyebrow": "[ Already running ]",
+    "title": "OneCup stations<br>run in Cologne",
+    "items": [
+      {
+        "img": "live-office",
+        "name": "Offices",
+        "text": "Coffee for the team without a kitchen machine"
+      },
+      { "img": "live-fitness", "name": "Gyms", "text": "After training, no bar" },
+      { "img": "live-hotel", "name": "Hotels", "text": "Around the clock in the lobby" },
+      { "img": "live-clinic", "name": "Clinics", "text": "For patients in the waiting room" },
+      { "img": "live-car", "name": "Car dealerships", "text": "While customers wait" },
+      {
+        "img": "live-mall",
+        "name": "Shopping centres",
+        "text": "Coffee to go in the flow of shoppers"
+      },
+      { "img": "live-kiosk", "name": "Kiosks", "text": "Revenue from the same square metre" },
+      { "img": "live-bakery", "name": "Bakeries", "text": "Coffee with pastries, no barista" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "[ Contact ]",
+    "title": "How would you like to talk?",
+    "note": "We reply within 24 hours",
+    "whatsapp": "WhatsApp",
+    "call": "Call us",
+    "email": "E-mail",
+    "form": "Fill in the form",
+    "formNote": "Buy · Host · Other"
+  },
+  "slider": { "prev": "Previous slide", "next": "Next slide" },
+  "footer": {
+    "contacts": "Contact",
+    "city": "Köln, Deutschland",
+    "pages": "Pages",
+    "home": "Home",
+    "models": "Models",
+    "buyModel": "Buy a station",
+    "hostModel": "Host a station",
+    "toTop": "Back to top",
+    "legal": "Impressum · Datenschutz"
+  }
+}

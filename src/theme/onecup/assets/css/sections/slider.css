@@ -1,0 +1,103 @@
+/* Card sliders — «Where it's installed» 174:10409 and «Already running» 174:10474 */
+.oc-slider {
+  padding: var(--oc-space-96) 0 var(--oc-space-96) var(--oc-gutter);
+  overflow: hidden;
+}
+
+.oc-slider__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oc-space-24);
+  margin-bottom: var(--oc-space-48);
+  padding-right: var(--oc-gutter);
+}
+
+.oc-slider__head .oc-eyebrow {
+  margin-bottom: var(--oc-space-16);
+}
+
+.oc-slider__controls {
+  display: flex;
+  gap: var(--oc-space-4);
+}
+
+.oc-slider__track {
+  display: flex;
+  gap: var(--oc-space-24);
+  margin: 0;
+  padding: 0 var(--oc-gutter) 0 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  scrollbar-width: none;
+}
+
+.oc-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.oc-card {
+  position: relative;
+  flex: 0 0 350px;
+  aspect-ratio: 350 / 480;
+  border-radius: var(--oc-radius-16);
+  overflow: hidden;
+  scroll-snap-align: start;
+  color: var(--oc-text-on-dark);
+}
+
+.oc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--oc-ease);
+}
+
+.oc-card:hover img {
+  transform: scale(1.06);
+}
+
+.oc-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgb(13 14 19 / 0.75));
+  pointer-events: none;
+}
+
+.oc-card__text {
+  position: absolute;
+  inset: auto var(--oc-space-24) var(--oc-space-24);
+  z-index: 1;
+}
+
+.oc-card__name {
+  margin: 0;
+  font: var(--oc-h5);
+}
+
+.oc-card__desc {
+  margin: 0;
+  font: var(--oc-body-14);
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .oc-slider {
+    padding: var(--oc-space-64) 0 var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-slider__head {
+    padding-right: var(--oc-space-24);
+  }
+
+  .oc-slider__track {
+    padding-right: var(--oc-space-24);
+  }
+
+  .oc-card {
+    flex-basis: 78vw;
+  }
+}

@@ -1,0 +1,50 @@
+/* Metrics — Figma 174:10256 */
+.oc-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--oc-space-64);
+  padding: var(--oc-space-96) var(--oc-gutter);
+}
+
+.oc-metric__value {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oc-space-12);
+  margin: 0 0 var(--oc-space-12);
+  font: var(--oc-display-128);
+  font-variant-numeric: tabular-nums;
+}
+
+.oc-metric__unit {
+  font: 600 72px/72px var(--oc-font);
+}
+
+.oc-metric__title {
+  margin: 0;
+  font: var(--oc-h6);
+}
+
+.oc-metric__text {
+  margin: 0;
+  max-width: 240px;
+  font: var(--oc-body-16);
+  opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+  .oc-metrics__grid {
+    grid-template-columns: 1fr;
+    gap: var(--oc-space-40);
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-metric__value {
+    font-size: 88px;
+    line-height: 96px;
+  }
+
+  .oc-metric__unit {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}

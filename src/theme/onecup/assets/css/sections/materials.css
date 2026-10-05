@@ -1,0 +1,140 @@
+/* Materials — Figma 174:11012, states 191:731. One row open at a time, image follows the row. */
+.oc-mat {
+  padding: var(--oc-space-96) var(--oc-gutter);
+  border-radius: var(--oc-radius-16) var(--oc-radius-16) 0 0;
+}
+
+.oc-mat > .oc-eyebrow {
+  margin-bottom: var(--oc-space-48);
+}
+
+.oc-mat__body {
+  position: relative;
+}
+
+.oc-mat__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oc-mat__row {
+  display: grid;
+  grid-template-columns: 570px 1fr 320px;
+  align-items: center;
+  gap: var(--oc-space-32);
+  min-height: 149px;
+  padding: var(--oc-space-24) 0;
+  border-top: 1px solid var(--oc-line-dark);
+}
+
+.oc-mat__name {
+  grid-column: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: var(--oc-display-88);
+  color: inherit;
+  text-align: left;
+  opacity: 0.25;
+  cursor: pointer;
+  transition: opacity 0.5s var(--oc-ease);
+}
+
+.oc-mat__text {
+  grid-column: 3;
+  opacity: 0.4;
+  transition: opacity 0.5s var(--oc-ease);
+}
+
+.oc-mat__lead {
+  margin: 0;
+  font: 600 16px/24px var(--oc-font);
+}
+
+.oc-mat__desc {
+  margin: 0;
+  font: var(--oc-body-14);
+  opacity: 0.6;
+  overflow: hidden;
+  max-height: 0;
+  transition:
+    max-height 0.5s var(--oc-ease),
+    margin 0.5s var(--oc-ease);
+}
+
+.oc-mat__row.is-active .oc-mat__name,
+.oc-mat__row:hover .oc-mat__name,
+.oc-mat__row.is-active .oc-mat__text {
+  opacity: 1;
+}
+
+.oc-mat__row.is-active .oc-mat__desc {
+  max-height: 120px;
+  margin-top: var(--oc-space-4);
+}
+
+.oc-mat__media {
+  position: absolute;
+  top: 0;
+  left: calc(570px + var(--oc-space-32) - 80px);
+  width: 300px;
+  aspect-ratio: 300 / 380;
+  border-radius: var(--oc-radius-12);
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(var(--oc-mat-y, -40px)) rotate(var(--oc-mat-r, 4deg));
+  transition: transform 0.7s var(--oc-ease);
+}
+
+.oc-mat__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.6s var(--oc-ease),
+    transform 0.9s var(--oc-ease);
+}
+
+.oc-mat__media img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 1200px) {
+  .oc-mat {
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-mat__row {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: var(--oc-space-8);
+  }
+
+  .oc-mat__name {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .oc-mat__text {
+    grid-column: 1;
+  }
+
+  .oc-mat__media {
+    position: relative;
+    left: auto;
+    width: min(300px, 100%);
+    margin: 0 auto var(--oc-space-32);
+    transform: none;
+  }
+
+  .oc-mat__body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

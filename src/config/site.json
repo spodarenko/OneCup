@@ -1,0 +1,14 @@
+{
+  "url": "https://spodarenko.github.io/OneCup/",
+  "name": "OneCup",
+  "slogan": "OneCup – Wake Up.",
+  "email": "info@onecupcoffee.de",
+  "phone": "+49 221 4710 123",
+  "phoneHref": "+492214710123",
+  "whatsapp": "https://wa.me/492214710123",
+  "city": "Köln",
+  "country": "DE",
+  "languages": ["de", "en", "uk"],
+  "defaultLanguage": "de",
+  "year": 2026
+}

@@ -13,7 +13,7 @@ Why: the client edits texts and images in DE / EN / UA without a developer.
 
 ## Planned, not built yet
 
-- **Multilingual DE/EN/UA + hreflang** — plugin to choose (Polylang vs WPML)
+- **Multilingual in WordPress** — plugin to choose (Polylang vs WPML); the demo already has DE/EN/UA
 - **Contact form → info@onecupcoffee.de + Telegram** — small plugin in `src/plugins/onecup-leads/`; secrets from `.env.example` go to the host, never the repo
 - **Redirects from the old site** onecupcoffee.de — keep SEO positions
 - **Hosting** — managed WordPress

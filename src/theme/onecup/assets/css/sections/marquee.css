@@ -1,0 +1,31 @@
+/* Marquee — Figma 191:661 */
+.oc-marquee {
+  padding: var(--oc-space-96) 0;
+  overflow: hidden;
+}
+
+.oc-marquee__track {
+  display: flex;
+  width: max-content;
+  font: var(--oc-display-144);
+  color: var(--oc-text-cream);
+  white-space: nowrap;
+  animation: oc-marquee 30s linear infinite;
+}
+
+@keyframes oc-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .oc-marquee {
+    padding: var(--oc-space-48) 0;
+  }
+
+  .oc-marquee__track {
+    font-size: 64px;
+    line-height: 80px;
+  }
+}

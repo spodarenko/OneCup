@@ -1,0 +1,215 @@
+{
+  "lang": "de",
+  "label": "DE",
+  "path": "",
+  "ogLocale": "de_DE",
+  "meta": {
+    "title": "OneCup — Selbstbedienungs-Kaffeestationen aus Köln",
+    "description": "Schlüsselfertige Selbstbedienungs-Kaffeestation kaufen oder bei Ihnen aufstellen lassen — den Service übernehmen wir. Frisch gemahlene Bohnen, Lieferung in ganz Deutschland."
+  },
+  "nav": {
+    "buy": "Kaufen",
+    "host": "Aufstellen",
+    "materials": "Materialien",
+    "contact": "Kontakt",
+    "whatsapp": "WhatsApp",
+    "request": "Anfrage",
+    "language": "Sprache",
+    "menu": "Hauptmenü"
+  },
+  "hero": {
+    "title": "Selbstbedienungs-Kaffeestationen",
+    "subtitle": "OneCup – Wake Up. Frischer Kaffee auf Knopfdruck: Kaufen Sie die Station als eigenes Business oder stellen Sie sie bei sich auf — ohne Aufwand für Ihr Team.",
+    "ctaBuy": "Station kaufen",
+    "ctaHost": "Station aufstellen",
+    "videoLabel": "OneCup-Becher in einem leuchtenden Orbit mit Kaffeebohnen"
+  },
+  "about": {
+    "eyebrow": "[ Über OneCup ]",
+    "brand": "OneCup",
+    "text": "— Selbstbedienungs-Kaffeestationen aus Köln. Frisch gemahlene Bohnen, moderne Technologie und minimalistisches Design. Kaufen Sie die Station schlüsselfertig als eigenes Business oder stellen Sie sie bei sich auf — den Service übernehmen wir. Lieferung in ganz Deutschland",
+    "inlineAfter": "Selbstbedienungs-Kaffeestationen",
+    "imgMachine": "OneCup-Kaffeevollautomat",
+    "imgStation": "OneCup-Station in einer Lobby"
+  },
+  "metrics": [
+    {
+      "value": "80",
+      "unit": "%",
+      "title": "Trinken täglich Kaffee",
+      "text": "Oft mehrmals am Tag — in allen Zielgruppen"
+    },
+    {
+      "value": "100",
+      "unit": "%",
+      "title": "Servicekonzept",
+      "text": "Kaffee steigert Zufriedenheit und Verweildauer"
+    },
+    {
+      "value": "165",
+      "unit": "L",
+      "title": "Pro Kopf und Jahr",
+      "text": "Deutschland ist Kaffeeland Nr. 1 in Europa"
+    }
+  ],
+  "materials": {
+    "eyebrow": "[ Materialien ]",
+    "title": "Was in jedem OneCup steckt",
+    "items": [
+      {
+        "name": "Bohnen",
+        "lead": "Frisch gemahlener Kaffee aus ganzen Bohnen",
+        "text": "Die Bohnen werden direkt vor jeder Tasse gemahlen. Keine Kapseln, kein Instantkaffee — Geschmack wie im Café.",
+        "img": "material-beans",
+        "alt": "Kaffeebohnen fallen durch ein Mahlwerk in einen OneCup-Becher"
+      },
+      {
+        "name": "Becher",
+        "lead": "Ein Becher — und der Kaffee ist to go",
+        "text": "Die Becher passen zu jedem Getränk und lassen sich bequem mitnehmen.",
+        "img": "material-cups",
+        "alt": "Drei OneCup-Becher in verschiedenen Größen"
+      },
+      {
+        "name": "Technologie",
+        "lead": "Eine Station, die sich selbst überwacht",
+        "text": "Automatische Reinigung, Online-Monitoring und bargeldlose Zahlung. Entspricht den Normen CE und EN 60335.",
+        "img": "material-tech",
+        "alt": "Innenmodul der OneCup-Kaffeestation"
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "[ So funktioniert’s ]",
+    "title": "Kaffee in 3 Schritten",
+    "items": [
+      {
+        "n": "01",
+        "label": "Schritt 1 | Auswahl",
+        "note": "Cappuccino, Latte, Americano, Mokka — 10+ Getränke",
+        "text": "Wählen Sie Ihr Getränk am Touchdisplay der Station. Das Menü ist auf den ersten Blick klar — keine Anleitung, kein Barista, keine Warteschlange."
+      },
+      {
+        "n": "02",
+        "label": "Schritt 2 | Bezahlung",
+        "note": "Karte, Smartphone, Münzen (MDB)",
+        "text": "Bezahlen Sie, wie Sie es gewohnt sind: mit Karte, Smartphone oder Münzen. Das Zahlungsterminal ist in die Station integriert — alles dauert nur Sekunden."
+      },
+      {
+        "n": "03",
+        "label": "Schritt 3 | Kaffee",
+        "note": "Frisch gemahlen, eine Tasse in ca. 1 Minute",
+        "text": "Nehmen Sie Ihren frischen Kaffee im To-go-Becher mit Deckel. Die Bohnen werden für jede Portion gemahlen — jede Tasse wie im Café, nur ohne Warten."
+      }
+    ]
+  },
+  "models": {
+    "eyebrow": "[ Zwei Modelle ]",
+    "title": "Eine Station.<br>Zwei Wege,<br>sie zu nutzen",
+    "stationAlt": "OneCup-Kaffeestation mit Pflanzenwand, Kaffeevollautomat und Holzunterschrank",
+    "host": {
+      "title": "Bei Ihnen aufstellen",
+      "text": "Wir stellen die Station auf und warten sie.",
+      "points": ["Keine Investition in Geräte", "Service und Bohnen übernehmen wir"],
+      "cta": "Aufstellung anfragen"
+    },
+    "buy": {
+      "title": "Station kaufen",
+      "text": "Schlüsselfertige Station mit Unterstützung in der Startphase.",
+      "points": ["Die Station gehört Ihnen", "Alle Umsätze gehören Ihnen"],
+      "cta": "Kauf anfragen"
+    }
+  },
+  "where": {
+    "eyebrow": "[ Wo OneCup steht ]",
+    "title": "Überall, wo Menschen<br>Kaffee brauchen",
+    "items": [
+      { "img": "where-office", "name": "Büros", "text": "Kaffee fürs Team ohne Küchenmaschine" },
+      {
+        "img": "where-fitness",
+        "name": "Fitnessstudios",
+        "text": "Nach dem Training — ohne Bar und Personal"
+      },
+      { "img": "where-clinic", "name": "Arztpraxen", "text": "Für Patienten im Wartebereich" },
+      {
+        "img": "where-hotel",
+        "name": "Hotels",
+        "text": "Rund um die Uhr in der Lobby, ohne Roomservice"
+      },
+      {
+        "img": "where-car",
+        "name": "Autohäuser",
+        "text": "Während Kunden auf die Beratung warten"
+      },
+      { "img": "where-mall", "name": "Einkaufszentren", "text": "Coffee to go im Kundenstrom" },
+      { "img": "where-kiosk", "name": "Kioske", "text": "Zusatzumsatz auf derselben Fläche" },
+      { "img": "where-bakery", "name": "Bäckereien", "text": "Kaffee zum Gebäck — ohne Barista" }
+    ]
+  },
+  "faq": {
+    "eyebrow": "[ FAQ ]",
+    "title": "Häufige<br>Fragen",
+    "items": [
+      {
+        "q": "Wie viel Platz braucht die Station?",
+        "a": "Die Station braucht eine kompakte Ecke an der Wand. Die genauen Maße stimmen wir in einer kostenlosen Beratung auf Ihren Standort ab."
+      },
+      {
+        "q": "Wer reinigt und befüllt die Station?",
+        "a": "Wird die Station bei Ihnen aufgestellt, übernehmen wir Service, Bohnen und Befüllung. Kaufen Sie die Station, schulen wir Ihr Team und unterstützen Sie in der Startphase. Die tägliche Reinigung erledigt die Station automatisch."
+      },
+      {
+        "q": "Braucht die Station Strom und Wasser?",
+        "a": "Nötig ist eine normale 230-V-Steckdose. Ob ein Wasseranschluss nötig ist, hängt vom Modell ab — wir beraten Sie, welche Variante zu Ihrem Standort passt."
+      },
+      {
+        "q": "Wie lange läuft der Vertrag?",
+        "a": "Die Vertragsbedingungen hängen vom Kooperationsmodell und vom Standort ab. Sie erhalten ein individuelles Angebot innerhalb von 24 Stunden."
+      },
+      {
+        "q": "Wie wird abgerechnet?",
+        "a": "Gäste zahlen mit Karte, Smartphone oder Münzen — das Terminal ist in die Station integriert. Das Abrechnungsmodell zwischen uns und dem Standort vereinbaren wir individuell."
+      },
+      {
+        "q": "Wie schnell wird die Station aufgestellt?",
+        "a": "Das hängt von Standort und Modell ab. Wir liefern in ganz Deutschland und stimmen den Aufstellungstermin direkt nach Annahme des Angebots ab."
+      }
+    ]
+  },
+  "live": {
+    "eyebrow": "[ Schon im Einsatz ]",
+    "title": "OneCup-Stationen<br>laufen in Köln",
+    "items": [
+      { "img": "live-office", "name": "Büros", "text": "Kaffee fürs Team ohne Küchenmaschine" },
+      { "img": "live-fitness", "name": "Fitnessstudios", "text": "Nach dem Training, ohne Bar" },
+      { "img": "live-hotel", "name": "Hotels", "text": "Rund um die Uhr in der Lobby" },
+      { "img": "live-clinic", "name": "Arztpraxen", "text": "Für Patienten im Wartebereich" },
+      { "img": "live-car", "name": "Autohäuser", "text": "Während Kunden warten" },
+      { "img": "live-mall", "name": "Einkaufszentren", "text": "Coffee to go im Kundenstrom" },
+      { "img": "live-kiosk", "name": "Kioske", "text": "Umsatz auf derselben Fläche" },
+      { "img": "live-bakery", "name": "Bäckereien", "text": "Kaffee zum Gebäck, ohne Barista" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "[ Kontakt ]",
+    "title": "Wie ist es Ihnen am liebsten?",
+    "note": "Wir antworten innerhalb von 24 Std.",
+    "whatsapp": "WhatsApp",
+    "call": "Anrufen",
+    "email": "E-Mail",
+    "form": "Formular ausfüllen",
+    "formNote": "Kauf · Aufstellung · Sonstiges"
+  },
+  "slider": { "prev": "Vorheriges Bild", "next": "Nächstes Bild" },
+  "footer": {
+    "contacts": "Kontakt",
+    "city": "Köln, Deutschland",
+    "pages": "Seiten",
+    "home": "Startseite",
+    "models": "Modelle",
+    "buyModel": "Station kaufen",
+    "hostModel": "Station aufstellen",
+    "toTop": "Nach oben",
+    "legal": "Impressum · Datenschutz"
+  }
+}
