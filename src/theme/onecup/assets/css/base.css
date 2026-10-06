@@ -54,7 +54,7 @@ a {
 
 .oc-btn--sm {
   padding: var(--oc-space-8) var(--oc-space-24);
-  font: 600 12px/16px var(--oc-font);
+  font: 600 14px/20px var(--oc-font);
 }
 
 .oc-btn--accent {

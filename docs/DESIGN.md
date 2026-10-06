@@ -14,7 +14,7 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 
 | #   | Section                       | Figma node |
 | --- | ----------------------------- | ---------- |
-| —   | Header                        | 174:10643  |
+| —   | Header                        | 187:559    |
 | 1   | Hero                          | 174:10152  |
 | 2   | About OneCup                  | 174:10169  |
 | 3   | Metrics                       | 174:10256  |

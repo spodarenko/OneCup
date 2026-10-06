@@ -1,34 +1,84 @@
-/* Header — Figma 174:10643. Overlays the hero. */
+/* Header — Figma 187:559. Overlays the hero. */
 .oc-header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
   transition:
-    transform 0.5s var(--oc-ease),
-    background-color 0.4s var(--oc-ease),
-    padding 0.4s var(--oc-ease);
+    transform 0.3s ease,
+    background-color var(--oc-dur-theme) ease,
+    color var(--oc-dur-theme) ease,
+    padding var(--oc-dur-theme) ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--oc-space-48);
-  padding: var(--oc-space-32) var(--oc-gutter);
+  padding: var(--oc-space-32) var(--oc-space-64);
+  /* Nav, buttons and language share one text size */
+  font: 600 14px/20px var(--oc-font);
+  color: var(--oc-text-cream);
 }
 
 .oc-header__logo img {
   display: block;
-  width: 138px;
+  width: 140px;
   height: auto;
 }
 
 .oc-header__nav {
   display: flex;
   gap: var(--oc-space-32);
-  font: 600 14px/20px var(--oc-font);
-  color: var(--oc-text-cream);
+}
+
+.oc-header__nav a {
+  transition: opacity 0.3s ease;
 }
 
 .oc-header__nav a:hover {
-  color: var(--oc-accent);
+  opacity: 0.6;
+}
+
+/* Buttons: fill wipes in from the left, text takes the old fill colour */
+.oc-header .oc-btn {
+  position: relative;
+  isolation: isolate;
+  font: inherit;
+  transition:
+    color var(--oc-dur) var(--oc-ease-cta),
+    border-color var(--oc-dur) var(--oc-ease-cta);
+}
+
+.oc-header .oc-btn::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--oc-text-cream);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--oc-dur) var(--oc-ease-cta);
+}
+
+.oc-header .oc-btn:hover {
+  transform: none;
+  background-color: transparent;
+}
+
+.oc-header .oc-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.oc-header .oc-btn--green {
+  background-color: var(--oc-green);
+}
+
+.oc-header .oc-btn--green:hover {
+  color: var(--oc-green);
+  background-color: var(--oc-green);
+}
+
+.oc-header .oc-btn--outline:hover {
+  color: var(--oc-bg-dark);
 }
 
 .oc-header__actions {
@@ -91,28 +141,51 @@
   margin: var(--oc-space-4) 0 0;
   padding: var(--oc-space-4);
   list-style: none;
-  background: var(--oc-bg-card-dark);
-  border: 1px solid var(--oc-card-line);
-  border-radius: var(--oc-radius-8);
+  background: var(--oc-menu-bg);
+  border: 1px solid var(--oc-menu-line);
+  border-radius: 9px;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 
 .oc-lang li a {
   display: block;
   padding: var(--oc-space-8) var(--oc-space-16);
   border-radius: var(--oc-radius-4);
+  transition: background-color 0.15s ease;
 }
 
 .oc-lang li a:hover,
 .oc-lang li a[aria-current] {
-  background: var(--oc-line-dark);
+  background: var(--oc-menu-hover);
 }
 
 /* Scroll states (main.js): hide on scroll down, show on scroll up */
 .oc-header.is-scrolled {
   padding-block: var(--oc-space-16);
-  background: rgb(13 14 19 / 0.8);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: var(--oc-bg-dark);
+}
+
+/* Over light sections (main.js): dark text, light bar */
+.oc-header.is-light {
+  color: var(--oc-bg-dark);
+}
+
+.oc-header.is-light.is-scrolled {
+  background: var(--oc-bg-light);
+}
+
+.oc-header.is-light .oc-btn--outline {
+  border-color: var(--oc-bg-dark);
+  color: var(--oc-bg-dark);
+}
+
+.oc-header.is-light .oc-btn--outline::before {
+  background: var(--oc-bg-dark);
+}
+
+.oc-header.is-light .oc-btn--outline:hover {
+  color: var(--oc-text-cream);
 }
 
 .oc-header.is-hidden {

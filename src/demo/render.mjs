@@ -21,10 +21,10 @@ function header(c, all) {
     <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="138" height="33">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
-    <a class="oc-link" href="#models">${c.nav.buy}</a>
-    <a class="oc-link" href="#models">${c.nav.host}</a>
-    <a class="oc-link" href="#materials">${c.nav.materials}</a>
-    <a class="oc-link" href="#contact">${c.nav.contact}</a>
+    <a href="#models">${c.nav.buy}</a>
+    <a href="#models">${c.nav.host}</a>
+    <a href="#materials">${c.nav.materials}</a>
+    <a href="#contact">${c.nav.contact}</a>
   </nav>
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
