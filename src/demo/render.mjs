@@ -25,6 +25,7 @@ function header(c, all) {
     <a href="#models">${c.nav.host}</a>
     <a href="#materials">${c.nav.materials}</a>
     <a href="#contact">${c.nav.contact}</a>
+    <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
   </nav>
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
@@ -36,6 +37,7 @@ function header(c, all) {
       <ul>${others}</ul>
     </details>
   </div>
+  <button class="oc-burger" type="button" aria-label="${attr(c.nav.menu)}" aria-expanded="false"><span></span><span></span></button>
 </header>`;
 }
 
