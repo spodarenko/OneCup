@@ -51,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--oc-space-32);
-  margin: -20px auto 0;
+  margin: -170px auto 0;
   max-width: 404px;
   padding-inline: var(--oc-space-24);
 }
@@ -77,6 +77,10 @@
 
   .oc-hero__media {
     margin-top: 0;
+  }
+
+  .oc-hero__body {
+    margin-top: -20px;
   }
 
   .oc-hero__subtitle {
