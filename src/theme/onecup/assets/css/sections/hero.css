@@ -25,6 +25,9 @@
   margin: -40px auto 0;
   width: min(1300px, 100%);
   aspect-ratio: 16 / 9;
+  /* Mask the whole box so the ::after overlay fades out too, no visible rectangle */
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
 }
 
 .oc-hero__media::after {
@@ -41,8 +44,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
-  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
 }
 
 .oc-hero__body {
@@ -50,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--oc-space-32);
-  margin: 0 auto;
+  margin: -20px auto 0;
   max-width: 404px;
   padding-inline: var(--oc-space-24);
 }
