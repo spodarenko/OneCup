@@ -8,7 +8,7 @@
 
 .oc-about__quote {
   margin: 0;
-  font: 600 40px/46px var(--oc-font);
+  font: 600 52px/60px var(--oc-font);
   color: var(--oc-text-primary);
 }
 
@@ -22,10 +22,16 @@
   opacity: 0.15;
 }
 
+.oc-about__mark {
+  font-size: 28px;
+  line-height: 32px;
+  vertical-align: top;
+}
+
 .oc-about__pill {
   display: inline-block;
-  width: 72px;
-  height: 46px;
+  width: 94px;
+  height: 60px;
   object-fit: cover;
   border-radius: var(--oc-radius-full);
   vertical-align: middle;

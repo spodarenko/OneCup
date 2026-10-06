@@ -12,14 +12,23 @@
     if (lang && lang.open && !lang.contains(e.target)) lang.open = false;
   });
 
-  /* Header: hides on scroll down, shows on scroll up */
+  /* Header: hides on scroll down, shows on scroll up, turns dark-on-light over .oc-light sections */
   const header = $(".oc-header");
   if (header) {
     let last = scrollY;
+    const lights = $$(".oc-light");
     addEventListener(
       "scroll",
       () => {
         const y = scrollY;
+        const mid = header.offsetHeight / 2;
+        header.classList.toggle(
+          "is-light",
+          lights.some((s) => {
+            const r = s.getBoundingClientRect();
+            return r.top <= mid && r.bottom >= mid;
+          }),
+        );
         header.classList.toggle("is-scrolled", y > 40);
         header.classList.toggle("is-hidden", y > last && y > 200 && !(lang && lang.open));
         last = y;
