@@ -157,19 +157,20 @@
     $$("[data-split]").forEach((el) => {
       const split = SplitText.create(el, { type: "lines", linesClass: "oc-line" });
       const inHero = el.closest(".oc-hero");
+      const stagger = inHero ? 0.25 : 0.1; // hero: each title line gets its own visible beat
       gsap.set(split.lines, { clipPath: "inset(0% 0% 100% 0%)", yPercent: 100, opacity: 0 });
       const tl = gsap.timeline({
         delay: inHero ? 0.2 : 0,
         scrollTrigger: inHero ? undefined : { trigger: el, start: "top 90%", once: true },
       });
-      tl.to(split.lines, { opacity: 1, duration: 0.01, stagger: 0.1 }, 0).to(
+      tl.to(split.lines, { opacity: 1, duration: 0.01, stagger }, 0).to(
         split.lines,
         {
           clipPath: "inset(0% -5% -30% 0%)",
           yPercent: 0,
           duration: 1.6,
           ease: "power4.out",
-          stagger: 0.1,
+          stagger,
         },
         0,
       );
