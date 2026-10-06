@@ -24,16 +24,34 @@
         const mid = header.offsetHeight / 2;
         header.classList.toggle(
           "is-light",
-          lights.some((s) => {
-            const r = s.getBoundingClientRect();
-            return r.top <= mid && r.bottom >= mid;
-          }),
+          !header.classList.contains("is-open") &&
+            lights.some((s) => {
+              const r = s.getBoundingClientRect();
+              return r.top <= mid && r.bottom >= mid;
+            }),
         );
         header.classList.toggle("is-scrolled", y > 40);
         header.classList.toggle("is-hidden", y > last && y > 200 && !(lang && lang.open));
         last = y;
       },
       { passive: true },
+    );
+  }
+
+  /* Mobile menu: burger toggles the panel; a link, Escape or resize closes it */
+  const burger = $(".oc-burger");
+  if (header && burger) {
+    const setOpen = (open) => {
+      header.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", open);
+      document.documentElement.style.overflow = open ? "hidden" : "";
+    };
+    burger.addEventListener("click", () => setOpen(!header.classList.contains("is-open")));
+    $$(".oc-header__nav a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
+    matchMedia("(min-width: 1101px)").addEventListener(
+      "change",
+      (m) => m.matches && setOpen(false),
     );
   }
 
