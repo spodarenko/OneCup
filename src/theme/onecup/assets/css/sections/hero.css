@@ -1,6 +1,6 @@
 /* Hero — Figma 174:10152. The orbit video is scrubbed by scroll (assets/js/main.js). */
 .oc-hero {
-  background: linear-gradient(180deg, var(--oc-hero-top), var(--oc-hero-bottom));
+  background: var(--oc-hero-bg);
   text-align: center;
   overflow: hidden;
 }
@@ -31,11 +31,11 @@
 }
 
 .oc-hero__media::after {
-  /* Figma orbit-6s overlay: transparent at 47% → #111116 at 81% */
+  /* Figma orbit-6s overlay: transparent at 47% → #121217 at 81% */
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 47%, var(--oc-hero-bottom) 81%);
+  background: linear-gradient(180deg, rgb(18 18 23 / 0) 47%, var(--oc-hero-bg) 81%);
   pointer-events: none;
 }
 
