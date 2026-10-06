@@ -51,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--oc-space-32);
-  margin: -140px auto 0;
+  margin: -130px auto 0;
   max-width: 404px;
   padding-inline: var(--oc-space-24);
 }

@@ -26,6 +26,16 @@
   min-height: 149px;
   padding: var(--oc-space-24) 0;
   border-top: 1px solid var(--oc-line-dark);
+  position: relative;
+  isolation: isolate;
+}
+
+/* Hover zone spans the section gutters, not only the row content */
+.oc-mat__row::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(-1 * var(--oc-gutter));
+  z-index: -1;
 }
 
 .oc-mat__name {
