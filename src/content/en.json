@@ -355,5 +355,85 @@
         }
       ]
     }
+  },
+  "host": {
+    "meta": {
+      "title": "Host a OneCup coffee station at your location",
+      "description": "A smart coffee station for your location: fresh coffee for your guests around the clock, we handle the service. Cologne and all of Germany."
+    },
+    "hero": {
+      "title": "A smart coffee station for your location",
+      "subtitle": "Fresh coffee for your guests around the clock — no waiting, no complicated orders.",
+      "cta": "Offer a location",
+      "more": "Ways to partner",
+      "imgAlt": "OneCup coffee station with cabinet"
+    },
+    "who": {
+      "eyebrow": "[ About OneCup ]",
+      "before": "Have a good location?",
+      "after": "OneCup is a modern self-service coffee concept from Cologne.",
+      "img1": "OneCup coffee station",
+      "img2": "OneCup coffee cup"
+    },
+    "guests": {
+      "eyebrow": "[ For your guests ]",
+      "items": [
+        {
+          "t": "Quality coffee",
+          "d": "Fast, simple and always available"
+        },
+        {
+          "t": "No waiting",
+          "d": "Guests don't have to queue"
+        },
+        {
+          "t": "Easy ordering",
+          "d": "An automated station without complicated steps"
+        },
+        {
+          "t": "Easy payment",
+          "d": "Contactless or cash"
+        }
+      ]
+    },
+    "lineup": {
+      "eyebrow": "[ Models ]",
+      "title": "OneCup Kaffeestation",
+      "text": "We'll match the cabinet to the format and space of your location",
+      "items": [
+        {
+          "t": "Model A",
+          "d": "Compact cabinet"
+        },
+        {
+          "t": "Model B",
+          "d": "Classic cabinet"
+        },
+        {
+          "t": "Model C",
+          "d": "Premium cabinet"
+        }
+      ]
+    },
+    "metrics": [
+      {
+        "v": "230",
+        "u": "V",
+        "t": "Power",
+        "d": "A standard socket —<br>no separate line needed"
+      },
+      {
+        "v": "24",
+        "u": "/7",
+        "t": "Operation",
+        "d": "Guests serve themselves —<br>your team stays focused"
+      },
+      {
+        "v": "~1",
+        "u": "m²",
+        "t": "Footprint",
+        "d": "Fits by a wall or in a corner —<br>no renovation"
+      }
+    ]
   }
 }

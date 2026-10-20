@@ -1,4 +1,4 @@
-// Renders one language version of a page (home or buy). Content: src/content/<lang>.json, site data: src/config/site.json.
+// Renders one language version of a page (home, buy or host). Content: src/content/<lang>.json, site data: src/config/site.json.
 import { icons } from "./icons.mjs";
 
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -7,11 +7,14 @@ const icon = (name, cls = "oc-icon") =>
 const img = (name, alt, w, h, extra = "") =>
   `<img src="{{base}}assets/img/${name}.webp" alt="${attr(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"${extra}>`;
 
+// Sub-path of each page under the language root
+export const pages = { home: "", buy: "kaufen/", host: "standort/" };
+
 const eyebrow = (text, cls = "") => `<p class="oc-eyebrow ${cls}">${text}</p>`;
 
 function header(c, all, page) {
   const h = page === "home" ? "" : `{{base}}${c.path}`;
-  const sub = page === "buy" ? "kaufen/" : "";
+  const sub = pages[page];
   const others = all
     .map(
       (l) =>
@@ -24,7 +27,7 @@ function header(c, all, page) {
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
     <a href="{{base}}${c.path}kaufen/"${page === "buy" ? ' aria-current="page"' : ""}>${c.nav.buy}</a>
-    <a href="${h}#models">${c.nav.host}</a>
+    <a href="{{base}}${c.path}standort/"${page === "host" ? ' aria-current="page"' : ""}>${c.nav.host}</a>
     <a href="${h}#how">${c.nav.materials}</a>
     <a href="#contact">${c.nav.contact}</a>
     <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
@@ -226,14 +229,14 @@ function footer(c, page) {
       <h2>${f.pages}</h2>
       <a class="oc-link" href="${h}#top">${f.home}</a>
       <a class="oc-link" href="{{base}}${c.path}kaufen/">${c.nav.buy}</a>
-      <a class="oc-link" href="${h}#models">${c.nav.host}</a>
+      <a class="oc-link" href="{{base}}${c.path}standort/">${c.nav.host}</a>
       <a class="oc-link" href="${h}#how">${c.nav.materials}</a>
       <a class="oc-link" href="#contact">${c.nav.contact}</a>
     </nav>
     <nav class="oc-footer__col" aria-label="${attr(f.models)}">
       <h2>${f.models}</h2>
       <a class="oc-link" href="{{base}}${c.path}kaufen/">${f.buyModel}</a>
-      <a class="oc-link" href="${h}#models">${f.hostModel}</a>
+      <a class="oc-link" href="{{base}}${c.path}standort/">${f.hostModel}</a>
     </nav>
     <a class="oc-round oc-round--light oc-footer__top-btn" href="#top" aria-label="${attr(f.toTop)}">${icon("caret-up")}</a>
   </div>
@@ -244,18 +247,21 @@ function footer(c, page) {
 </footer>`;
 }
 
-// Buy page — Figma 266:4358 «Station kaufen»
-function buyHero(b) {
-  return `<section class="oc-hero oc-hero--buy" id="top">
+// Buy page — Figma 266:4358 «Station kaufen»; host page — Figma 266:5465 «Standort anbieten»
+const heroImg = { buy: ["buy-hero", 1024, 683], host: ["host-hero", 1122, 1402] };
+
+function buyHero(b, page) {
+  const [src, w, h] = heroImg[page];
+  return `<section class="oc-hero oc-hero--${page}" id="top">
   <h1 class="oc-hero__title" data-split>${b.hero.title}</h1>
   <div class="oc-hero__media">
-    <img src="{{base}}assets/img/buy-hero.webp" alt="${attr(b.hero.imgAlt)}" width="1024" height="683" fetchpriority="high" decoding="async">
+    <img src="{{base}}assets/img/${src}.webp" alt="${attr(b.hero.imgAlt)}" width="${w}" height="${h}" fetchpriority="high" decoding="async">
   </div>
   <div class="oc-hero__body" data-reveal>
     <p class="oc-hero__subtitle">${b.hero.subtitle}</p>
     <div class="oc-hero__ctas">
       <a class="oc-btn oc-btn--accent" href="#contact">${b.hero.cta}</a>
-      <a class="oc-btn oc-btn--outline" href="#kit">${b.hero.kit}</a>
+      <a class="oc-btn oc-btn--outline" href="${b.kit ? "#kit" : "#models"}">${b.hero.kit ?? b.hero.more}</a>
     </div>
   </div>
 </section>`;
@@ -319,7 +325,7 @@ function buyLineup(b) {
       (it, i) => `<li class="oc-lineup__row">
       <span class="oc-kit__n">${pad(i)}</span>
       <h3 class="oc-lineup__name">${it.t}</h3>
-      <p class="oc-lineup__price">${m.from} ${it.p}<span>${it.d}</span></p>
+      <p class="oc-lineup__price">${it.p ? `${m.from} ${it.p}` : ""}<span>${it.d}</span></p>
       ${img(`buy-model-${"abc"[i]}`, `${it.t} — ${it.d}`, 240, 180, ' class="oc-lineup__img"')}
     </li>`,
     )
@@ -331,7 +337,7 @@ function buyLineup(b) {
     <p>${m.text}</p>
   </div>
   <ol class="oc-lineup__list">${items}</ol>
-  <a class="oc-btn oc-btn--accent" href="#contact">${m.cta}</a>
+  ${m.cta ? `<a class="oc-btn oc-btn--accent" href="#contact">${m.cta}</a>` : ""}
 </section>`;
 }
 
@@ -378,9 +384,9 @@ function jsonLd(c, site, page, url) {
 }
 
 export function render(c, all, site, css, page = "home") {
-  const sub = page === "buy" ? "kaufen/" : "";
+  const sub = pages[page];
   const url = site.url + c.path + sub;
-  const meta = page === "buy" ? c.buy.meta : c.meta;
+  const meta = page === "home" ? c.meta : c[page].meta;
   const alternates = all
     .map((l) => `<link rel="alternate" hreflang="${l.lang}" href="${site.url}${l.path}${sub}">`)
     .concat(`<link rel="alternate" hreflang="x-default" href="${site.url}${sub}">`)
@@ -406,7 +412,7 @@ export function render(c, all, site, css, page = "home") {
     <link rel="icon" href="{{base}}favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="{{base}}assets/img/${page === "buy" ? "buy-hero" : "hero-station"}.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="{{base}}assets/img/${page === "home" ? "hero-station" : heroImg[page][0]}.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}
@@ -417,30 +423,40 @@ export function render(c, all, site, css, page = "home") {
     ${header(c, all, page)}
     <main id="main">
       ${
-        page === "buy"
+        page === "host"
           ? [
-              buyHero(c.buy),
-              buyWho(c.buy),
-              buyMetrics(c.buy),
-              buyGuests(c.buy),
-              calc(c),
-              buyKit(c.buy),
-              buyLineup(c.buy),
+              buyHero(c.host, page),
+              buyWho(c.host),
+              buyMetrics(c.host),
+              buyGuests(c.host),
+              buyLineup(c.host),
               contact(c),
               marquee(),
             ].join("\n      ")
-          : [
-              hero(c),
-              about(c),
-              calc(c),
-              steps(c),
-              models(c),
-              slider(c, "where", "where"),
-              faq(c),
-              slider(c, "live", "live"),
-              contact(c),
-              marquee(),
-            ].join("\n      ")
+          : page === "buy"
+            ? [
+                buyHero(c.buy, page),
+                buyWho(c.buy),
+                buyMetrics(c.buy),
+                buyGuests(c.buy),
+                calc(c),
+                buyKit(c.buy),
+                buyLineup(c.buy),
+                contact(c),
+                marquee(),
+              ].join("\n      ")
+            : [
+                hero(c),
+                about(c),
+                calc(c),
+                steps(c),
+                models(c),
+                slider(c, "where", "where"),
+                faq(c),
+                slider(c, "live", "live"),
+                contact(c),
+                marquee(),
+              ].join("\n      ")
       }
     </main>
     ${footer(c, page)}
