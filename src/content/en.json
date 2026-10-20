@@ -228,5 +228,132 @@
     "toTop": "Back to top",
     "legal": "Impressum · Datenschutz"
   },
-  "name": "English"
+  "name": "English",
+  "buy": {
+    "meta": {
+      "title": "Buy a OneCup coffee station — your coffee, your business",
+      "description": "A turnkey self-service coffee station: coffee machine, cabinet, cups and launch support. Models from €6,000."
+    },
+    "hero": {
+      "title": "OneCup<br>Your coffee. Your business",
+      "subtitle": "Want extra income without opening a café?",
+      "cta": "Purchase request",
+      "kit": "What's included",
+      "imgAlt": "OneCup coffee machine with a cup of coffee"
+    },
+    "who": {
+      "eyebrow": "[ Who it's for ]",
+      "before": "Extra income without your own café?",
+      "after": "A ready station — place it, plug it in and start",
+      "img1": "OneCup coffee station",
+      "img2": "OneCup coffee cup"
+    },
+    "metrics": [
+      {
+        "v": "230",
+        "u": "V",
+        "t": "Power",
+        "d": "A standard socket —<br>no separate line needed"
+      },
+      {
+        "v": "24",
+        "u": "/7",
+        "t": "Operation",
+        "d": "Guests serve themselves —<br>your team stays focused"
+      },
+      {
+        "v": "~1",
+        "u": "m²",
+        "t": "Footprint",
+        "d": "Fits by a wall or in a corner —<br>no renovation"
+      }
+    ],
+    "guests": {
+      "eyebrow": "[ For your guests ]",
+      "items": [
+        {
+          "t": "No queue",
+          "d": "Guests pick a drink on the screen and have it in a minute"
+        },
+        {
+          "t": "Card or cash",
+          "d": "Any convenient way to pay on the spot"
+        },
+        {
+          "t": "Freshly ground beans",
+          "d": "Every cup is ground right before brewing"
+        },
+        {
+          "t": "Coffee to go",
+          "d": "Cup and lid right next to the machine"
+        }
+      ]
+    },
+    "kit": {
+      "eyebrow": "[ What's included ]",
+      "title": "Everything to start — in one kit",
+      "items": [
+        {
+          "t": "Automatic coffee machine",
+          "d": "Professional, grinds fresh beans"
+        },
+        {
+          "t": "Custom cabinet",
+          "d": "With an organiser for lids, syrups, sugar, napkins and stirrers"
+        },
+        {
+          "t": "2 dispensers",
+          "d": "For cups"
+        },
+        {
+          "t": "Water tank",
+          "d": "19 l capacity"
+        },
+        {
+          "t": "Waste tank",
+          "d": "For liquid waste, 12 l"
+        },
+        {
+          "t": "500 cups with lids",
+          "d": "Premium, for coffee to go"
+        },
+        {
+          "t": "Sugar and stirrers",
+          "d": "1 pack each"
+        },
+        {
+          "t": "Drink recipes",
+          "d": "Matched to your location"
+        },
+        {
+          "t": "Launch support",
+          "d": "Personal guidance"
+        }
+      ]
+    },
+    "lineup": {
+      "eyebrow": "[ Models ]",
+      "title": "OneCup Kaffeestation",
+      "text": "One station — three cabinet options for your space",
+      "from": "from",
+      "cta": "Purchase request",
+      "items": [
+        {
+          "t": "Model A",
+          "p": "€6,000",
+          "d": "Compact cabinet"
+        },
+        {
+          "t": "Model B",
+          "p": "€10,000",
+          "d": "Classic cabinet"
+        },
+        {
+          "t": "Model C",
+          "p": "€20,000",
+          "d": "Premium cabinet"
+        }
+      ]
+    }
+  }
 }
