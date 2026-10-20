@@ -22,7 +22,7 @@
     "subtitle": "OneCup – Wake Up. Frischer Kaffee auf Knopfdruck: Kaufen Sie die Station als eigenes Business oder stellen Sie sie bei sich auf — ohne Aufwand für Ihr Team.",
     "ctaBuy": "Station kaufen",
     "ctaHost": "Station aufstellen",
-    "videoLabel": "OneCup-Becher in einem leuchtenden Orbit mit Kaffeebohnen"
+    "imgAlt": "Beleuchtete OneCup-Kaffeestation"
   },
   "about": {
     "eyebrow": "[ Über OneCup ]",
@@ -32,92 +32,53 @@
     "imgMachine": "OneCup-Kaffeevollautomat",
     "imgStation": "OneCup-Station in einer Lobby"
   },
-  "metrics": [
-    {
-      "value": "80",
-      "unit": "%",
-      "title": "Trinken täglich Kaffee",
-      "text": "Oft mehrmals am Tag — in allen Zielgruppen"
-    },
-    {
-      "value": "100",
-      "unit": "%",
-      "title": "Servicekonzept",
-      "text": "Kaffee steigert Zufriedenheit und Verweildauer"
-    },
-    {
-      "value": "165",
-      "unit": "L",
-      "title": "Pro Kopf und Jahr",
-      "text": "Deutschland ist Kaffeeland Nr. 1 in Europa"
-    }
-  ],
-  "materials": {
-    "eyebrow": "[ Materialien ]",
-    "title": "Was in jedem OneCup steckt",
-    "items": [
-      {
-        "name": "Bohnen",
-        "lead": "Frisch gemahlener Kaffee aus ganzen Bohnen",
-        "text": "Die Bohnen werden direkt vor jeder Tasse gemahlen. Keine Kapseln, kein Instantkaffee — Geschmack wie im Café.",
-        "img": "material-beans",
-        "alt": "Kaffeebohnen fallen durch ein Mahlwerk in einen OneCup-Becher"
-      },
-      {
-        "name": "Becher",
-        "lead": "Ein Becher — und der Kaffee ist to go",
-        "text": "Die Becher passen zu jedem Getränk und lassen sich bequem mitnehmen.",
-        "img": "material-cups",
-        "alt": "Drei OneCup-Becher in verschiedenen Größen"
-      },
-      {
-        "name": "Technologie",
-        "lead": "Eine Station, die sich selbst überwacht",
-        "text": "Automatische Reinigung, Online-Monitoring und bargeldlose Zahlung. Entspricht den Normen CE und EN 60335.",
-        "img": "material-tech",
-        "alt": "Innenmodul der OneCup-Kaffeestation"
-      }
-    ]
+  "calc": {
+    "eyebrow": "[ Rechner ]",
+    "title": "Wie viel bringt eine Station?",
+    "text": "Wählen Sie, wie viele Getränke pro Tag verkauft werden.",
+    "label": "Getränke pro Tag",
+    "result": "Geschätzter Monatsumsatz"
   },
   "steps": {
-    "eyebrow": "[ So funktioniert’s ]",
-    "title": "Kaffee in 3 Schritten",
+    "eyebrow": "[ So funktioniert OneCup ]",
+    "title": "So funktioniert OneCup",
     "items": [
       {
         "n": "01",
-        "label": "Schritt 1 | Auswahl",
-        "note": "Cappuccino, Latte, Americano, Mokka — 10+ Getränke",
-        "text": "Wählen Sie Ihr Getränk am Touchdisplay der Station. Das Menü ist auf den ersten Blick klar — keine Anleitung, kein Barista, keine Warteschlange."
+        "label": "Standort wählen",
+        "text": "Wählen Sie einen passenden Standort für Ihre OneCup-Kaffeestation."
       },
       {
         "n": "02",
-        "label": "Schritt 2 | Bezahlung",
-        "note": "Karte, Smartphone, Münzen (MDB)",
-        "text": "Bezahlen Sie, wie Sie es gewohnt sind: mit Karte, Smartphone oder Münzen. Das Zahlungsterminal ist in die Station integriert — alles dauert nur Sekunden."
+        "label": "Station aufstellen",
+        "text": "Wir installieren die Kaffeestation und machen sie betriebsbereit."
       },
       {
         "n": "03",
-        "label": "Schritt 3 | Kaffee",
-        "note": "Frisch gemahlen, eine Tasse in ca. 1 Minute",
-        "text": "Nehmen Sie Ihren frischen Kaffee im To-go-Becher mit Deckel. Die Bohnen werden für jede Portion gemahlen — jede Tasse wie im Café, nur ohne Warten."
+        "label": "Kaffee auswählen & bezahlen",
+        "text": "Der Kunde wählt sein Lieblingsgetränk, bezahlt kontaktlos und der Kaffee wird frisch zubereitet."
+      },
+      {
+        "n": "04",
+        "label": "Genießen & profitieren",
+        "text": "Ihre Kunden genießen ihren Kaffee – Sie profitieren von jedem verkauften Becher."
       }
     ]
   },
   "models": {
     "eyebrow": "[ Zwei Modelle ]",
-    "title": "Eine Station.<br>Zwei Wege,<br>sie zu nutzen",
-    "stationAlt": "OneCup-Kaffeestation mit Pflanzenwand, Kaffeevollautomat und Holzunterschrank",
-    "host": {
-      "title": "Bei Ihnen aufstellen",
-      "text": "Wir stellen die Station auf und warten sie.",
-      "points": ["Keine Investition in Geräte", "Service und Bohnen übernehmen wir"],
-      "cta": "Aufstellung anfragen"
-    },
+    "title": "Was passt zu Ihnen?",
+    "bgAlt": "OneCup-Station zwischen Kaffeebohnen",
+    "note": "Unsicher? Wir erklären Ihnen beide Modelle in 15 Minuten!",
     "buy": {
       "title": "Station kaufen",
-      "text": "Schlüsselfertige Station mit Unterstützung in der Startphase.",
-      "points": ["Die Station gehört Ihnen", "Alle Umsätze gehören Ihnen"],
+      "text": "Sie kaufen die Station schlüsselfertig, erhalten Unterstützung beim Start und alle Umsätze.",
       "cta": "Kauf anfragen"
+    },
+    "host": {
+      "title": "Bei mir aufstellen",
+      "text": "Wir stellen die Station auf und warten sie, Sie stellen den Platz. Miete, Umsatzbeteiligung oder eigene Konditionen.",
+      "cta": "Aufstellung anfragen"
     }
   },
   "where": {

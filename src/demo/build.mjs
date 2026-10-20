@@ -15,8 +15,7 @@ const css = [
     "header",
     "hero",
     "about",
-    "metrics",
-    "materials",
+    "calc",
     "steps",
     "models",
     "slider",
@@ -77,8 +76,8 @@ writeFileSync(
 ${site.slogan} OneCup builds self-service coffee stations in ${site.city}, Germany, and delivers across Germany.
 
 ## Two models
-- Buy: ${langs[1].models.buy.text} ${langs[1].models.buy.points.join("; ")}.
-- Host: ${langs[1].models.host.text} ${langs[1].models.host.points.join("; ")}.
+- Buy: ${langs[1].models.buy.text}
+- Host: ${langs[1].models.host.text}
 
 ## Where stations fit
 ${langs[1].where.items.map((i) => `- ${i.name}: ${i.text}`).join("\n")}

@@ -19,14 +19,14 @@
 .oc-contact__note {
   margin: 0;
   font: var(--oc-body-18);
-  color: var(--oc-text-muted-strong);
+  color: var(--oc-text-muted-dark);
 }
 
 .oc-contact__list {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgb(13 14 19 / 0.12);
+  border-top: 1px solid var(--oc-line-dark);
 }
 
 .oc-contact__row {
@@ -34,7 +34,7 @@
   align-items: center;
   gap: var(--oc-space-24);
   padding: var(--oc-space-24) 0;
-  border-bottom: 1px solid rgb(13 14 19 / 0.12);
+  border-bottom: 1px solid var(--oc-line-dark);
 }
 
 .oc-contact__label {
@@ -54,7 +54,7 @@
 
 .oc-contact__value {
   font: var(--oc-body-16);
-  color: var(--oc-text-muted-strong);
+  color: var(--oc-text-muted-dark);
 }
 
 .oc-contact__icon {

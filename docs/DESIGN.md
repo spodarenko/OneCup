@@ -1,6 +1,6 @@
 # Design → code
 
-Figma: «One cup coffee», `fileKey` in `figma.config.json`. Main page: node `174:10151`, 1440 px, UA.
+Figma: «One cup coffee», `fileKey` in `figma.config.json`. Main page: node `238:133` (v4, dark), 1440 px, UA.
 The design project (research, brief, agents) is `../OneCup/`. It stays outside this repo.
 
 ## Rules
@@ -14,40 +14,40 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 
 | #   | Section                       | Figma node |
 | --- | ----------------------------- | ---------- |
-| —   | Header                        | 187:559    |
-| 1   | Hero                          | 174:10152  |
-| 2   | About OneCup                  | 174:10169  |
-| 3   | Metrics                       | 174:10256  |
-| 4   | Materials                     | 174:11012  |
-| 5   | Coffee in 3 steps             | 174:10319  |
-| 6   | Two models (buy / host)       | 191:699    |
-| 7   | Where it's installed (slider) | 174:10409  |
-| 8   | FAQ                           | 174:10450  |
-| 9   | Already running               | 174:10474  |
-| 10  | Contact                       | 174:10515  |
-| 11  | Marquee                       | 191:661    |
-| —   | Footer                        | 174:10541  |
+| —   | Header                        | 238:536    |
+| 1   | Hero                          | 238:134    |
+| 2   | About OneCup                  | 245:651    |
+| 3   | Revenue calculator            | 246:741    |
+| 4   | How it works (4 steps)        | 238:271    |
+| 5   | Two models (quiz choice)      | 259:2181   |
+| 6   | Where it's installed (slider) | 238:347    |
+| 7   | FAQ                           | 238:387    |
+| 8   | Already running               | 238:411    |
+| 9   | Contact                       | 238:451    |
+| 10  | Marquee                       | 238:474    |
+| —   | Footer                        | 238:477    |
+
+All sections are dark. Calculator: monthly revenue = drinks per day × `calcPrice` × `calcDays` (`src/config/site.json`).
 
 ## Motion
 
 Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText, smooth scroll). Implemented in `src/theme/onecup/assets/js/main.js`:
 
-| Where                   | Effect                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------ |
-| Page                    | Lenis smooth scroll; anchor links scroll smoothly                              |
-| Hero                    | Section pins for 120% of the viewport; the `orbit` video is scrubbed by scroll |
-| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)                   |
-| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                              |
-| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                |
-| Metrics                 | Numbers count up                                                               |
-| Materials               | Row hover/click opens it; image follows the row and cross-fades                |
-| Two models              | Station drifts with scroll; cards lift on hover                                |
-| Marquee                 | Loops; speed and direction follow scroll velocity                              |
-| Links / buttons         | Underline grows from the left; buttons change fill                             |
+| Where                   | Effect                                                          |
+| ----------------------- | --------------------------------------------------------------- |
+| Page                    | Lenis smooth scroll; anchor links scroll smoothly               |
+| Hero                    | Static station render; no pin, nothing tied to scroll           |
+| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)    |
+| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                               |
+| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover |
+| Calculator              | Range input updates the monthly revenue live                    |
+| Two models              | Radio cards; the CTA label follows the chosen model             |
+| Marquee                 | Loops; speed and direction follow scroll velocity               |
+| Links / buttons         | Underline grows from the left; buttons change fill              |
 
 `prefers-reduced-motion` turns all motion off. Without JS the page is fully readable.
 
 ## Media
 
 - Images: WebP, resized to 2× their display size (`cwebp`, q 75–82)
-- Hero video: `orbit-6s-scroll.mp4` → `orbit.webm` (VP9) + `orbit.mp4` (H.264), keyframe every 4 frames so scroll scrubbing is smooth; poster `orbit-poster.webp`
+- Hero: `hero-station.webp`; Two models background: `models-bg.webp` (exported from Figma, `cwebp`)
