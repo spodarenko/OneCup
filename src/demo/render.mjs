@@ -23,7 +23,7 @@ function header(c, all) {
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
     <a href="#models">${c.nav.buy}</a>
     <a href="#models">${c.nav.host}</a>
-    <a href="#materials">${c.nav.materials}</a>
+    <a href="#how">${c.nav.materials}</a>
     <a href="#contact">${c.nav.contact}</a>
     <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
   </nav>
@@ -42,21 +42,17 @@ function header(c, all) {
 }
 
 function hero(c) {
+  const rest = c.hero.subtitle.replace("OneCup – Wake Up.", "");
   return `<section class="oc-hero" id="top">
-  <div class="oc-hero__pin">
-    <h1 class="oc-hero__title" data-split>${c.hero.title}</h1>
-    <div class="oc-hero__media">
-      <video class="oc-hero__video" muted playsinline preload="auto" poster="{{base}}assets/img/orbit-poster.webp" aria-label="${attr(c.hero.videoLabel)}" width="1280" height="720">
-        <source src="{{base}}assets/video/orbit.webm" type="video/webm">
-        <source src="{{base}}assets/video/orbit.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="oc-hero__body" data-reveal>
-      <p class="oc-hero__subtitle">${c.hero.subtitle}</p>
-      <div class="oc-hero__ctas">
-        <a class="oc-btn oc-btn--accent" href="#models">${c.hero.ctaBuy}</a>
-        <a class="oc-btn oc-btn--outline" href="#models">${c.hero.ctaHost}</a>
-      </div>
+  <h1 class="oc-hero__title" data-split>${c.hero.title}</h1>
+  <div class="oc-hero__media">
+    <img src="{{base}}assets/img/hero-station.webp" alt="${attr(c.hero.imgAlt)}" width="2752" height="1536" fetchpriority="high" decoding="async">
+  </div>
+  <div class="oc-hero__body" data-reveal>
+    <p class="oc-hero__subtitle"><span>{{slogan}}</span>${rest}</p>
+    <div class="oc-hero__ctas">
+      <a class="oc-btn oc-btn--accent" href="#models">${c.hero.ctaBuy}</a>
+      <a class="oc-btn oc-btn--outline" href="#models">${c.hero.ctaHost}</a>
     </div>
   </div>
 </section>`;
@@ -67,7 +63,7 @@ function about(c) {
   const pill = (n, alt) =>
     `<img class="oc-about__pill" src="{{base}}assets/img/${n}.webp" alt="${attr(alt)}" width="72" height="46" loading="lazy">`;
   const [before, after] = a.text.split(a.inlineAfter);
-  return `<section class="oc-about oc-light" aria-labelledby="about-title">
+  return `<section class="oc-about oc-dark" aria-labelledby="about-title">
   <div class="oc-about__inner">
     ${eyebrow(a.eyebrow)}
     <p class="oc-about__quote" id="about-title" data-fill><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
@@ -75,43 +71,23 @@ function about(c) {
 </section>`;
 }
 
-function metrics(c) {
-  const items = c.metrics
-    .map(
-      (m) => `<div class="oc-metric" data-reveal>
-      <p class="oc-metric__value"><span data-count="${m.value}">${m.value}</span><span class="oc-metric__unit">${m.unit}</span></p>
-      <h3 class="oc-metric__title">${m.title}</h3>
-      <p class="oc-metric__text">${m.text}</p>
-    </div>`,
-    )
-    .join("");
-  return `<section class="oc-metrics oc-light" aria-label="${attr(c.metrics.map((m) => m.title).join(", "))}">
-  <div class="oc-metrics__grid">${items}</div>
-</section>`;
-}
-
-function materials(c) {
-  const m = c.materials;
-  const rows = m.items
-    .map(
-      (it, i) => `<li class="oc-mat__row${i === 0 ? " is-active" : ""}" data-index="${i}">
-      <button class="oc-mat__name" type="button" aria-expanded="${i === 0}" aria-controls="mat-${i}">${it.name}</button>
-      <div class="oc-mat__text" id="mat-${i}">
-        <h3 class="oc-mat__lead">${it.lead}</h3>
-        <p class="oc-mat__desc">${it.text}</p>
-      </div>
-    </li>`,
-    )
-    .join("");
-  const imgs = m.items
-    .map((it, i) => img(it.img, it.alt, 640, 811, i === 0 ? ' class="is-active"' : ""))
-    .join("");
-  return `<section class="oc-mat oc-dark" id="materials" aria-labelledby="mat-title">
-  ${eyebrow(m.eyebrow, "oc-eyebrow--muted")}
-  <h2 class="oc-visually-hidden" id="mat-title">${m.title}</h2>
-  <div class="oc-mat__body">
-    <ul class="oc-mat__list">${rows}</ul>
-    <div class="oc-mat__media" aria-hidden="true">${imgs}</div>
+function calc(c) {
+  const k = c.calc;
+  const marks = [10, 50, 100, 150, 200].map((n) => `<span>${n}</span>`).join("");
+  return `<section class="oc-calc oc-dark" aria-labelledby="calc-title">
+  <div class="oc-calc__head">
+    ${eyebrow(k.eyebrow)}
+    <h2 class="oc-calc__title" id="calc-title" data-split>${k.title}</h2>
+    <p class="oc-calc__text">${k.text}</p>
+  </div>
+  <div class="oc-calc__card" data-calc data-price="{{calcPrice}}" data-days="{{calcDays}}" data-locale="${c.ogLocale.replace("_", "-")}">
+    <div class="oc-calc__slider">
+      <label class="oc-calc__label" for="calc-cups"><span>${k.label}</span><output for="calc-cups">{{calcValue}}</output></label>
+      <input class="oc-calc__range" id="calc-cups" type="range" min="{{calcMin}}" max="{{calcMax}}" step="{{calcStep}}" value="{{calcValue}}">
+      <div class="oc-calc__scale" aria-hidden="true">${marks}</div>
+    </div>
+    <p class="oc-calc__result-label" id="calc-result-label">${k.result}</p>
+    <p class="oc-calc__result" aria-live="polite" aria-labelledby="calc-result-label"><span data-calc-sum></span><span class="oc-calc__cur">€</span></p>
   </div>
 </section>`;
 }
@@ -124,39 +100,42 @@ function steps(c) {
       <span class="oc-step__n" aria-hidden="true"><span>${it.n}</span></span>
       <div class="oc-step__text">
         <h3 class="oc-step__label">${it.label}</h3>
-        <p class="oc-step__note">${it.note}</p>
         <p class="oc-step__body">${it.text}</p>
       </div>
     </li>`,
     )
     .join("");
-  return `<section class="oc-steps oc-light" aria-labelledby="steps-title">
+  return `<section class="oc-steps oc-dark" id="how" aria-labelledby="steps-title">
   ${eyebrow(s.eyebrow)}
   <h2 class="oc-visually-hidden" id="steps-title">${s.title}</h2>
   <ol class="oc-steps__list">${items}</ol>
 </section>`;
 }
 
-function card(m, mod, btn, href) {
-  return `<article class="oc-model oc-model--${mod}" data-reveal>
-      <h3 class="oc-model__title">${m.title}</h3>
-      <p class="oc-model__text">${m.text}</p>
-      <ul class="oc-model__points">${m.points.map((p) => `<li>${p}</li>`).join("")}</ul>
-      <a class="oc-btn ${btn}" href="${href}">${m.cta}</a>
-    </article>`;
+function choice(m, key, checked) {
+  return `<label class="oc-choice">
+        <input type="radio" name="model" value="${key}" data-cta="${attr(m.cta)}"${checked ? " checked" : ""}>
+        <span class="oc-choice__radio" aria-hidden="true"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M2.5 7.5L5.5 10.5L11.5 3.5"/></svg></span>
+        <span class="oc-choice__text"><span class="oc-choice__title">${m.title}</span><span class="oc-choice__desc">${m.text}</span></span>
+      </label>`;
 }
 
 function models(c) {
   const m = c.models;
   return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
+  <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2752" height="1847" loading="lazy" decoding="async">
   <div class="oc-models__head">
-    ${eyebrow(m.eyebrow)}
+    ${eyebrow(m.eyebrow, "oc-eyebrow--muted")}
     <h2 class="oc-h2" id="models-title" data-split>${m.title}</h2>
   </div>
-  <div class="oc-models__stage">
-    ${card(m.host, "host", "oc-btn--light", "#contact")}
-    <div class="oc-models__station">${img("station", m.stationAlt, 1010, 1250)}</div>
-    ${card(m.buy, "buy", "oc-btn--accent", "#contact")}
+  <fieldset class="oc-models__choices">
+    <legend class="oc-visually-hidden">${m.title}</legend>
+    ${choice(m.buy, "buy", true)}
+    ${choice(m.host, "host", false)}
+  </fieldset>
+  <div class="oc-models__foot">
+    <p>${m.note}</p>
+    <a class="oc-btn oc-btn--accent" href="#contact" data-model-cta>${m.buy.cta}</a>
   </div>
 </section>`;
 }
@@ -171,7 +150,7 @@ function slider(c, key, id) {
       </li>`,
     )
     .join("");
-  return `<section class="oc-slider oc-light" id="${id}" aria-labelledby="${id}-title">
+  return `<section class="oc-slider oc-dark" id="${id}" aria-labelledby="${id}-title">
   <div class="oc-slider__head">
     <div>
       ${eyebrow(s.eyebrow)}
@@ -196,7 +175,7 @@ function faq(c) {
     </details>`,
     )
     .join("");
-  return `<section class="oc-faq oc-light" aria-labelledby="faq-title">
+  return `<section class="oc-faq oc-dark" aria-labelledby="faq-title">
   <div class="oc-faq__head">
     ${eyebrow(f.eyebrow)}
     <h2 class="oc-h2" id="faq-title" data-split>${f.title}</h2>
@@ -209,7 +188,7 @@ function contact(c) {
   const k = c.contact;
   const row = (href, label, value, ic, mod = "", ext = "") =>
     `<li><a class="oc-contact__row ${mod}" href="${href}"${ext}><span class="oc-contact__label">${label}</span><span class="oc-contact__value">${value}</span>${icon(ic, "oc-icon oc-contact__icon")}</a></li>`;
-  return `<section class="oc-contact oc-light" id="contact" aria-labelledby="contact-title">
+  return `<section class="oc-contact oc-dark" id="contact" aria-labelledby="contact-title">
   <div class="oc-contact__head">
     ${eyebrow(k.eyebrow)}
     <h2 class="oc-h2" id="contact-title" data-split>${k.title}</h2>
@@ -245,7 +224,7 @@ function footer(c) {
       <a class="oc-link" href="#top">${f.home}</a>
       <a class="oc-link" href="#models">${c.nav.buy}</a>
       <a class="oc-link" href="#models">${c.nav.host}</a>
-      <a class="oc-link" href="#materials">${c.nav.materials}</a>
+      <a class="oc-link" href="#how">${c.nav.materials}</a>
       <a class="oc-link" href="#contact">${c.nav.contact}</a>
     </nav>
     <nav class="oc-footer__col" aria-label="${attr(f.models)}">
@@ -332,7 +311,7 @@ export function render(c, all, site, css) {
     <link rel="icon" href="{{base}}favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="{{base}}assets/img/orbit-poster.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="{{base}}assets/img/hero-station.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}
@@ -344,8 +323,7 @@ export function render(c, all, site, css) {
     <main id="main">
       ${hero(c)}
       ${about(c)}
-      ${metrics(c)}
-      ${materials(c)}
+      ${calc(c)}
       ${steps(c)}
       ${models(c)}
       ${slider(c, "where", "where")}

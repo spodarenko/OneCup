@@ -1,4 +1,4 @@
-/* Coffee in 3 steps — Figma 174:10319 */
+/* How it works, 4 steps — Figma 238:271 (home v4) */
 .oc-steps {
   position: relative;
   padding: var(--oc-space-64) var(--oc-gutter);
@@ -35,11 +35,6 @@
 .oc-step__label {
   margin: 0;
   font: 600 14px/20px var(--oc-font);
-}
-
-.oc-step__note {
-  margin: 0 0 var(--oc-space-4);
-  font: var(--oc-body-14);
 }
 
 .oc-step__body {

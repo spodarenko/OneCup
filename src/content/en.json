@@ -22,7 +22,7 @@
     "subtitle": "OneCup – Wake Up. Fresh coffee at the touch of a button: buy the station as a business or host one at your venue — no effort for your team.",
     "ctaBuy": "Buy a station",
     "ctaHost": "Host a station",
-    "videoLabel": "OneCup cup inside a glowing orbit with coffee beans"
+    "imgAlt": "Illuminated OneCup coffee station"
   },
   "about": {
     "eyebrow": "[ About OneCup ]",
@@ -32,92 +32,53 @@
     "imgMachine": "OneCup coffee machine",
     "imgStation": "OneCup station in a lobby"
   },
-  "metrics": [
-    {
-      "value": "80",
-      "unit": "%",
-      "title": "Drink coffee daily",
-      "text": "Often several times a day — across all audiences"
-    },
-    {
-      "value": "100",
-      "unit": "%",
-      "title": "Service concept",
-      "text": "Coffee raises satisfaction and time spent on site"
-    },
-    {
-      "value": "165",
-      "unit": "L",
-      "title": "Per person per year",
-      "text": "Germany is Europe’s No. 1 coffee country"
-    }
-  ],
-  "materials": {
-    "eyebrow": "[ Materials ]",
-    "title": "What goes into every OneCup",
-    "items": [
-      {
-        "name": "Beans",
-        "lead": "Freshly ground whole-bean coffee",
-        "text": "Beans are ground right before every cup. No capsules, no instant coffee — café taste.",
-        "img": "material-beans",
-        "alt": "Coffee beans falling through a grinder into a OneCup cup"
-      },
-      {
-        "name": "Cups",
-        "lead": "One cup — and your coffee is to go",
-        "text": "Cups are matched to every drink and easy to take with you.",
-        "img": "material-cups",
-        "alt": "Three OneCup cups in different sizes"
-      },
-      {
-        "name": "Technology",
-        "lead": "A station that looks after itself",
-        "text": "Automatic cleaning, online monitoring and cashless payment. Meets CE and EN 60335 standards.",
-        "img": "material-tech",
-        "alt": "Inner module of the OneCup coffee station"
-      }
-    ]
+  "calc": {
+    "eyebrow": "[ Calculator ]",
+    "title": "How much does a station earn?",
+    "text": "Choose how many drinks are sold per day.",
+    "label": "Drinks per day",
+    "result": "Estimated monthly revenue"
   },
   "steps": {
     "eyebrow": "[ How it works ]",
-    "title": "Coffee in 3 steps",
+    "title": "How OneCup works",
     "items": [
       {
         "n": "01",
-        "label": "Step 1 | Choose",
-        "note": "Cappuccino, latte, americano, mocha — 10+ drinks",
-        "text": "Pick your drink on the station’s touch display. The menu is clear at first glance — no instructions, no barista, no queue."
+        "label": "Choose a location",
+        "text": "Choose a suitable location for your OneCup coffee station."
       },
       {
         "n": "02",
-        "label": "Step 2 | Pay",
-        "note": "Card, smartphone, coins (MDB)",
-        "text": "Pay the way you’re used to: by card, smartphone or coins. The payment terminal is built into the station, so it takes seconds."
+        "label": "We set up the station",
+        "text": "We install the coffee station and get it ready to run."
       },
       {
         "n": "03",
-        "label": "Step 3 | Coffee",
-        "note": "Freshly ground, a cup in about 1 minute",
-        "text": "Take your fresh coffee in a to-go cup with a lid. Beans are ground for every serving — every cup tastes like a café, just without the wait."
+        "label": "Choose & pay",
+        "text": "The customer picks a favourite drink, pays contactless and the coffee is made fresh."
+      },
+      {
+        "n": "04",
+        "label": "Enjoy & earn",
+        "text": "Your customers enjoy their coffee — you earn on every cup sold."
       }
     ]
   },
   "models": {
     "eyebrow": "[ Two models ]",
-    "title": "One station.<br>Two ways<br>to use it",
-    "stationAlt": "OneCup coffee station with a living wall, coffee machine and wooden cabinet",
-    "host": {
-      "title": "Host one",
-      "text": "We install and service the station.",
-      "points": ["No investment in equipment", "Service and beans are on us"],
-      "cta": "Request hosting"
-    },
+    "title": "Which suits you?",
+    "bgAlt": "OneCup station among coffee beans",
+    "note": "Not sure? We’ll walk you through both models in 15 minutes!",
     "buy": {
       "title": "Buy a station",
-      "text": "Turnkey station with support at launch.",
-      "points": ["The station is yours", "All sales revenue is yours"],
+      "text": "Buy a turnkey station, get support at launch and keep all sales revenue.",
       "cta": "Request to buy"
+    },
+    "host": {
+      "title": "Host one at my venue",
+      "text": "We install and service the station, you provide the space. Rent, a share of sales or your own terms.",
+      "cta": "Request hosting"
     }
   },
   "where": {

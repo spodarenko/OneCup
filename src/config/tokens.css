@@ -24,6 +24,14 @@
   --oc-card-line: rgb(255 255 255 / 0.08);
   --oc-glass: rgb(26 27 33 / 0.2);
   --oc-glass-line: rgb(255 255 255 / 0.18);
+  /* Home v4 (Figma 238:133) */
+  --oc-hero-v4-bg: #000001;
+  --oc-calc-card: rgb(255 255 255 / 0.02);
+  --oc-calc-track: rgb(255 255 255 / 0.2);
+  --oc-calc-knob-halo: rgb(255 255 255 / 0.12);
+  --oc-choice-bg: rgb(239 235 227 / 0.04);
+  --oc-choice-line: rgb(239 235 227 / 0.15);
+  --oc-choice-radio: rgb(239 235 227 / 0.3);
 
   /* Motion — eases mirror the coffee-tech.com reference (power2.out) */
   --oc-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -70,6 +78,7 @@
   --oc-display-144: 500 144px/172px var(--oc-font);
   --oc-display-128: 500 128px/144px var(--oc-font);
   --oc-display-88: 600 88px/72px var(--oc-font);
+  --oc-h-48: 600 48px/50px var(--oc-font);
   --oc-h0: 600 72px/72px var(--oc-font);
   --oc-h1: 600 64px/64px var(--oc-font);
   --oc-h2: 600 52px/60px var(--oc-font);

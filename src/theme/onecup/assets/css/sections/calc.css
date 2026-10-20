@@ -1,0 +1,163 @@
+/* Revenue calculator — Figma 246:741 (home v4) */
+.oc-calc {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--oc-space-80);
+  align-items: start;
+  padding: var(--oc-space-96) var(--oc-gutter);
+}
+
+.oc-calc__head {
+  display: grid;
+  gap: var(--oc-space-16);
+}
+
+.oc-calc__title {
+  margin: 0;
+  font: var(--oc-h-48);
+  color: var(--oc-text-cream);
+}
+
+.oc-calc__text {
+  margin: 0;
+  font: var(--oc-body-16);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-calc__card {
+  display: grid;
+  gap: var(--oc-space-32);
+  padding: var(--oc-space-48);
+  border: 1px solid var(--oc-line-dark);
+  border-radius: var(--oc-radius-24);
+  background: var(--oc-calc-card);
+}
+
+.oc-calc__slider {
+  display: grid;
+  gap: var(--oc-space-16);
+}
+
+.oc-calc__label {
+  display: flex;
+  justify-content: space-between;
+  font: 500 14px/20px var(--oc-font);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-calc__label output {
+  font-weight: 600;
+  color: var(--oc-text-cream);
+}
+
+.oc-calc__range {
+  --oc-fill: 21%;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.oc-calc__range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: var(--oc-radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--oc-accent) var(--oc-fill),
+    var(--oc-calc-track) var(--oc-fill)
+  );
+}
+
+.oc-calc__range::-moz-range-track {
+  height: 8px;
+  border-radius: var(--oc-radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--oc-accent) var(--oc-fill),
+    var(--oc-calc-track) var(--oc-fill)
+  );
+}
+
+.oc-calc__range::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  margin-top: -8px;
+  border: 0;
+  border-radius: var(--oc-radius-full);
+  background: var(--oc-text-cream);
+  box-shadow: 0 0 0 16px var(--oc-calc-knob-halo);
+  appearance: none;
+}
+
+.oc-calc__range::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: var(--oc-radius-full);
+  background: var(--oc-text-cream);
+  box-shadow: 0 0 0 16px var(--oc-calc-knob-halo);
+}
+
+.oc-calc__range:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 8px;
+  border-radius: var(--oc-radius-4);
+}
+
+.oc-calc__scale {
+  display: flex;
+  justify-content: space-between;
+  font: var(--oc-body-16);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-calc__result-label {
+  margin: 0 0 calc(var(--oc-space-8) - var(--oc-space-32));
+  font: 500 14px/20px var(--oc-font);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-calc__result {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oc-space-12);
+  margin: 0;
+  font: var(--oc-display-128);
+  letter-spacing: -0.07em;
+  color: var(--oc-text-cream);
+  font-variant-numeric: tabular-nums;
+}
+
+.oc-calc__cur {
+  font: var(--oc-h0);
+  letter-spacing: 0;
+}
+
+@media (max-width: 1100px) {
+  .oc-calc {
+    grid-template-columns: 1fr;
+    gap: var(--oc-space-40);
+    padding: var(--oc-space-64) var(--oc-space-24);
+  }
+
+  .oc-calc__title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .oc-calc__card {
+    padding: var(--oc-space-24);
+  }
+
+  .oc-calc__result {
+    font-size: 72px;
+    line-height: 80px;
+  }
+
+  .oc-calc__cur {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}

@@ -62,33 +62,28 @@
     }),
   );
 
-  /* Materials: one row open, image follows the active row */
-  const mat = $(".oc-mat");
-  if (mat) {
-    const rows = $$(".oc-mat__row", mat);
-    const imgs = $$(".oc-mat__media img", mat);
-    const media = $(".oc-mat__media", mat);
-    const activate = (i) => {
-      rows.forEach((r, k) => {
-        r.classList.toggle("is-active", k === i);
-        $(".oc-mat__name", r).setAttribute("aria-expanded", String(k === i));
-      });
-      imgs.forEach((im, k) => im.classList.toggle("is-active", k === i));
-      if (media && matchMedia("(min-width: 1201px)").matches) {
-        const row = rows[i];
-        media.style.setProperty(
-          "--oc-mat-y",
-          `${row.offsetTop + row.offsetHeight / 2 - media.offsetHeight / 2}px`,
-        );
-        media.style.setProperty("--oc-mat-r", `${i % 2 ? -4 : 4}deg`);
-      }
+  /* Calculator: drinks per day → monthly revenue */
+  $$("[data-calc]").forEach((card) => {
+    const range = $("input[type=range]", card);
+    const out = $("output", card);
+    const sum = $("[data-calc-sum]", card);
+    const fmt = new Intl.NumberFormat(card.dataset.locale, { maximumFractionDigits: 0 });
+    const update = () => {
+      const v = Number(range.value);
+      const p = ((v - range.min) / (range.max - range.min)) * 100;
+      range.style.setProperty("--oc-fill", `${p}%`);
+      out.textContent = v;
+      sum.textContent = fmt.format(v * card.dataset.price * card.dataset.days);
     };
-    rows.forEach((r, i) => {
-      $(".oc-mat__name", r).addEventListener("click", () => activate(i));
-      r.addEventListener("mouseenter", () => activate(i));
-    });
-    addEventListener("load", () => activate(0));
-  }
+    range.addEventListener("input", update);
+    update();
+  });
+
+  /* Two models: the CTA follows the chosen model */
+  const cta = $("[data-model-cta]");
+  $$('input[name="model"]').forEach((r) =>
+    r.addEventListener("change", () => cta && (cta.textContent = r.dataset.cta)),
+  );
 
   /* Sliders: buttons scroll by one card */
   $$(".oc-slider").forEach((s) => {
@@ -130,53 +125,6 @@
         lenis.scrollTo(el, { duration: 1.2 });
       }),
     );
-  }
-
-  /* Hero: orbit video scrubbed by scroll while the hero is pinned */
-  const video = $(".oc-hero__video");
-  if (video) {
-    const pin = $(".oc-hero__pin");
-    let target = 0;
-    const seek = () => {
-      if (video.readyState >= 1 && Math.abs(video.currentTime - target) > 0.01)
-        video.currentTime = target;
-    };
-    // iOS only renders seeks after the video has been played once
-    const unlock = () =>
-      video
-        .play()
-        .then(() => video.pause())
-        .catch(() => {});
-    addEventListener("touchstart", unlock, { once: true, passive: true });
-    video.load();
-    ScrollTrigger.create({
-      trigger: ".oc-hero",
-      start: "top top",
-      end: "+=120%",
-      pin,
-      scrub: true,
-      onUpdate: (self) => {
-        if (!video.duration) return;
-        target = self.progress * (video.duration - 0.05);
-        requestAnimationFrame(seek);
-      },
-    });
-    // The machine lifts up while it turns, the title and body rise with it
-    const media = $(".oc-hero__media");
-    const lift = () => -0.22 * media.offsetHeight;
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".oc-hero",
-          start: "top top",
-          end: "+=120%",
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
-      })
-      .fromTo(media, { y: 0, scale: 1 }, { y: lift, scale: 1.06, ease: "none" }, 0)
-      .fromTo(".oc-hero__title", { y: 0 }, { y: lift, ease: "none" }, 0)
-      .fromTo(".oc-hero__body", { y: 0 }, { y: lift, ease: "none" }, 0);
   }
 
   /* Headings: coffee-tech.com text reveal — lines rise and unclip (power4.out, 1.6 s, stagger 0.1) */
@@ -237,7 +185,7 @@
     step.removeAttribute("data-reveal");
     const tl = gsap.timeline({ scrollTrigger: { trigger: step, start: "top 80%", once: true } });
     tl.from($(".oc-step__n span", step), { yPercent: 100, duration: 0.9, ease: "power3.out" }).from(
-      $$(".oc-step__label, .oc-step__note, .oc-step__body", step),
+      $$(".oc-step__label, .oc-step__body", step),
       { y: 30, autoAlpha: 0, duration: 0.7, stagger: 0.08, ease },
       0.15,
     );
@@ -254,6 +202,46 @@
     }),
   );
 
+  /* Lists stagger in: calc card, model choices, FAQ, contact rows, footer columns */
+  [
+    [".oc-calc", ".oc-calc__card"],
+    [".oc-models__choices", ".oc-choice"],
+    [".oc-models", ".oc-models__foot"],
+    [".oc-faq__list", ".oc-faq__item"],
+    [".oc-contact__list", "li"],
+    [".oc-footer", ".oc-footer > * > *"],
+  ].forEach(([scope, items]) => {
+    const root = $(scope);
+    const els = root ? $$(items, root.parentElement) : [];
+    if (!els.length) return;
+    gsap.from(els, {
+      y: 40,
+      autoAlpha: 0,
+      duration: 0.8,
+      ease,
+      stagger: 0.08,
+      scrollTrigger: { trigger: els[0], start: "top 88%", once: true },
+    });
+  });
+
+  /* Calculator: revenue counts up the first time it comes into view */
+  const sum = $("[data-calc-sum]");
+  if (sum) {
+    const card = sum.closest("[data-calc]");
+    const fmt = new Intl.NumberFormat(card.dataset.locale, { maximumFractionDigits: 0 });
+    const n = { v: 0 };
+    const range = $("input[type=range]", card);
+    const to = Number(range.value) * card.dataset.price * card.dataset.days;
+    const count = gsap.to(n, {
+      v: to,
+      duration: 1.4,
+      ease: "power3.out",
+      onUpdate: () => (sum.textContent = fmt.format(n.v)),
+      scrollTrigger: { trigger: card, start: "top 80%", once: true },
+    });
+    range.addEventListener("input", () => count.kill(), { once: true });
+  }
+
   /* Cards stagger in */
   $$(".oc-slider__track").forEach((t) =>
     gsap.from($$(".oc-card", t), {
@@ -265,38 +253,6 @@
       scrollTrigger: { trigger: t, start: "top 85%", once: true },
     }),
   );
-
-  /* Metrics count up */
-  $$("[data-count]").forEach((el) => {
-    const to = Number(el.dataset.count);
-    const obj = { v: 0 };
-    gsap.to(obj, {
-      v: to,
-      duration: 1.6,
-      ease: "power2.inOut",
-      scrollTrigger: { trigger: el, start: "top 90%", once: true },
-      onUpdate: () => (el.textContent = Math.round(obj.v)),
-    });
-  });
-
-  /* Station in «Two models» drifts with scroll */
-  const station = $(".oc-models__station img");
-  if (station)
-    gsap.fromTo(
-      station,
-      { yPercent: 8, scale: 0.94 },
-      {
-        yPercent: -4,
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".oc-models",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      },
-    );
 
   /* Marquee reacts to scroll direction and speed */
   const track = $(".oc-marquee__track");

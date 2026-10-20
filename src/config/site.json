@@ -10,5 +10,11 @@
   "country": "DE",
   "languages": ["de", "en", "uk"],
   "defaultLanguage": "de",
-  "year": 2026
+  "year": 2026,
+  "calcMin": 10,
+  "calcMax": 200,
+  "calcStep": 5,
+  "calcValue": 50,
+  "calcPrice": 2.7,
+  "calcDays": 30
 }
