@@ -228,5 +228,132 @@
     "toTop": "Nach oben",
     "legal": "Impressum · Datenschutz"
   },
-  "name": "Deutsch"
+  "name": "Deutsch",
+  "buy": {
+    "meta": {
+      "title": "OneCup Kaffeestation kaufen — Ihr Kaffee, Ihr Business",
+      "description": "Schlüsselfertige Selbstbedienungs-Kaffeestation: Kaffeevollautomat, Schrank, Becher und Unterstützung beim Start. Modelle ab 6.000 €."
+    },
+    "hero": {
+      "title": "OneCup<br>Ihr Kaffee. Ihr Business",
+      "subtitle": "Sie möchten zusätzliches Einkommen, ohne ein Café zu eröffnen?",
+      "cta": "Kaufanfrage",
+      "kit": "Was ist enthalten",
+      "imgAlt": "OneCup Kaffeevollautomat mit einem Becher Kaffee"
+    },
+    "who": {
+      "eyebrow": "[ Für wen ]",
+      "before": "Zusätzliches Einkommen ohne eigenes Café?",
+      "after": "Fertige Station — aufstellen, anschließen und starten",
+      "img1": "OneCup Kaffeestation",
+      "img2": "OneCup Kaffeebecher"
+    },
+    "metrics": [
+      {
+        "v": "230",
+        "u": "V",
+        "t": "Strom",
+        "d": "Normale Steckdose —<br>keine eigene Leitung nötig"
+      },
+      {
+        "v": "24",
+        "u": "/7",
+        "t": "Betrieb",
+        "d": "Gäste bedienen sich selbst —<br>Ihr Team wird nicht gestört"
+      },
+      {
+        "v": "~1",
+        "u": "m²",
+        "t": "Fläche",
+        "d": "Passt an die Wand oder in die Ecke —<br>ohne Umbau"
+      }
+    ],
+    "guests": {
+      "eyebrow": "[ Für Ihre Gäste ]",
+      "items": [
+        {
+          "t": "Ohne Warteschlange",
+          "d": "Gäste wählen am Bildschirm und haben ihr Getränk in einer Minute"
+        },
+        {
+          "t": "Karte oder bar",
+          "d": "Jede bequeme Zahlungsart vor Ort"
+        },
+        {
+          "t": "Frisch gemahlen",
+          "d": "Jede Tasse wird direkt vor der Zubereitung gemahlen"
+        },
+        {
+          "t": "Kaffee to go",
+          "d": "Becher und Deckel direkt daneben"
+        }
+      ]
+    },
+    "kit": {
+      "eyebrow": "[ Was ist enthalten ]",
+      "title": "Alles für den Start — in einem Paket",
+      "items": [
+        {
+          "t": "Kaffeevollautomat",
+          "d": "Professionell, mit frischer Mahlung"
+        },
+        {
+          "t": "Schrank nach Maß",
+          "d": "Mit Organizer für Deckel, Sirupe, Zucker, Servietten und Rührstäbchen"
+        },
+        {
+          "t": "2 Spender",
+          "d": "Für Becher"
+        },
+        {
+          "t": "Wassertank",
+          "d": "19 l Volumen"
+        },
+        {
+          "t": "Abwassertank",
+          "d": "Für flüssige Abfälle, 12 l"
+        },
+        {
+          "t": "500 Becher mit Deckel",
+          "d": "Premium, für Kaffee to go"
+        },
+        {
+          "t": "Zucker und Rührstäbchen",
+          "d": "Je 1 Packung"
+        },
+        {
+          "t": "Getränkerezepte",
+          "d": "Abgestimmt auf Ihren Standort"
+        },
+        {
+          "t": "Unterstützung beim Start",
+          "d": "Persönliche Begleitung"
+        }
+      ]
+    },
+    "lineup": {
+      "eyebrow": "[ Modelle ]",
+      "title": "OneCup Kaffeestation",
+      "text": "Eine Station — drei Schrankvarianten für Ihren Raum",
+      "from": "ab",
+      "cta": "Kaufanfrage",
+      "items": [
+        {
+          "t": "Modell A",
+          "p": "6.000 €",
+          "d": "Schrank Compact"
+        },
+        {
+          "t": "Modell B",
+          "p": "10.000 €",
+          "d": "Schrank Classic"
+        },
+        {
+          "t": "Modell C",
+          "p": "20.000 €",
+          "d": "Schrank Premium"
+        }
+      ]
+    }
+  }
 }

@@ -27,6 +27,21 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 | 10  | Marquee                       | 238:474    |
 | —   | Footer                        | 238:477    |
 
+## Buy page `kaufen/` (top → bottom)
+
+Figma node `266:4358` «Station kaufen». One per language: `/kaufen/`, `/en/kaufen/`, `/uk/kaufen/`. Content: `buy` in `src/content/<lang>.json`; UA copy from Figma, EN/DE translated.
+
+| #   | Section                      | Reuses           |
+| --- | ---------------------------- | ---------------- |
+| 1   | Hero (machine render, glow)  | hero             |
+| 2   | Who it's for (word-fill)     | about            |
+| 3   | Metrics 230 V · 24/7 · ~1 m² | —                |
+| 4   | For your guests              | —                |
+| 5   | Revenue calculator           | calc             |
+| 6   | What's included (9 rows)     | —                |
+| 7   | Models A / B / C with prices | —                |
+| 8   | Contact, Marquee, Footer     | contact, marquee |
+
 All sections are dark. Calculator: monthly revenue = drinks per day × `calcPrice` × `calcDays` (`src/config/site.json`).
 
 ## Motion

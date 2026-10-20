@@ -1,4 +1,4 @@
-// Renders one language version of the home page. Content: src/content/<lang>.json, site data: src/config/site.json.
+// Renders one language version of a page (home or buy). Content: src/content/<lang>.json, site data: src/config/site.json.
 import { icons } from "./icons.mjs";
 
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -9,11 +9,13 @@ const img = (name, alt, w, h, extra = "") =>
 
 const eyebrow = (text, cls = "") => `<p class="oc-eyebrow ${cls}">${text}</p>`;
 
-function header(c, all) {
+function header(c, all, page) {
+  const h = page === "home" ? "" : `{{base}}${c.path}`;
+  const sub = page === "buy" ? "kaufen/" : "";
   const others = all
     .map(
       (l) =>
-        `<li><a href="{{base}}${l.path}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.name}</a></li>`,
+        `<li><a href="{{base}}${l.path}${sub}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.name}</a></li>`,
     )
     .join("");
   return `<header class="oc-header">
@@ -21,9 +23,9 @@ function header(c, all) {
     <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="138" height="33">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
-    <a href="#models">${c.nav.buy}</a>
-    <a href="#models">${c.nav.host}</a>
-    <a href="#how">${c.nav.materials}</a>
+    <a href="{{base}}${c.path}kaufen/"${page === "buy" ? ' aria-current="page"' : ""}>${c.nav.buy}</a>
+    <a href="${h}#models">${c.nav.host}</a>
+    <a href="${h}#how">${c.nav.materials}</a>
     <a href="#contact">${c.nav.contact}</a>
     <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
   </nav>
@@ -210,8 +212,9 @@ function marquee() {
 </section>`;
 }
 
-function footer(c) {
+function footer(c, page) {
   const f = c.footer;
+  const h = page === "home" ? "" : `{{base}}${c.path}`;
   return `<footer class="oc-footer oc-dark">
   <div class="oc-footer__top">
     <img class="oc-footer__logo" src="{{base}}assets/img/logo-cup.svg" alt="OneCup" width="107" height="142" loading="lazy">
@@ -221,16 +224,16 @@ function footer(c) {
     </div>
     <nav class="oc-footer__col" aria-label="${attr(f.pages)}">
       <h2>${f.pages}</h2>
-      <a class="oc-link" href="#top">${f.home}</a>
-      <a class="oc-link" href="#models">${c.nav.buy}</a>
-      <a class="oc-link" href="#models">${c.nav.host}</a>
-      <a class="oc-link" href="#how">${c.nav.materials}</a>
+      <a class="oc-link" href="${h}#top">${f.home}</a>
+      <a class="oc-link" href="{{base}}${c.path}kaufen/">${c.nav.buy}</a>
+      <a class="oc-link" href="${h}#models">${c.nav.host}</a>
+      <a class="oc-link" href="${h}#how">${c.nav.materials}</a>
       <a class="oc-link" href="#contact">${c.nav.contact}</a>
     </nav>
     <nav class="oc-footer__col" aria-label="${attr(f.models)}">
       <h2>${f.models}</h2>
-      <a class="oc-link" href="#models">${f.buyModel}</a>
-      <a class="oc-link" href="#models">${f.hostModel}</a>
+      <a class="oc-link" href="{{base}}${c.path}kaufen/">${f.buyModel}</a>
+      <a class="oc-link" href="${h}#models">${f.hostModel}</a>
     </nav>
     <a class="oc-round oc-round--light oc-footer__top-btn" href="#top" aria-label="${attr(f.toTop)}">${icon("caret-up")}</a>
   </div>
@@ -241,8 +244,98 @@ function footer(c) {
 </footer>`;
 }
 
-function jsonLd(c, site) {
-  const url = site.url + c.path;
+// Buy page — Figma 266:4358 «Station kaufen»
+function buyHero(b) {
+  return `<section class="oc-hero oc-hero--buy" id="top">
+  <h1 class="oc-hero__title" data-split>${b.hero.title}</h1>
+  <div class="oc-hero__media">
+    <img src="{{base}}assets/img/buy-hero.webp" alt="${attr(b.hero.imgAlt)}" width="1024" height="683" fetchpriority="high" decoding="async">
+  </div>
+  <div class="oc-hero__body" data-reveal>
+    <p class="oc-hero__subtitle">${b.hero.subtitle}</p>
+    <div class="oc-hero__ctas">
+      <a class="oc-btn oc-btn--accent" href="#contact">${b.hero.cta}</a>
+      <a class="oc-btn oc-btn--outline" href="#kit">${b.hero.kit}</a>
+    </div>
+  </div>
+</section>`;
+}
+
+function buyWho(b) {
+  const w = b.who;
+  const pill = (n, alt) =>
+    `<img class="oc-about__pill" src="{{base}}assets/img/buy-pill-${n}.webp" alt="${attr(alt)}" width="94" height="60" loading="lazy">`;
+  return `<section class="oc-about oc-dark" aria-label="${attr(w.before)}">
+  <div class="oc-about__inner">
+    ${eyebrow(w.eyebrow)}
+    <p class="oc-about__quote oc-about__quote--plain" data-fill>“${w.before} ${pill(1, w.img1)} ${w.after} ${pill(2, w.img2)} ”</p>
+  </div>
+</section>`;
+}
+
+function buyMetrics(b) {
+  const items = b.metrics
+    .map(
+      (m) => `<li class="oc-metric">
+      <p class="oc-metric__value">${m.v}<span>${m.u}</span></p>
+      <h3 class="oc-metric__title">${m.t}</h3>
+      <p class="oc-metric__text">${m.d}</p>
+    </li>`,
+    )
+    .join("");
+  return `<section class="oc-metrics oc-dark"><ul class="oc-metrics__list">${items}</ul></section>`;
+}
+
+function buyGuests(b) {
+  const g = b.guests;
+  const items = g.items.map((it) => `<li><h3>${it.t}</h3><p>${it.d}</p></li>`).join("");
+  return `<section class="oc-guests oc-dark" aria-label="${attr(g.eyebrow)}">
+  ${eyebrow(g.eyebrow)}
+  <ul class="oc-guests__list">${items}</ul>
+</section>`;
+}
+
+const pad = (i) => String(i + 1).padStart(2, "0");
+
+function buyKit(b) {
+  const k = b.kit;
+  const items = k.items
+    .map(
+      (it, i) =>
+        `<li class="oc-kit__row"><span class="oc-kit__n">${pad(i)}</span><h3>${it.t}</h3><p>${it.d}</p></li>`,
+    )
+    .join("");
+  return `<section class="oc-kit oc-dark" id="kit" aria-labelledby="kit-title">
+  ${eyebrow(k.eyebrow, "oc-eyebrow--muted")}
+  <h2 class="oc-h2" id="kit-title" data-split>${k.title}</h2>
+  <ol class="oc-kit__list">${items}</ol>
+</section>`;
+}
+
+function buyLineup(b) {
+  const m = b.lineup;
+  const items = m.items
+    .map(
+      (it, i) => `<li class="oc-lineup__row">
+      <span class="oc-kit__n">${pad(i)}</span>
+      <h3 class="oc-lineup__name">${it.t}</h3>
+      <p class="oc-lineup__price">${m.from} ${it.p}<span>${it.d}</span></p>
+      ${img(`buy-model-${"abc"[i]}`, `${it.t} — ${it.d}`, 240, 180, ' class="oc-lineup__img"')}
+    </li>`,
+    )
+    .join("");
+  return `<section class="oc-lineup oc-dark" id="models" aria-labelledby="lineup-title">
+  <div class="oc-lineup__head">
+    ${eyebrow(m.eyebrow, "oc-eyebrow--muted")}
+    <h2 class="oc-h2" id="lineup-title" data-split>${m.title}</h2>
+    <p>${m.text}</p>
+  </div>
+  <ol class="oc-lineup__list">${items}</ol>
+  <a class="oc-btn oc-btn--accent" href="#contact">${m.cta}</a>
+</section>`;
+}
+
+function jsonLd(c, site, page, url) {
   return [
     {
       "@context": "https://schema.org",
@@ -271,7 +364,7 @@ function jsonLd(c, site) {
       url: site.url,
       inLanguage: site.languages,
     },
-    {
+    page === "home" && {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       inLanguage: c.lang,
@@ -281,29 +374,31 @@ function jsonLd(c, site) {
         acceptedAnswer: { "@type": "Answer", text: it.a },
       })),
     },
-  ];
+  ].filter(Boolean);
 }
 
-export function render(c, all, site, css) {
-  const url = site.url + c.path;
+export function render(c, all, site, css, page = "home") {
+  const sub = page === "buy" ? "kaufen/" : "";
+  const url = site.url + c.path + sub;
+  const meta = page === "buy" ? c.buy.meta : c.meta;
   const alternates = all
-    .map((l) => `<link rel="alternate" hreflang="${l.lang}" href="${site.url}${l.path}">`)
-    .concat(`<link rel="alternate" hreflang="x-default" href="${site.url}">`)
+    .map((l) => `<link rel="alternate" hreflang="${l.lang}" href="${site.url}${l.path}${sub}">`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="${site.url}${sub}">`)
     .join("\n    ");
   const html = `<!doctype html>
 <html lang="${c.lang}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${c.meta.title}</title>
-    <meta name="description" content="${attr(c.meta.description)}">
+    <title>${meta.title}</title>
+    <meta name="description" content="${attr(meta.description)}">
     <link rel="canonical" href="${url}">
     ${alternates}
     <meta name="theme-color" content="#0d0e13">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="OneCup">
-    <meta property="og:title" content="${attr(c.meta.title)}">
-    <meta property="og:description" content="${attr(c.meta.description)}">
+    <meta property="og:title" content="${attr(meta.title)}">
+    <meta property="og:description" content="${attr(meta.description)}">
     <meta property="og:url" content="${url}">
     <meta property="og:image" content="${site.url}assets/img/station.webp">
     <meta property="og:locale" content="${c.ogLocale}">
@@ -311,28 +406,44 @@ export function render(c, all, site, css) {
     <link rel="icon" href="{{base}}favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="{{base}}assets/img/hero-station.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="{{base}}assets/img/${page === "buy" ? "buy-hero" : "hero-station"}.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}
-    <script type="application/ld+json">${JSON.stringify(jsonLd(c, site))}</script>
+    <script type="application/ld+json">${JSON.stringify(jsonLd(c, site, page, url))}</script>
   </head>
   <body>
     <a class="oc-skip" href="#main">${{ de: "Zum Inhalt springen", en: "Skip to content", uk: "Перейти до змісту" }[c.lang]}</a>
-    ${header(c, all)}
+    ${header(c, all, page)}
     <main id="main">
-      ${hero(c)}
-      ${about(c)}
-      ${calc(c)}
-      ${steps(c)}
-      ${models(c)}
-      ${slider(c, "where", "where")}
-      ${faq(c)}
-      ${slider(c, "live", "live")}
-      ${contact(c)}
-      ${marquee()}
+      ${
+        page === "buy"
+          ? [
+              buyHero(c.buy),
+              buyWho(c.buy),
+              buyMetrics(c.buy),
+              buyGuests(c.buy),
+              calc(c),
+              buyKit(c.buy),
+              buyLineup(c.buy),
+              contact(c),
+              marquee(),
+            ].join("\n      ")
+          : [
+              hero(c),
+              about(c),
+              calc(c),
+              steps(c),
+              models(c),
+              slider(c, "where", "where"),
+              faq(c),
+              slider(c, "live", "live"),
+              contact(c),
+              marquee(),
+            ].join("\n      ")
+      }
     </main>
-    ${footer(c)}
+    ${footer(c, page)}
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
@@ -341,7 +452,7 @@ export function render(c, all, site, css) {
   </body>
 </html>
 `;
-  const base = c.path ? "../" : "";
+  const base = "../".repeat((c.path + sub).split("/").filter(Boolean).length);
   const vars = { base, ...site };
   return html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 }

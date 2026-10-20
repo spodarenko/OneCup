@@ -202,7 +202,7 @@
     }),
   );
 
-  /* Lists stagger in: calc card, model choices, FAQ, contact rows, footer columns */
+  /* Lists stagger in: calc card, model choices, FAQ, contact rows, footer, buy-page lists */
   [
     [".oc-calc", ".oc-calc__card"],
     [".oc-models__choices", ".oc-choice"],
@@ -210,6 +210,10 @@
     [".oc-faq__list", ".oc-faq__item"],
     [".oc-contact__list", "li"],
     [".oc-footer", ".oc-footer > * > *"],
+    [".oc-metrics__list", ".oc-metric"],
+    [".oc-guests__list", "li"],
+    [".oc-kit__list", ".oc-kit__row"],
+    [".oc-lineup__list", ".oc-lineup__row"],
   ].forEach(([scope, items]) => {
     const root = $(scope);
     const els = root ? $$(items, root.parentElement) : [];

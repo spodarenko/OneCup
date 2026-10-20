@@ -1,4 +1,4 @@
-// Builds the static demo into dist/demo: one page per language + robots, sitemap, llms.txt.
+// Builds the static demo into dist/demo: home + buy page per language + robots, sitemap, llms.txt.
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { render } from "./render.mjs";
 
@@ -22,6 +22,7 @@ const css = [
     "faq",
     "contact",
     "marquee",
+    "buy",
     "footer",
   ].map((s) => `assets/css/sections/${s}.css`),
 ];
@@ -45,6 +46,9 @@ for (const c of langs) {
   const dir = new URL(c.path, out);
   mkdirSync(dir, { recursive: true });
   writeFileSync(new URL("index.html", dir), render(c, langs, site, ["assets/css/demo.css"]));
+  const buy = new URL(`${c.path}kaufen/`, out);
+  mkdirSync(buy, { recursive: true });
+  writeFileSync(new URL("index.html", buy), render(c, langs, site, ["assets/css/demo.css"], "buy"));
 }
 
 writeFileSync(
@@ -52,15 +56,23 @@ writeFileSync(
   `User-agent: *\nAllow: /\n\nSitemap: ${site.url}sitemap.xml\n`,
 );
 
-const alt = langs
-  .map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${site.url}${l.path}"/>`)
-  .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${site.url}"/>`)
-  .join("\n");
+const alt = (sub) =>
+  langs
+    .map(
+      (l) =>
+        `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${site.url}${l.path}${sub}"/>`,
+    )
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${site.url}${sub}"/>`)
+    .join("\n");
 writeFileSync(
   new URL("sitemap.xml", out),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${langs.map((l) => `  <url>\n    <loc>${site.url}${l.path}</loc>\n${alt}\n  </url>`).join("\n")}
+${["", "kaufen/"]
+  .flatMap((sub) =>
+    langs.map((l) => `  <url>\n    <loc>${site.url}${l.path}${sub}</loc>\n${alt(sub)}\n  </url>`),
+  )
+  .join("\n")}
 </urlset>
 `,
 );
@@ -95,4 +107,4 @@ ${langs.map((l) => `- [${l.meta.title}](${site.url}${l.path}) (${l.lang})`).join
 `,
 );
 
-console.log(`Built ${langs.length} pages → dist/demo`);
+console.log(`Built ${langs.length * 2} pages → dist/demo`);
