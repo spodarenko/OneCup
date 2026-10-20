@@ -355,5 +355,85 @@
         }
       ]
     }
+  },
+  "host": {
+    "meta": {
+      "title": "OneCup Kaffeestation an Ihrem Standort aufstellen",
+      "description": "Eine smarte Kaffeestation für Ihren Standort: frischer Kaffee für Ihre Gäste rund um die Uhr, den Service übernehmen wir. Köln und ganz Deutschland."
+    },
+    "hero": {
+      "title": "Smarte Kaffeestation für Ihren Standort",
+      "subtitle": "Frischer Kaffee für Ihre Gäste rund um die Uhr — ohne Warten und ohne komplizierte Bestellung.",
+      "cta": "Standort anbieten",
+      "more": "Kooperationsmodelle",
+      "imgAlt": "OneCup Kaffeestation mit Schrank"
+    },
+    "who": {
+      "eyebrow": "[ Über OneCup ]",
+      "before": "Sie haben einen guten Standort?",
+      "after": "OneCup ist ein modernes Selbstbedienungs-Kaffeekonzept aus Köln.",
+      "img1": "OneCup Kaffeestation",
+      "img2": "OneCup Kaffeebecher"
+    },
+    "guests": {
+      "eyebrow": "[ Für Ihre Gäste ]",
+      "items": [
+        {
+          "t": "Guter Kaffee",
+          "d": "Schnell, einfach und immer verfügbar"
+        },
+        {
+          "t": "Ohne Warten",
+          "d": "Gäste müssen nicht anstehen"
+        },
+        {
+          "t": "Einfach bestellen",
+          "d": "Automatisierte Station ohne komplizierte Schritte"
+        },
+        {
+          "t": "Bequem bezahlen",
+          "d": "Kontaktlos oder bar"
+        }
+      ]
+    },
+    "lineup": {
+      "eyebrow": "[ Modelle ]",
+      "title": "OneCup Kaffeestation",
+      "text": "Wir wählen den Schrank passend zu Format und Platz Ihres Standorts",
+      "items": [
+        {
+          "t": "Modell A",
+          "d": "Schrank Compact"
+        },
+        {
+          "t": "Modell B",
+          "d": "Schrank Classic"
+        },
+        {
+          "t": "Modell C",
+          "d": "Schrank Premium"
+        }
+      ]
+    },
+    "metrics": [
+      {
+        "v": "230",
+        "u": "V",
+        "t": "Strom",
+        "d": "Normale Steckdose —<br>keine eigene Leitung nötig"
+      },
+      {
+        "v": "24",
+        "u": "/7",
+        "t": "Betrieb",
+        "d": "Gäste bedienen sich selbst —<br>Ihr Team wird nicht gestört"
+      },
+      {
+        "v": "~1",
+        "u": "m²",
+        "t": "Fläche",
+        "d": "Passt an die Wand oder in die Ecke —<br>ohne Umbau"
+      }
+    ]
   }
 }

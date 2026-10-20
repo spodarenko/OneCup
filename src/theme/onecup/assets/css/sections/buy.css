@@ -274,3 +274,46 @@
     margin-top: -40%;
   }
 }
+
+/* Host page hero: tall station render, bottom fades into the background */
+.oc-hero--host {
+  background: var(--oc-bg-dark);
+}
+
+.oc-hero--host::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 45%,
+    var(--oc-buy-glow) 0,
+    var(--oc-buy-glow-soft) 20%,
+    transparent 35%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.oc-hero--host .oc-hero__media {
+  width: min(731px, 90%);
+  aspect-ratio: 1122 / 1402;
+  margin-top: -12px;
+}
+
+.oc-hero--host .oc-hero__media::after {
+  background: linear-gradient(180deg, transparent 55%, var(--oc-bg-dark) 85%);
+}
+
+.oc-hero--host .oc-hero__body {
+  margin-top: -213px;
+}
+
+@media (max-width: 1100px) {
+  .oc-hero--host .oc-hero__media {
+    width: 90%;
+  }
+
+  .oc-hero--host .oc-hero__body {
+    margin-top: -25%;
+  }
+}

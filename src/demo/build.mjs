@@ -1,6 +1,6 @@
-// Builds the static demo into dist/demo: home + buy page per language + robots, sitemap, llms.txt.
+// Builds the static demo into dist/demo: home, buy and host page per language + robots, sitemap, llms.txt.
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { render } from "./render.mjs";
+import { pages, render } from "./render.mjs";
 
 const root = new URL("../../", import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, root), "utf8"));
@@ -43,12 +43,14 @@ cpSync(new URL("src/demo/favicon.svg", root), new URL("favicon.svg", out));
 writeFileSync(new URL("assets/css/demo.css", out), bundle);
 
 for (const c of langs) {
-  const dir = new URL(c.path, out);
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(new URL("index.html", dir), render(c, langs, site, ["assets/css/demo.css"]));
-  const buy = new URL(`${c.path}kaufen/`, out);
-  mkdirSync(buy, { recursive: true });
-  writeFileSync(new URL("index.html", buy), render(c, langs, site, ["assets/css/demo.css"], "buy"));
+  for (const [page, sub] of Object.entries(pages)) {
+    const dir = new URL(c.path + sub, out);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(
+      new URL("index.html", dir),
+      render(c, langs, site, ["assets/css/demo.css"], page),
+    );
+  }
 }
 
 writeFileSync(
@@ -68,7 +70,7 @@ writeFileSync(
   new URL("sitemap.xml", out),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${["", "kaufen/"]
+${Object.values(pages)
   .flatMap((sub) =>
     langs.map((l) => `  <url>\n    <loc>${site.url}${l.path}${sub}</loc>\n${alt(sub)}\n  </url>`),
   )
@@ -107,4 +109,4 @@ ${langs.map((l) => `- [${l.meta.title}](${site.url}${l.path}) (${l.lang})`).join
 `,
 );
 
-console.log(`Built ${langs.length * 2} pages → dist/demo`);
+console.log(`Built ${langs.length * Object.keys(pages).length} pages → dist/demo`);
