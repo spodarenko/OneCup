@@ -42,14 +42,35 @@ a {
   white-space: nowrap;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
+    color var(--oc-dur) var(--oc-ease-cta),
+    border-color var(--oc-dur) var(--oc-ease-cta),
     transform 0.3s var(--oc-ease);
 }
 
-.oc-btn:hover {
-  transform: translateY(-2px);
+/* Hover for every button (hero reference, coffee-tech.com): a fill wipes in from the
+   left, the text takes the button's old fill colour */
+.oc-btn,
+.oc-round {
+  position: relative;
+  isolation: isolate;
+}
+
+.oc-btn::before,
+.oc-round::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--oc-text-cream);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--oc-dur) var(--oc-ease-cta);
+}
+
+.oc-btn:hover::before,
+.oc-round:hover::before {
+  transform: scaleX(1);
 }
 
 .oc-btn--sm {
@@ -62,8 +83,7 @@ a {
 }
 
 .oc-btn--accent:hover {
-  background: var(--oc-text-on-dark);
-  color: var(--oc-bg-dark);
+  color: var(--oc-accent-strong);
 }
 
 .oc-btn--green {
@@ -75,8 +95,11 @@ a {
 }
 
 .oc-btn--outline:hover {
-  background: var(--oc-text-cream);
   color: var(--oc-bg-dark);
+}
+
+.oc-btn--green:hover {
+  color: var(--oc-green);
 }
 
 .oc-icon {
@@ -91,8 +114,11 @@ a {
   color: var(--oc-bg-dark);
 }
 
-.oc-btn--light:hover {
+.oc-btn--light::before {
   background: var(--oc-accent-strong);
+}
+
+.oc-btn--light:hover {
   color: var(--oc-text-on-dark);
 }
 
@@ -181,9 +207,8 @@ a {
   color: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition:
-    background-color 0.3s var(--oc-ease),
-    color 0.3s var(--oc-ease);
+  overflow: hidden;
+  transition: color var(--oc-dur) var(--oc-ease-cta);
 }
 
 /* Figma 238:352: 24px caret inside a 48px circle */
@@ -193,12 +218,6 @@ a {
 }
 
 .oc-round:hover {
-  background: var(--oc-bg-dark);
-  color: var(--oc-text-cream);
-}
-
-.oc-round--light:hover {
-  background: var(--oc-text-cream);
   color: var(--oc-bg-dark);
 }
 
