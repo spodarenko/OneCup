@@ -71,4 +71,4 @@ Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText
 ## Media
 
 - Images: WebP, resized to 2× their display size (`cwebp`, q 75–82)
-- Hero: orbit frames `orbit/00–71.webp` from `orbit-6s-scroll.mp4` (every 2nd frame, `cwebp` q 72); Two models background: `models-bg.webp` (exported from Figma, `cwebp`)
+- Hero: orbit frames `orbit/00–71.webp` from `orbit-6s-scroll.mp4` (every 2nd frame, upscaled to 1920×1080 with lanczos + light unsharp, `cwebp` q 76 `-sharp_yuv`); Two models background: `models-bg.webp` (exported from Figma, `cwebp`)
