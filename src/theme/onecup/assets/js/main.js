@@ -127,6 +127,48 @@
     );
   }
 
+  /* Hero: pinned at the top while scroll scrubs the station orbit (frames on a canvas);
+     the subtitle and CTAs below come in after the orbit */
+  const orbit = $("[data-orbit]");
+  if (orbit) {
+    const n = Number(orbit.dataset.frames);
+    const frames = Array.from({ length: n }, (_, i) => {
+      const im = new Image();
+      im.src = `${orbit.dataset.src}${String(i).padStart(2, "0")}.webp`;
+      return im;
+    });
+    const canvas = document.createElement("canvas");
+    canvas.width = 1280;
+    canvas.height = 720;
+    canvas.setAttribute("aria-hidden", "true");
+    const ctx = canvas.getContext("2d");
+    const state = { f: 0 };
+    let shown = -1;
+    const draw = () => {
+      const i = Math.round(state.f);
+      const im = frames[i];
+      if (i === shown || !im.complete || !im.naturalWidth) return;
+      ctx.drawImage(im, 0, 0, canvas.width, canvas.height);
+      shown = i;
+    };
+    frames[0].decode().then(() => {
+      draw();
+      orbit.append(canvas);
+    });
+    gsap.to(state, {
+      f: n - 1,
+      ease: "none",
+      onUpdate: draw,
+      scrollTrigger: {
+        trigger: ".oc-hero",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        scrub: 0.6,
+      },
+    });
+  }
+
   /* Headings: coffee-tech.com text reveal — lines rise and unclip (power4.out, 1.6 s, stagger 0.1) */
   document.fonts.ready.then(() => {
     $$("[data-split]").forEach((el) => {
@@ -198,7 +240,12 @@
       autoAlpha: 0,
       duration: 0.8,
       ease,
-      scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      scrollTrigger: {
+        trigger: el,
+        start: "top 88%",
+        once: true,
+        pinnedContainer: el.closest(".oc-hero") || undefined,
+      },
     }),
   );
 

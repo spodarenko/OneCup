@@ -54,21 +54,21 @@ All sections are dark. Calculator: monthly revenue = drinks per day × `calcPric
 
 Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText, smooth scroll). Implemented in `src/theme/onecup/assets/js/main.js`:
 
-| Where                   | Effect                                                          |
-| ----------------------- | --------------------------------------------------------------- |
-| Page                    | Lenis smooth scroll; anchor links scroll smoothly               |
-| Hero                    | Static station render; no pin, nothing tied to scroll           |
-| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)    |
-| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                               |
-| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover |
-| Calculator              | Range input updates the monthly revenue live                    |
-| Two models              | Radio cards; the CTA label follows the chosen model             |
-| Marquee                 | Loops; speed and direction follow scroll velocity               |
-| Links / buttons         | Underline grows from the left; buttons change fill              |
+| Where                   | Effect                                                                                  |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| Page                    | Lenis smooth scroll; anchor links scroll smoothly                                       |
+| Hero                    | Pinned for one screen; scroll scrubs the station orbit (72 frames, `assets/img/orbit/`) |
+| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)                            |
+| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                                       |
+| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                         |
+| Calculator              | Range input updates the monthly revenue live                                            |
+| Two models              | Radio cards; the CTA label follows the chosen model                                     |
+| Marquee                 | Loops; speed and direction follow scroll velocity                                       |
+| Links / buttons         | Underline grows from the left; buttons change fill                                      |
 
 `prefers-reduced-motion` turns all motion off. Without JS the page is fully readable.
 
 ## Media
 
 - Images: WebP, resized to 2× their display size (`cwebp`, q 75–82)
-- Hero: `hero-station.webp`; Two models background: `models-bg.webp` (exported from Figma, `cwebp`)
+- Hero: orbit frames `orbit/00–71.webp` from `orbit-6s-scroll.mp4` (every 2nd frame, `cwebp` q 72); Two models background: `models-bg.webp` (exported from Figma, `cwebp`)
