@@ -33,7 +33,7 @@
   --oc-calc-knob-halo: rgb(255 255 255 / 0.12);
   --oc-choice-bg: rgb(239 235 227 / 0.04);
   --oc-choice-line: rgb(239 235 227 / 0.15);
-  --oc-choice-radio: rgb(239 235 227 / 0.3);
+  --oc-choice-text: #efebe3;
   /* Buy page (Figma 266:4358) */
   --oc-text-dim: rgb(255 255 255 / 0.6);
   --oc-text-soft: rgb(229 226 221 / 0.6);

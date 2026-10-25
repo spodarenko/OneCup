@@ -19,7 +19,7 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 | 2   | About OneCup                  | 245:651    |
 | 3   | Revenue calculator            | 246:741    |
 | 4   | How it works (4 steps)        | 238:271    |
-| 5   | Two models (quiz choice)      | 259:2181   |
+| 5   | Two models (glass cards)      | 317:365    |
 | 6   | Where it's installed (slider) | 238:347    |
 | 7   | FAQ                           | 238:387    |
 | 8   | Already running               | 238:411    |
@@ -62,7 +62,7 @@ Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText
 | Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                                                                                             |
 | Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                                                                               |
 | Calculator              | Range input updates the monthly revenue live                                                                                                  |
-| Two models              | Radio cards; the CTA label follows the chosen model                                                                                           |
+| Two models              | Two glass cards, each with its own request button                                                                                             |
 | Marquee                 | Loops; speed and direction follow scroll velocity                                                                                             |
 | Links / buttons         | Underline grows from the left; buttons change fill                                                                                            |
 

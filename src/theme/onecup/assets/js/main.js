@@ -79,12 +79,6 @@
     update();
   });
 
-  /* Two models: the CTA follows the chosen model */
-  const cta = $("[data-model-cta]");
-  $$('input[name="model"]').forEach((r) =>
-    r.addEventListener("change", () => cta && (cta.textContent = r.dataset.cta)),
-  );
-
   /* Sliders: buttons scroll by one card */
   $$(".oc-slider").forEach((s) => {
     const track = $(".oc-slider__track", s);
@@ -252,11 +246,10 @@
     }),
   );
 
-  /* Lists stagger in: calc card, model choices, FAQ, contact rows, footer, buy-page lists */
+  /* Lists stagger in: calc card, model cards, FAQ, contact rows, footer, buy-page lists */
   [
     [".oc-calc", ".oc-calc__card"],
-    [".oc-models__choices", ".oc-choice"],
-    [".oc-models", ".oc-models__foot"],
+    [".oc-models__cards", ".oc-model"],
     [".oc-faq__list", ".oc-faq__item"],
     [".oc-contact__list", "li"],
     [".oc-footer", ".oc-footer > * > *"],
