@@ -157,18 +157,19 @@
       draw();
       orbit.append(canvas);
     });
-    gsap.to(state, {
-      f: n - 1,
-      ease: "none",
-      onUpdate: draw,
-      scrollTrigger: {
-        trigger: ".oc-hero__title",
-        start: "top 24px",
-        end: "+=150%",
-        pin: ".oc-hero",
-        scrub: 0.6,
-      },
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".oc-hero__title",
+          start: "top 24px",
+          end: "+=150%",
+          pin: ".oc-hero",
+          scrub: 0.6,
+        },
+      })
+      .to(state, { f: n - 1, ease: "none", onUpdate: draw }, 0)
+      // The station rises 5% while it orbits and sinks back on scroll up
+      .to(orbit, { yPercent: -5, ease: "none" }, 0);
   }
 
   /* Headings: coffee-tech.com text reveal — lines rise and unclip (power4.out, 1.6 s, stagger 0.1) */

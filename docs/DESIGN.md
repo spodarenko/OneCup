@@ -54,17 +54,17 @@ All sections are dark. Calculator: monthly revenue = drinks per day × `calcPric
 
 Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText, smooth scroll). Implemented in `src/theme/onecup/assets/js/main.js`:
 
-| Where                   | Effect                                                                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Page                    | Lenis smooth scroll; anchor links scroll smoothly                                                                              |
-| Hero                    | Pinned when the title reaches the viewport top; 1.5 screens of scroll scrub the station orbit (72 frames, `assets/img/orbit/`) |
-| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)                                                                   |
-| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                                                                              |
-| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                                                                |
-| Calculator              | Range input updates the monthly revenue live                                                                                   |
-| Two models              | Radio cards; the CTA label follows the chosen model                                                                            |
-| Marquee                 | Loops; speed and direction follow scroll velocity                                                                              |
-| Links / buttons         | Underline grows from the left; buttons change fill                                                                             |
+| Where                   | Effect                                                                                                                                        |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Page                    | Lenis smooth scroll; anchor links scroll smoothly                                                                                             |
+| Hero                    | Pinned when the title reaches the viewport top; 1.5 screens of scroll scrub the station orbit and lift it 5% (72 frames, `assets/img/orbit/`) |
+| Headings `[data-split]` | Lines slide up from a mask (power3.out, 0.9 s, stagger 0.08)                                                                                  |
+| Blocks `[data-reveal]`  | Fade up 40 px (power2.out, 0.8 s)                                                                                                             |
+| Sliders                 | Cards stagger in; buttons scroll one card; image zooms on hover                                                                               |
+| Calculator              | Range input updates the monthly revenue live                                                                                                  |
+| Two models              | Radio cards; the CTA label follows the chosen model                                                                                           |
+| Marquee                 | Loops; speed and direction follow scroll velocity                                                                                             |
+| Links / buttons         | Underline grows from the left; buttons change fill                                                                                            |
 
 `prefers-reduced-motion` turns all motion off. Without JS the page is fully readable.
 
