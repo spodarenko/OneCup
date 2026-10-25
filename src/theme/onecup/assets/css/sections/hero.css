@@ -63,7 +63,8 @@
   flex-direction: column;
   align-items: center;
   gap: var(--oc-space-32);
-  margin: -20px auto 0;
+  /* Text and CTAs overlap the faded bottom of the station */
+  margin: -120px auto 0;
   max-width: 452px;
   padding-inline: var(--oc-space-24);
 }
