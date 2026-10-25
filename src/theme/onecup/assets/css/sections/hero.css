@@ -24,17 +24,21 @@
   width: min(1588px, 110%);
   margin-inline: 50%;
   translate: -50% 0;
+  scale: 0.95;
   aspect-ratio: 1588 / 886;
 }
 
 .oc-hero__media::after {
-  /* Figma orbit-6s overlay: top 0–12% and bottom 60–100% fade into the background */
+  /* Every edge of the video fades into the hero background (#000001), so the frame
+     blends with the area under the header, the sides and the section below */
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
   background:
-    linear-gradient(180deg, var(--oc-hero-v4-bg) 0%, transparent 11.8%),
-    linear-gradient(180deg, transparent 60%, var(--oc-hero-v4-bg) 100%);
+    linear-gradient(180deg, var(--oc-hero-v4-bg) 0%, transparent 20%),
+    linear-gradient(180deg, transparent 60%, var(--oc-hero-v4-bg) 100%),
+    linear-gradient(90deg, var(--oc-hero-v4-bg) 0%, transparent 18%),
+    linear-gradient(270deg, var(--oc-hero-v4-bg) 0%, transparent 18%);
   pointer-events: none;
 }
 
