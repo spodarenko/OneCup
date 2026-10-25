@@ -23,7 +23,7 @@ function header(c, all, page) {
     .join("");
   return `<header class="oc-header">
   <a class="oc-header__logo" href="{{base}}${c.path}" aria-label="OneCup">
-    <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="138" height="33">
+    <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="183" height="43">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
     <a href="{{base}}${c.path}kaufen/"${page === "buy" ? ' aria-current="page"' : ""}>${c.nav.buy}</a>
