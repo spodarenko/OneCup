@@ -50,7 +50,7 @@ function hero(c) {
   return `<section class="oc-hero" id="top">
   <h1 class="oc-hero__title" data-split>${c.hero.title}</h1>
   <div class="oc-hero__media" data-orbit data-frames="72" data-src="{{base}}assets/img/orbit/">
-    <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(c.hero.imgAlt)}" width="1280" height="720" fetchpriority="high" decoding="async">
+    <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(c.hero.imgAlt)}" width="1920" height="1080" fetchpriority="high" decoding="async">
   </div>
   <div class="oc-hero__body" data-reveal>
     <p class="oc-hero__subtitle"><span>{{slogan}}</span>${rest}</p>
