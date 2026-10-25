@@ -117,30 +117,22 @@ function steps(c) {
 </section>`;
 }
 
-function choice(m, key, checked) {
-  return `<label class="oc-choice">
-        <input type="radio" name="model" value="${key}" data-cta="${attr(m.cta)}"${checked ? " checked" : ""}>
-        <span class="oc-choice__radio" aria-hidden="true"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M2.5 7.5L5.5 10.5L11.5 3.5"/></svg></span>
-        <span class="oc-choice__text"><span class="oc-choice__title">${m.title}</span><span class="oc-choice__desc">${m.text}</span></span>
-      </label>`;
-}
-
 function models(c) {
   const m = c.models;
+  const card = (k, btn) => `<article class="oc-model${k === "buy" ? " oc-model--accent" : ""}">
+      <h3 class="oc-model__title">${m[k].title}</h3>
+      <p class="oc-model__text">${m[k].text}</p>
+      <a class="oc-btn ${btn}" href="#contact">${m[k].cta}</a>
+    </article>`;
   return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
-  <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2752" height="1847" loading="lazy" decoding="async">
+  <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2880" height="1936" loading="lazy" decoding="async">
   <div class="oc-models__head">
-    ${eyebrow(m.eyebrow, "oc-eyebrow--muted")}
-    <h2 class="oc-h2" id="models-title" data-split>${m.title}</h2>
+    ${eyebrow(m.eyebrow, "oc-models__eyebrow")}
+    <h2 class="oc-models__title" id="models-title" data-split>${m.title}</h2>
   </div>
-  <fieldset class="oc-models__choices">
-    <legend class="oc-visually-hidden">${m.title}</legend>
-    ${choice(m.buy, "buy", true)}
-    ${choice(m.host, "host", false)}
-  </fieldset>
-  <div class="oc-models__foot">
-    <p>${m.note}</p>
-    <a class="oc-btn oc-btn--accent" href="#contact" data-model-cta>${m.buy.cta}</a>
+  <div class="oc-models__cards">
+    ${card("buy", "oc-btn--accent oc-model__btn--lg")}
+    ${card("host", "oc-btn--outline")}
   </div>
 </section>`;
 }

@@ -1,4 +1,4 @@
-/* Two models — Figma 259:2181 (home v4): quiz-style choice over the station render. */
+/* Two models — Figma 317:365 (home v4): two glass cards over the station render. */
 .oc-models {
   position: relative;
   display: flex;
@@ -7,135 +7,74 @@
   gap: var(--oc-space-48);
   min-height: 968px;
   padding: var(--oc-space-96) var(--oc-gutter);
+  background: var(--oc-bg-dark);
   overflow: hidden;
   isolation: isolate;
 }
 
 .oc-models__bg {
   position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.oc-models::before {
-  /* Figma: transparent at 39% → #000001 at 81% */
-  content: "";
-  position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
   z-index: -1;
-  background: linear-gradient(180deg, transparent 39.4%, var(--oc-hero-v4-bg) 80.8%);
+  width: 1440px;
+  height: 968px;
+  object-fit: cover;
+  translate: -50% -50%;
 }
 
 .oc-models__head {
   display: grid;
   gap: var(--oc-space-16);
-  color: var(--oc-text-cream);
+  color: var(--oc-choice-text);
 }
 
-.oc-models__choices {
+.oc-models__eyebrow {
+  font: 600 14px/1.45 var(--oc-font);
+  opacity: 0.7;
+}
+
+.oc-models__title {
+  margin: 0;
+  font: 600 52px/1.08 var(--oc-font);
+}
+
+.oc-models__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--oc-space-16);
-  margin: 0;
-  padding: 0;
-  border: 0;
+  gap: var(--oc-space-32);
 }
 
-.oc-choice {
-  position: relative;
+.oc-model {
   display: flex;
-  gap: var(--oc-space-20);
+  flex-direction: column;
+  align-items: flex-start;
   padding: var(--oc-space-32);
-  border: 2px solid var(--oc-choice-line);
+  border: 3px solid var(--oc-choice-line);
   border-radius: var(--oc-radius-24);
   background: var(--oc-choice-bg);
-  color: var(--oc-text-cream);
-  cursor: pointer;
+  color: var(--oc-choice-text);
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  transition: border-color var(--oc-dur) var(--oc-ease);
 }
 
-.oc-choice:hover {
-  border-color: var(--oc-choice-radio);
+.oc-model--accent {
+  border: 2px solid var(--oc-accent);
 }
 
-.oc-choice:has(input:checked) {
-  border-color: var(--oc-accent);
-}
-
-.oc-choice input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.oc-choice:has(input:focus-visible) {
-  outline: 2px solid var(--oc-text-cream);
-  outline-offset: 4px;
-}
-
-.oc-choice__radio {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 24px;
-  height: 24px;
-  margin: 6px;
-  border: 2px solid var(--oc-choice-radio);
-  border-radius: var(--oc-radius-12);
-  transition:
-    background-color var(--oc-dur) var(--oc-ease),
-    border-color var(--oc-dur) var(--oc-ease);
-}
-
-.oc-choice__radio svg {
-  fill: none;
-  stroke: var(--oc-text-on-dark);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0;
-}
-
-.oc-choice:has(input:checked) .oc-choice__radio {
-  border-color: var(--oc-accent);
-  background: var(--oc-accent);
-}
-
-.oc-choice:has(input:checked) .oc-choice__radio svg {
-  opacity: 1;
-}
-
-.oc-choice__text {
-  display: grid;
-  gap: var(--oc-space-12);
-}
-
-.oc-choice__title {
+.oc-model__title {
+  margin: 0 0 var(--oc-space-8);
   font: var(--oc-h4);
 }
 
-.oc-choice__desc {
+.oc-model__text {
+  margin: 0 0 var(--oc-space-32);
   font: var(--oc-body-16);
   opacity: 0.5;
 }
 
-.oc-models__foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--oc-space-24);
-}
-
-.oc-models__foot p {
-  margin: 0;
-  font: var(--oc-body-16);
-  color: var(--oc-text-muted-dark);
+.oc-model__btn--lg {
+  font: 600 16px/24px var(--oc-font);
 }
 
 @media (max-width: 1100px) {
@@ -144,20 +83,26 @@
     padding: 360px var(--oc-space-24) var(--oc-space-64);
   }
 
-  .oc-models__choices {
-    grid-template-columns: 1fr;
+  .oc-models__bg {
+    top: 0;
+    height: 100%;
+    translate: -50% 0;
   }
 
-  .oc-choice {
+  .oc-models__title {
+    font-size: 36px;
+  }
+
+  .oc-models__cards {
+    grid-template-columns: 1fr;
+    gap: var(--oc-space-16);
+  }
+
+  .oc-model {
     padding: var(--oc-space-24);
   }
 
-  .oc-choice__title {
+  .oc-model__title {
     font: var(--oc-h5);
-  }
-
-  .oc-models__foot {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
