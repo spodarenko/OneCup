@@ -40,48 +40,8 @@
   opacity: 0.6;
 }
 
-/* Buttons: fill wipes in from the left, text takes the old fill colour */
 .oc-header .oc-btn {
-  position: relative;
-  isolation: isolate;
   font: inherit;
-  transition:
-    color var(--oc-dur) var(--oc-ease-cta),
-    border-color var(--oc-dur) var(--oc-ease-cta);
-}
-
-.oc-header .oc-btn::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  background: var(--oc-text-cream);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform var(--oc-dur) var(--oc-ease-cta);
-}
-
-.oc-header .oc-btn:hover {
-  transform: none;
-  background-color: transparent;
-}
-
-.oc-header .oc-btn:hover::before {
-  transform: scaleX(1);
-}
-
-.oc-header .oc-btn--green {
-  background-color: var(--oc-green);
-}
-
-.oc-header .oc-btn--green:hover {
-  color: var(--oc-green);
-  background-color: var(--oc-green);
-}
-
-.oc-header .oc-btn--outline:hover {
-  color: var(--oc-bg-dark);
 }
 
 .oc-header__actions {

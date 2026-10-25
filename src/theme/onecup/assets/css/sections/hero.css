@@ -86,44 +86,8 @@
   gap: var(--oc-space-8);
 }
 
-/* CTAs: same wipe hover as the header (coffee-tech.com) */
 .oc-hero .oc-btn {
-  position: relative;
-  isolation: isolate;
   min-width: 198px;
-  transition:
-    color var(--oc-dur) var(--oc-ease-cta),
-    border-color var(--oc-dur) var(--oc-ease-cta);
-}
-
-.oc-hero .oc-btn::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  background: var(--oc-text-cream);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform var(--oc-dur) var(--oc-ease-cta);
-}
-
-.oc-hero .oc-btn:hover {
-  transform: none;
-  background-color: transparent;
-}
-
-.oc-hero .oc-btn:hover::before {
-  transform: scaleX(1);
-}
-
-.oc-hero .oc-btn--accent:hover {
-  color: var(--oc-accent-strong);
-  background-color: var(--oc-accent-strong);
-}
-
-.oc-hero .oc-btn--outline:hover {
-  color: var(--oc-bg-dark);
 }
 
 @media (max-width: 900px) {

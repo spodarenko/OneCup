@@ -230,7 +230,7 @@ function footer(c, page) {
       <a class="oc-link" href="{{base}}${c.path}kaufen/">${f.buyModel}</a>
       <a class="oc-link" href="{{base}}${c.path}standort/">${f.hostModel}</a>
     </nav>
-    <a class="oc-round oc-round--light oc-footer__top-btn" href="#top" aria-label="${attr(f.toTop)}">${icon("caret-up")}</a>
+    <a class="oc-round oc-footer__top-btn" href="#top" aria-label="${attr(f.toTop)}">${icon("caret-up")}</a>
   </div>
   <div class="oc-footer__bottom">
     <p>© OneCupCoffee® {{year}}</p>
