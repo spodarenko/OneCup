@@ -55,8 +55,8 @@ function hero(c) {
   <div class="oc-hero__body" data-reveal>
     <p class="oc-hero__subtitle"><span>{{slogan}}</span>${rest}</p>
     <div class="oc-hero__ctas">
-      <a class="oc-btn oc-btn--accent" href="#models">${c.hero.ctaBuy}</a>
-      <a class="oc-btn oc-btn--outline" href="#models">${c.hero.ctaHost}</a>
+      <a class="oc-btn oc-btn--accent" href="{{base}}${c.path}kaufen/">${c.hero.ctaBuy}</a>
+      <a class="oc-btn oc-btn--outline" href="{{base}}${c.path}standort/">${c.hero.ctaHost}</a>
     </div>
   </div>
 </section>`;
