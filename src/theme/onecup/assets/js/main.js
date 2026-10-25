@@ -127,8 +127,8 @@
     );
   }
 
-  /* Hero: pinned at the top while scroll scrubs the station orbit (frames on a canvas);
-     the subtitle and CTAs below come in after the orbit */
+  /* Hero: pinned once the station is centred in the viewport, scroll scrubs the orbit
+     (frames on a canvas); the subtitle and CTAs below come in after it */
   const orbit = $("[data-orbit]");
   if (orbit) {
     const n = Number(orbit.dataset.frames);
@@ -160,10 +160,10 @@
       ease: "none",
       onUpdate: draw,
       scrollTrigger: {
-        trigger: ".oc-hero",
-        start: "top top",
-        end: "+=100%",
-        pin: true,
+        trigger: orbit,
+        start: "center center",
+        end: "+=150%",
+        pin: ".oc-hero",
         scrub: 0.6,
       },
     });
