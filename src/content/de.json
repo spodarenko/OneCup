@@ -37,7 +37,8 @@
     "title": "Wie viel bringt eine Station?",
     "text": "Wählen Sie, wie viele Getränke pro Tag verkauft werden.",
     "label": "Getränke pro Tag",
-    "result": "Geschätzter Monatsumsatz"
+    "result": "Geschätzter Monatsumsatz",
+    "bgAlt": "OneCup Becher zwischen Kaffeebohnen"
   },
   "steps": {
     "eyebrow": "[ So funktioniert OneCup ]",

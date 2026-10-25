@@ -27,6 +27,7 @@
   /* Home v4 (Figma 238:133) */
   --oc-hero-v4-bg: #000001;
   --oc-calc-card: rgb(255 255 255 / 0.02);
+  --oc-calc-fade-top: #111116;
   --oc-calc-track: rgb(255 255 255 / 0.2);
   --oc-calc-knob-halo: rgb(255 255 255 / 0.12);
   --oc-choice-bg: rgb(239 235 227 / 0.04);

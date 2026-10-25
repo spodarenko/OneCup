@@ -37,7 +37,8 @@
     "title": "How much does a station earn?",
     "text": "Choose how many drinks are sold per day.",
     "label": "Drinks per day",
-    "result": "Estimated monthly revenue"
+    "result": "Estimated monthly revenue",
+    "bgAlt": "OneCup cup surrounded by coffee beans"
   },
   "steps": {
     "eyebrow": "[ How it works ]",

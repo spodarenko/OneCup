@@ -79,6 +79,7 @@ function calc(c) {
   const k = c.calc;
   const marks = [10, 50, 100, 150, 200].map((n) => `<span>${n}</span>`).join("");
   return `<section class="oc-calc oc-dark" aria-labelledby="calc-title">
+  <img class="oc-calc__bg" src="{{base}}assets/img/calc-bg.webp" alt="${attr(k.bgAlt)}" width="2880" height="1152" loading="lazy" decoding="async">
   <div class="oc-calc__head">
     ${eyebrow(k.eyebrow)}
     <h2 class="oc-calc__title" id="calc-title" data-split>${k.title}</h2>
