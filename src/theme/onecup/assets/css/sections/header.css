@@ -1,4 +1,4 @@
-/* Header — Figma 187:559. Overlays the hero. */
+/* Header — Figma 238:536 (home v4). Overlays the hero. */
 .oc-header {
   position: fixed;
   inset: 0 0 auto;
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--oc-space-48);
-  padding: var(--oc-space-32) var(--oc-space-64);
+  padding: var(--oc-space-32) var(--oc-gutter);
   /* Nav, buttons and language share one text size */
   font: 600 14px/20px var(--oc-font);
   color: var(--oc-text-cream);
@@ -20,7 +20,7 @@
 
 .oc-header__logo img {
   display: block;
-  width: 140px;
+  width: 138px;
   height: auto;
 }
 
@@ -183,12 +183,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .oc-header__ctas .oc-btn--outline {
-    display: none;
-  }
-}
-
 .oc-lang {
   position: relative;
   padding: 0;
@@ -212,6 +206,8 @@
 }
 
 .oc-lang summary .oc-icon {
+  width: 11px;
+  height: 11px;
   transition: transform 0.3s var(--oc-ease);
 }
 

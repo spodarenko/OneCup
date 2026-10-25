@@ -35,10 +35,9 @@ function header(c, all, page) {
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
       <a class="oc-btn oc-btn--sm oc-btn--green" href="{{whatsapp}}" target="_blank" rel="noopener">${c.nav.whatsapp}</a>
-      <a class="oc-btn oc-btn--sm oc-btn--outline" href="#contact">${c.nav.request}</a>
     </div>
     <details class="oc-lang">
-      <summary aria-label="${attr(c.nav.language)}">${c.name}${icon("caret-down")}</summary>
+      <summary aria-label="${attr(c.nav.language)}">${c.label}${icon("caret-down")}</summary>
       <ul>${others}</ul>
     </details>
   </div>
