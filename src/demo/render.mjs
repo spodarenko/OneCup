@@ -49,8 +49,8 @@ function hero(c) {
   const rest = c.hero.subtitle.replace("OneCup – Wake Up.", "");
   return `<section class="oc-hero" id="top">
   <h1 class="oc-hero__title" data-split>${c.hero.title}</h1>
-  <div class="oc-hero__media">
-    <img src="{{base}}assets/img/hero-station.webp" alt="${attr(c.hero.imgAlt)}" width="2752" height="1536" fetchpriority="high" decoding="async">
+  <div class="oc-hero__media" data-orbit data-frames="72" data-src="{{base}}assets/img/orbit/">
+    <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(c.hero.imgAlt)}" width="1280" height="720" fetchpriority="high" decoding="async">
   </div>
   <div class="oc-hero__body" data-reveal>
     <p class="oc-hero__subtitle"><span>{{slogan}}</span>${rest}</p>
@@ -411,7 +411,7 @@ export function render(c, all, site, css, page = "home") {
     <link rel="icon" href="{{base}}favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="{{base}}assets/img/${page === "home" ? "hero-station" : heroImg[page][0]}.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="{{base}}assets/img/${page === "home" ? "orbit/00" : heroImg[page][0]}.webp" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}

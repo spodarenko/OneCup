@@ -1,4 +1,4 @@
-/* Hero — Figma 238:134 (home v4). Static station render, no scroll pin. */
+/* Hero — Figma 238:134 (home v4). Scroll scrubs the station orbit (main.js); the first frame is the static fallback. */
 .oc-hero {
   position: relative;
   padding: calc(var(--oc-space-96) + 98px) 0 var(--oc-space-96);
@@ -36,6 +36,14 @@
     linear-gradient(180deg, var(--oc-hero-v4-bg) 0%, transparent 11.8%),
     linear-gradient(180deg, transparent 60%, var(--oc-hero-v4-bg) 100%);
   pointer-events: none;
+}
+
+.oc-hero__media canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .oc-hero__media img {
