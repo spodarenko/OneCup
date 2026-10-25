@@ -19,7 +19,7 @@
 
 .oc-slider__controls {
   display: flex;
-  gap: var(--oc-space-4);
+  gap: var(--oc-space-16);
 }
 
 .oc-slider__track {
