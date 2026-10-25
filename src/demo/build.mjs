@@ -1,4 +1,5 @@
 // Builds the static demo into dist/demo: home, buy and host page per language + robots, sitemap, llms.txt.
+import { createHash } from "node:crypto";
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pages, render } from "./render.mjs";
 
@@ -41,6 +42,12 @@ cpSync(new URL("src/theme/onecup/assets/", root), new URL("assets/", out), { rec
 cpSync(new URL("src/config/", root), new URL("config/", out), { recursive: true });
 cpSync(new URL("src/demo/favicon.svg", root), new URL("favicon.svg", out));
 writeFileSync(new URL("assets/css/demo.css", out), bundle);
+// Version query busts browser caches of CSS and JS after each deploy
+const v = createHash("sha1")
+  .update(bundle)
+  .update(readFileSync(new URL("src/theme/onecup/assets/js/main.js", root)))
+  .digest("hex")
+  .slice(0, 8);
 
 for (const c of langs) {
   for (const [page, sub] of Object.entries(pages)) {
@@ -48,7 +55,10 @@ for (const c of langs) {
     mkdirSync(dir, { recursive: true });
     writeFileSync(
       new URL("index.html", dir),
-      render(c, langs, site, ["assets/css/demo.css"], page),
+      render(c, langs, site, [`assets/css/demo.css?v=${v}`], page).replace(
+        "assets/js/main.js",
+        `assets/js/main.js?v=${v}`,
+      ),
     );
   }
 }
