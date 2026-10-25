@@ -18,10 +18,13 @@
   color: var(--oc-text-cream);
 }
 
+/* Logo — Figma 238:537. The cup rises above the wordmark; the wordmark (bottom 22px)
+   is what lines up with the nav, so the logo shifts up by half the cup's overhang */
 .oc-header__logo img {
   display: block;
-  width: 138px;
+  width: 183px;
   height: auto;
+  translate: 0 calc((22px - 43px) / 2);
 }
 
 .oc-header__nav {
