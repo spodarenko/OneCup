@@ -1,4 +1,5 @@
-/* Buy page — Figma 266:4358 «Station kaufen». Reuses hero, about, calc, contact, marquee. */
+/* Buy and host pages — Figma 333:2861, 266:5465. Hero, quote, steps, split and
+   contact come from the shared blocks; this file holds their page-only parts. */
 
 /* Hero: machine render with a warm glow behind it */
 .oc-hero--buy {
@@ -29,13 +30,12 @@
   content: none;
 }
 
-.oc-hero--buy .oc-hero__body {
-  margin-top: -300px;
+.oc-hero--buy {
+  padding-bottom: var(--oc-hero-buy-pb);
 }
 
-/* Who it's for: same word-fill quote as About, all words in cream */
-.oc-about__quote--plain {
-  color: var(--oc-text-on-dark);
+.oc-hero--buy .oc-hero__body {
+  margin-top: var(--oc-hero-buy-overlap);
 }
 
 /* Metrics: three big numbers */
@@ -77,94 +77,12 @@
   color: var(--oc-text-soft);
 }
 
-/* For your guests: big lines with a note on the right */
-.oc-guests {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--oc-space-80);
-  padding: var(--oc-space-96) var(--oc-gutter);
-}
-
-.oc-guests__list {
-  display: grid;
-  gap: var(--oc-space-20);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.oc-guests__list li {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--oc-space-24);
-  min-height: 68px;
-}
-
-.oc-guests__list h3 {
-  margin: 0;
-  font: var(--oc-h2);
-  color: var(--oc-line-light);
-}
-
-.oc-guests__list p {
-  flex: 0 0 240px;
-  margin: 0;
-  font: var(--oc-body-16);
-  color: var(--oc-text-soft);
-}
-
-/* Kit and lineup: numbered rows with lines */
-.oc-kit,
+/* Models list — Figma 333:3128: photo, name, text; price and CTA below */
 .oc-lineup {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: var(--oc-space-48);
   padding: var(--oc-space-96) var(--oc-gutter);
-}
-
-.oc-kit > .oc-eyebrow {
-  margin-bottom: calc(var(--oc-space-24) - var(--oc-space-48));
-}
-
-.oc-kit__list,
-.oc-lineup__list {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--oc-line-dark);
-}
-
-.oc-kit__row,
-.oc-lineup__row {
-  display: grid;
-  align-items: center;
-  border-top: 1px solid var(--oc-line-dark);
-  transition: background-color var(--oc-dur) var(--oc-ease);
-}
-
-.oc-kit__row {
-  grid-template-columns: 24px 512px 1fr;
-  column-gap: var(--oc-space-24);
-  padding: var(--oc-space-24) 0;
-}
-
-.oc-kit__row h3 {
-  margin: 0;
-  font: 600 28px/36px var(--oc-font);
-}
-
-.oc-kit__row p {
-  margin: 0 0 0 var(--oc-space-24);
-  font: var(--oc-body-16);
-  color: var(--oc-text-dim);
-}
-
-.oc-kit__n {
-  font: 600 14px/20px var(--oc-font);
-  color: var(--oc-accent);
 }
 
 .oc-lineup__head {
@@ -173,32 +91,28 @@
 }
 
 .oc-lineup__head p {
+  max-width: 640px;
   margin: 0;
   font: var(--oc-body-16);
   color: var(--oc-text-dim);
+}
+
+.oc-lineup__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .oc-lineup__row {
-  grid-template-columns: 24px 372px 1fr 240px;
-  column-gap: var(--oc-space-24);
+  display: grid;
+  grid-template-columns: 240px 420px 1fr;
+  align-items: center;
+  gap: var(--oc-space-48);
   padding: var(--oc-space-32) 0;
 }
 
-.oc-lineup__name {
-  margin: 0;
-  font: var(--oc-h3);
-}
-
-.oc-lineup__price {
-  display: grid;
-  gap: var(--oc-space-8);
-  margin: 0 0 0 var(--oc-space-24);
-  font: 600 28px/40px var(--oc-font);
-}
-
-.oc-lineup__price span {
-  font: var(--oc-body-16);
-  color: var(--oc-text-dim);
+.oc-lineup__row + .oc-lineup__row {
+  border-top: 1px solid var(--oc-line-soft);
 }
 
 .oc-lineup__img {
@@ -213,16 +127,65 @@
   transform: scale(1.04);
 }
 
+.oc-lineup__name {
+  margin: 0;
+  font: var(--oc-h3);
+}
+
+.oc-lineup__text,
+.oc-lineup__note {
+  margin: 0;
+  font: var(--oc-body-16);
+  color: var(--oc-text-soft-strong);
+}
+
+.oc-lineup__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-64);
+}
+
+.oc-lineup__note {
+  flex: 1;
+}
+
+.oc-lineup__price {
+  display: grid;
+  gap: var(--oc-space-4);
+  margin: 0;
+  font: var(--oc-h3);
+}
+
+.oc-lineup__price span {
+  font: var(--oc-body-14);
+  color: var(--oc-text-dim);
+}
+
+/* Buy hero subtitle — Figma 333:2872: 24/32, 566px wide, same as host */
+.oc-hero--buy .oc-hero__body {
+  max-width: calc(566px + 2 * var(--oc-space-24));
+}
+
+/* Single CTA is 280px wide in Figma */
+.oc-hero--buy .oc-btn {
+  min-width: 280px;
+}
+
+.oc-hero--buy .oc-hero__subtitle {
+  font: var(--oc-h5);
+}
+
+.oc-hero__title .oc-accent {
+  color: var(--oc-accent);
+}
+
 @media (max-width: 1100px) {
   .oc-metrics,
-  .oc-guests,
-  .oc-kit,
   .oc-lineup {
     padding: var(--oc-space-64) var(--oc-space-24);
   }
 
-  .oc-metrics__list,
-  .oc-guests {
+  .oc-metrics__list {
     grid-template-columns: 1fr;
     gap: var(--oc-space-40);
   }
@@ -232,35 +195,9 @@
     line-height: 96px;
   }
 
-  .oc-guests__list li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--oc-space-8);
-  }
-
-  .oc-guests__list h3 {
-    font: var(--oc-h4);
-  }
-
-  .oc-guests__list p {
-    flex: none;
-  }
-
-  .oc-kit__row,
   .oc-lineup__row {
-    grid-template-columns: 24px 1fr;
-    row-gap: var(--oc-space-8);
-  }
-
-  .oc-kit__row h3 {
-    font: var(--oc-h5);
-  }
-
-  .oc-kit__row p,
-  .oc-lineup__price,
-  .oc-lineup__img {
-    grid-column: 2;
-    margin-left: 0;
+    grid-template-columns: 1fr;
+    gap: var(--oc-space-16);
   }
 
   .oc-lineup__img {
@@ -270,8 +207,19 @@
     aspect-ratio: 4 / 3;
   }
 
+  .oc-lineup__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--oc-space-24);
+  }
+
   .oc-hero--buy .oc-hero__body {
     margin-top: -40%;
+  }
+
+  .oc-hero--buy .oc-hero__subtitle {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 

@@ -103,6 +103,10 @@ a {
   color: var(--oc-green);
 }
 
+.oc-accent {
+  color: var(--oc-accent);
+}
+
 .oc-icon {
   width: 1em;
   height: 1em;

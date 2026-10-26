@@ -238,64 +238,77 @@
       "title": "Buy a OneCup coffee station — your coffee, your business",
       "description": "A turnkey self-service coffee station: coffee machine, cabinet, cups and launch support. Models from €6,000."
     },
+    "nav": [
+      ["benefits", "Benefits"],
+      ["kit", "Kit"],
+      ["models", "Models"],
+      ["host", "Host a station"],
+      ["contact", "Contact"]
+    ],
+    "navCta": "Buy a station",
     "hero": {
-      "title": "OneCup<br>Your coffee. Your business",
-      "subtitle": "Want extra income without opening a café?",
-      "cta": "Purchase request",
-      "kit": "What's included",
+      "title": "<span class=\"oc-accent\">OneCup</span><br>Your coffee. Your business",
+      "subtitle": "Want <span class=\"oc-accent\">extra income</span> without your own café? You get a fully equipped business model, ready to run from day one: place it, plug it in, start.",
+      "cta": "Buy a station",
       "imgAlt": "OneCup coffee machine with a cup of coffee"
     },
     "who": {
       "eyebrow": "[ Who it's for ]",
-      "before": "Extra income without your own café?",
-      "after": "A ready station — place it, plug it in and start",
+      "before": "No experience, renovation or staff",
+      "after": "— the station runs itself and you earn",
       "img1": "OneCup coffee station",
       "img2": "OneCup coffee cup"
     },
     "metrics": [
       {
+        "v": "1",
+        "u": "m²",
+        "t": "Footprint",
+        "d": "About 1 m² of open space. Fits by a wall or in a corner — no renovation"
+      },
+      {
         "v": "230",
         "u": "V",
         "t": "Power",
-        "d": "A standard socket —<br>no separate line needed"
+        "d": "A standard socket — no separate line needed"
       },
       {
-        "v": "24",
-        "u": "/7",
-        "t": "Operation",
-        "d": "Guests serve themselves —<br>your team stays focused"
-      },
-      {
-        "v": "~1",
-        "u": "m²",
-        "t": "Footprint",
-        "d": "Fits by a wall or in a corner —<br>no renovation"
+        "v": "12",
+        "u": "+",
+        "t": "Cups a day",
+        "d": "Even a small office or salon works. Every extra cup is your profit"
       }
     ],
-    "guests": {
-      "eyebrow": "[ For your guests ]",
+    "steps": {
+      "eyebrow": "[ Your benefits ]",
+      "title": "Your benefits",
       "items": [
         {
-          "t": "No queue",
-          "d": "Guests pick a drink on the screen and have it in a minute"
+          "n": "01",
+          "label": "No experience",
+          "text": "No special skills — the station is ready to run right after installation."
         },
         {
-          "t": "Card or cash",
-          "d": "Any convenient way to pay on the spot"
+          "n": "02",
+          "label": "Easy to use",
+          "text": "A clear on-screen menu — for you and for your guests."
         },
         {
-          "t": "Freshly ground beans",
-          "d": "Every cup is ground right before brewing"
+          "n": "03",
+          "label": "Compact",
+          "text": "About 1 m² — fits any space: office, salon, lobby."
         },
         {
-          "t": "Coffee to go",
-          "d": "Cup and lid right next to the machine"
+          "n": "04",
+          "label": "Minimal upkeep",
+          "text": "Top up beans and water, empty the tank — that's all the care it needs."
         }
       ]
     },
     "kit": {
       "eyebrow": "[ What's included ]",
-      "title": "Everything to start — in one kit",
+      "title": "Everything in one kit",
+      "note": "Place it, plug it in, start",
       "items": [
         {
           "t": "Automatic coffee machine",
@@ -337,27 +350,26 @@
     },
     "lineup": {
       "eyebrow": "[ Models ]",
-      "title": "OneCup Kaffeestation",
-      "text": "One station — three cabinet options for your space",
-      "from": "from",
-      "cta": "Purchase request",
+      "title": "Choose your station",
+      "text": "Want extra income without your own café? A fully equipped business model: place it, plug it in, start.",
       "items": [
         {
-          "t": "Model A",
-          "p": "€6,000",
-          "d": "Compact cabinet"
+          "t": "Compact cabinet",
+          "d": "For a small office or salon"
         },
         {
-          "t": "Model B",
-          "p": "€10,000",
-          "d": "Classic cabinet"
+          "t": "Classic cabinet",
+          "d": "For a lobby, reception or waiting area"
         },
         {
-          "t": "Model C",
-          "p": "€20,000",
-          "d": "Premium cabinet"
+          "t": "Premium cabinet",
+          "d": "With a drinks fridge — for heavy footfall"
         }
-      ]
+      ],
+      "note": "Just 10–15 drinks a day can bring up to ~€1,000 profit a month — depending on location and costs.",
+      "price": "from €6,000",
+      "priceNote": "depending on the cabinet",
+      "cta": "Buy a station"
     }
   },
   "host": {
