@@ -44,7 +44,13 @@ function header(c, all, page) {
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
     ${navLinks.map(([href, label]) => `<a href="${href}">${label}</a>`).join("\n    ")}
-    <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
+    <a class="oc-header__menu-only" href="#contact">${p?.navCta ?? c.nav.request}</a>
+    <ul class="oc-header__langs oc-header__menu-only" aria-label="${attr(c.nav.language)}">${all
+      .map(
+        (l) =>
+          `<li><a href="{{base}}${l.path}${sub}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.label}</a></li>`,
+      )
+      .join("")}</ul>
   </nav>
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
