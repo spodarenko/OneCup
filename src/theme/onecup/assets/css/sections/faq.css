@@ -4,7 +4,7 @@
   grid-template-columns: 280px 1fr;
   gap: var(--oc-space-80);
   padding: var(--oc-space-96) var(--oc-gutter);
-  background: var(--oc-bg-faq);
+  background: var(--oc-bg-raised);
   color: var(--oc-text-cream);
 }
 

@@ -4,7 +4,8 @@
   /* Color */
   --oc-bg-dark: #0d0e13;
   --oc-bg-card-dark: #1a1b21;
-  --oc-bg-faq: #18191f;
+  /* FAQ and Contact sections */
+  --oc-bg-raised: #18191f;
   --oc-bg-light: #f3ede3;
   --oc-bg-soft: #fbf8f3;
   --oc-line-light: #e5e2dd;
