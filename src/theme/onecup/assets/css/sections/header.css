@@ -108,6 +108,32 @@
   .oc-header__menu-only {
     display: block;
   }
+
+  /* Bar keeps logo, WhatsApp and burger; language and the page CTA move into the menu */
+  .oc-header__actions .oc-lang,
+  .oc-header__ctas .oc-btn--outline {
+    display: none;
+  }
+
+  .oc-header__langs {
+    display: flex;
+    gap: var(--oc-space-24);
+    margin: auto 0 0;
+    padding: var(--oc-space-24) 0 0;
+    list-style: none;
+  }
+
+  .oc-header__nav .oc-header__langs a {
+    padding-block: 0;
+    font: var(--oc-body-16);
+    font-weight: 600;
+    letter-spacing: 0;
+    opacity: 0.6;
+  }
+
+  .oc-header__nav .oc-header__langs a[aria-current] {
+    opacity: 1;
+  }
 }
 
 .oc-burger {
