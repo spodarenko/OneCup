@@ -38,9 +38,14 @@
   --oc-choice-text: #efebe3;
   /* Buy page (Figma 266:4358) */
   --oc-text-dim: rgb(255 255 255 / 0.6);
+  --oc-text-soft-strong: rgb(243 237 227 / 0.7);
+  --oc-line-soft: rgb(243 237 227 / 0.1);
   --oc-text-soft: rgb(229 226 221 / 0.6);
   --oc-buy-glow: rgb(97 80 72);
   --oc-buy-glow-soft: rgb(97 80 72 / 0.2);
+  /* Buy hero geometry (Figma 333:2863): text overlaps the render, 184px below */
+  --oc-hero-buy-overlap: -228px;
+  --oc-hero-buy-pb: 184px;
 
   /* Motion — eases mirror the coffee-tech.com reference (power2.out) */
   --oc-ease: cubic-bezier(0.22, 1, 0.36, 1);

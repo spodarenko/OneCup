@@ -15,6 +15,18 @@ const eyebrow = (text, cls = "") => `<p class="oc-eyebrow ${cls}">${text}</p>`;
 function header(c, all, page) {
   const h = page === "home" ? "" : `{{base}}${c.path}`;
   const sub = pages[page];
+  const p = c[page];
+  // A page can bring its own menu (Figma per page); otherwise the home sections
+  const anchor = (id) => (id === "host" ? `{{base}}${c.path}standort/` : `#${id}`);
+  const navLinks = p?.nav
+    ? p.nav.map(([id, label]) => [anchor(id), label])
+    : [
+        [`${h}#calc`, c.nav.calc],
+        [`${h}#models`, c.nav.models],
+        [`${h}#where`, c.nav.uses],
+        [`${h}#how`, c.nav.materials],
+        ["#contact", c.nav.reach],
+      ];
   const others = all
     .map(
       (l) =>
@@ -26,16 +38,13 @@ function header(c, all, page) {
     <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="183" height="43">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
-    <a href="${h}#calc">${c.nav.calc}</a>
-    <a href="${h}#models">${c.nav.models}</a>
-    <a href="${h}#where">${c.nav.uses}</a>
-    <a href="${h}#how">${c.nav.materials}</a>
-    <a href="#contact">${c.nav.reach}</a>
+    ${navLinks.map(([href, label]) => `<a href="${href}">${label}</a>`).join("\n    ")}
     <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
   </nav>
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
       <a class="oc-btn oc-btn--sm oc-btn--green" href="{{whatsapp}}" target="_blank" rel="noopener">${c.nav.whatsapp}</a>
+      ${p?.navCta ? `<a class="oc-btn oc-btn--sm oc-btn--outline" href="#contact">${p.navCta}</a>` : ""}
     </div>
     <details class="oc-lang">
       <summary aria-label="${attr(c.nav.language)}">${c.label}${icon("caret-down")}</summary>
@@ -46,34 +55,71 @@ function header(c, all, page) {
 </header>`;
 }
 
-function hero(c) {
-  const rest = c.hero.subtitle.replace("OneCup – Wake Up.", "");
-  return `<section class="oc-hero" id="top">
-  <h1 class="oc-hero__title" data-split>${c.hero.title}</h1>
-  <div class="oc-hero__media" data-orbit data-frames="72" data-src="{{base}}assets/img/orbit/">
-    <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(c.hero.imgAlt)}" width="1920" height="1080" fetchpriority="high" decoding="async">
-  </div>
+// Hero — one block for every page: the home page orbits the station on scroll,
+// the buy and host pages show a still render
+const heroImg = { buy: ["buy-hero", 1024, 683], host: ["host-hero", 1122, 1402] };
+
+function hero(c, page) {
+  const home = page === "home";
+  const h = home ? c.hero : c[page].hero;
+  const subtitle = home
+    ? `<span class="oc-accent">{{slogan}}</span>${h.subtitle.replace("OneCup – Wake Up.", "")}`
+    : h.subtitle;
+  const ctas = home
+    ? [
+        [h.ctaBuy, `{{base}}${c.path}kaufen/`, "accent"],
+        [h.ctaHost, `{{base}}${c.path}standort/`, "outline"],
+      ]
+    : [[h.cta, "#contact", "accent"], ...(h.more ? [[h.more, "#models", "outline"]] : [])];
+  const [src, w, ht] = home ? [] : heroImg[page];
+  const media = home
+    ? `<div class="oc-hero__media" data-orbit data-frames="72" data-src="{{base}}assets/img/orbit/">
+    <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(h.imgAlt)}" width="1920" height="1080" fetchpriority="high" decoding="async">
+  </div>`
+    : `<div class="oc-hero__media">
+    <img src="{{base}}assets/img/${src}.webp" alt="${attr(h.imgAlt)}" width="${w}" height="${ht}" fetchpriority="high" decoding="async">
+  </div>`;
+  return `<section class="oc-hero${home ? "" : ` oc-hero--${page}`}" id="top">
+  <h1 class="oc-hero__title" data-split>${h.title}</h1>
+  ${media}
   <div class="oc-hero__body" data-reveal>
-    <p class="oc-hero__subtitle"><span>{{slogan}}</span>${rest}</p>
+    <p class="oc-hero__subtitle">${subtitle}</p>
     <div class="oc-hero__ctas">
-      <a class="oc-btn oc-btn--accent" href="{{base}}${c.path}kaufen/">${c.hero.ctaBuy}</a>
-      <a class="oc-btn oc-btn--outline" href="{{base}}${c.path}standort/">${c.hero.ctaHost}</a>
+      ${ctas.map(([label, href, kind]) => `<a class="oc-btn oc-btn--${kind}" href="${href}">${label}</a>`).join("\n      ")}
     </div>
   </div>
 </section>`;
 }
 
-function about(c) {
-  const a = c.about;
-  const pill = (n, alt) =>
-    `<img class="oc-about__pill" src="{{base}}assets/img/${n}.webp" alt="${attr(alt)}" width="72" height="46" loading="lazy">`;
-  const [before, after] = a.text.split(a.inlineAfter);
-  return `<section class="oc-about oc-dark" aria-labelledby="about-title">
+// Quote — «About OneCup» on home and «Who it's for» on the buy and host pages
+function quote(eb, inner, label) {
+  return `<section class="oc-about oc-dark" aria-label="${attr(label)}">
   <div class="oc-about__inner">
-    ${eyebrow(a.eyebrow)}
-    <p class="oc-about__quote" id="about-title" data-fill><span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span></p>
+    ${eyebrow(eb)}
+    <p class="oc-about__quote" data-fill>${inner}</p>
   </div>
 </section>`;
+}
+
+const pill = (n, alt) =>
+  `<img class="oc-about__pill" src="{{base}}assets/img/${n}.webp" alt="${attr(alt)}" width="94" height="60" loading="lazy">`;
+
+function about(c) {
+  const a = c.about;
+  const [before, after] = a.text.split(a.inlineAfter);
+  return quote(
+    a.eyebrow,
+    `<span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span>`,
+    `${a.brand} ${a.inlineAfter}`,
+  );
+}
+
+function who(w) {
+  return quote(
+    w.eyebrow,
+    `“${w.before} ${pill("buy-pill-1", w.img1)} ${w.after} ${pill("buy-pill-2", w.img2)} ”`,
+    w.before,
+  );
 }
 
 function calc(c) {
@@ -98,8 +144,8 @@ function calc(c) {
 </section>`;
 }
 
-function steps(c) {
-  const s = c.steps;
+// Numbered rows — «How it works» on home, «Your benefits» on buy, «For your guests» on host
+function steps(s, id = "how") {
   const items = s.items
     .map(
       (it) => `<li class="oc-step" data-reveal>
@@ -111,9 +157,9 @@ function steps(c) {
     </li>`,
     )
     .join("");
-  return `<section class="oc-steps oc-dark" id="how" aria-labelledby="steps-title">
+  return `<section class="oc-steps oc-dark" id="${id}" aria-labelledby="${id}-title">
   ${eyebrow(s.eyebrow)}
-  <h2 class="oc-visually-hidden" id="steps-title">${s.title}</h2>
+  <h2 class="oc-visually-hidden" id="${id}-title">${s.title}</h2>
   <ol class="oc-steps__list">${items}</ol>
 </section>`;
 }
@@ -182,23 +228,48 @@ function faq(c) {
 </section>`;
 }
 
+// Split block — 280px head + 824px rows; Contact and the buy-page kit share it
+function split(id, head, rows) {
+  return `<section class="oc-split oc-dark" id="${id}" aria-labelledby="${id}-title">
+  <div class="oc-split__head">
+    ${eyebrow(head.eyebrow)}
+    <h2 class="oc-h2" id="${id}-title" data-split>${head.title}</h2>
+    <p class="oc-split__note">${head.note}</p>
+  </div>
+  <ul class="oc-split__rows">
+    ${rows.join("\n    ")}
+  </ul>
+</section>`;
+}
+
 function contact(c) {
   const k = c.contact;
   const row = (href, label, value, ic, mod = "", ext = "") =>
-    `<li><a class="oc-contact__row ${mod}" href="${href}"${ext}><span class="oc-contact__label">${label}</span><span class="oc-contact__value">${value}</span>${icon(ic, "oc-icon oc-contact__icon")}</a></li>`;
-  return `<section class="oc-contact oc-dark" id="contact" aria-labelledby="contact-title">
-  <div class="oc-contact__head">
-    ${eyebrow(k.eyebrow)}
-    <h2 class="oc-h2" id="contact-title" data-split>${k.title}</h2>
-    <p class="oc-contact__note">${k.note}</p>
-  </div>
-  <ul class="oc-contact__list">
-    ${row("{{whatsapp}}", k.whatsapp, "{{phone}}", "whatsapp-logo", "", ' target="_blank" rel="noopener"')}
-    ${row("tel:{{phoneHref}}", k.call, "{{phone}}", "phone")}
-    ${row("mailto:{{email}}", k.email, "{{email}}", "envelope-simple")}
-    ${row("mailto:{{email}}?subject=OneCup", k.form, k.formNote, "arrow-right", "oc-contact__row--accent")}
-  </ul>
-</section>`;
+    `<li><a class="oc-row oc-row--link ${mod}" href="${href}"${ext}><span class="oc-row__label">${label}</span><span class="oc-row__value">${value}</span>${icon(ic, "oc-icon oc-row__icon")}</a></li>`;
+  return split("contact", k, [
+    row(
+      "{{whatsapp}}",
+      k.whatsapp,
+      "{{phone}}",
+      "whatsapp-logo",
+      "",
+      ' target="_blank" rel="noopener"',
+    ),
+    row("tel:{{phoneHref}}", k.call, "{{phone}}", "phone"),
+    row("mailto:{{email}}", k.email, "{{email}}", "envelope-simple"),
+    row("mailto:{{email}}?subject=OneCup", k.form, k.formNote, "arrow-right", "oc-row--accent"),
+  ]);
+}
+
+function kit(k) {
+  return split(
+    "kit",
+    k,
+    k.items.map(
+      (it) =>
+        `<li class="oc-row oc-row--compact"><span class="oc-row__label">${it.t}</span><span class="oc-row__text">${it.d}</span></li>`,
+    ),
+  );
 }
 
 function marquee() {
@@ -240,39 +311,9 @@ function footer(c, page) {
 </footer>`;
 }
 
-// Buy page — Figma 266:4358 «Station kaufen»; host page — Figma 266:5465 «Standort anbieten»
-const heroImg = { buy: ["buy-hero", 1024, 683], host: ["host-hero", 1122, 1402] };
+// Buy page — Figma 333:2861 «Station kaufen»; host page — Figma 266:5465 «Standort anbieten»
 
-function buyHero(b, page) {
-  const [src, w, h] = heroImg[page];
-  return `<section class="oc-hero oc-hero--${page}" id="top">
-  <h1 class="oc-hero__title" data-split>${b.hero.title}</h1>
-  <div class="oc-hero__media">
-    <img src="{{base}}assets/img/${src}.webp" alt="${attr(b.hero.imgAlt)}" width="${w}" height="${h}" fetchpriority="high" decoding="async">
-  </div>
-  <div class="oc-hero__body" data-reveal>
-    <p class="oc-hero__subtitle">${b.hero.subtitle}</p>
-    <div class="oc-hero__ctas">
-      <a class="oc-btn oc-btn--accent" href="#contact">${b.hero.cta}</a>
-      <a class="oc-btn oc-btn--outline" href="${b.kit ? "#kit" : "#models"}">${b.hero.kit ?? b.hero.more}</a>
-    </div>
-  </div>
-</section>`;
-}
-
-function buyWho(b) {
-  const w = b.who;
-  const pill = (n, alt) =>
-    `<img class="oc-about__pill" src="{{base}}assets/img/buy-pill-${n}.webp" alt="${attr(alt)}" width="94" height="60" loading="lazy">`;
-  return `<section class="oc-about oc-dark" aria-label="${attr(w.before)}">
-  <div class="oc-about__inner">
-    ${eyebrow(w.eyebrow)}
-    <p class="oc-about__quote oc-about__quote--plain" data-fill>“${w.before} ${pill(1, w.img1)} ${w.after} ${pill(2, w.img2)} ”</p>
-  </div>
-</section>`;
-}
-
-function buyMetrics(b) {
+function metrics(b) {
   const items = b.metrics
     .map(
       (m) => `<li class="oc-metric">
@@ -285,52 +326,29 @@ function buyMetrics(b) {
   return `<section class="oc-metrics oc-dark"><ul class="oc-metrics__list">${items}</ul></section>`;
 }
 
-function buyGuests(b) {
-  const g = b.guests;
-  const items = g.items.map((it) => `<li><h3>${it.t}</h3><p>${it.d}</p></li>`).join("");
-  return `<section class="oc-guests oc-dark" aria-label="${attr(g.eyebrow)}">
-  ${eyebrow(g.eyebrow)}
-  <ul class="oc-guests__list">${items}</ul>
-</section>`;
-}
-
-const pad = (i) => String(i + 1).padStart(2, "0");
-
-function buyKit(b) {
-  const k = b.kit;
-  const items = k.items
-    .map(
-      (it, i) =>
-        `<li class="oc-kit__row"><span class="oc-kit__n">${pad(i)}</span><h3>${it.t}</h3><p>${it.d}</p></li>`,
-    )
-    .join("");
-  return `<section class="oc-kit oc-dark" id="kit" aria-labelledby="kit-title">
-  ${eyebrow(k.eyebrow, "oc-eyebrow--muted")}
-  <h2 class="oc-h2" id="kit-title" data-split>${k.title}</h2>
-  <ol class="oc-kit__list">${items}</ol>
-</section>`;
-}
-
-function buyLineup(b) {
-  const m = b.lineup;
+// Models list with photos, price and CTA — Figma 333:3128
+function lineup(m) {
   const items = m.items
     .map(
       (it, i) => `<li class="oc-lineup__row">
-      <span class="oc-kit__n">${pad(i)}</span>
-      <h3 class="oc-lineup__name">${it.t}</h3>
-      <p class="oc-lineup__price">${it.p ? `${m.from} ${it.p}` : ""}<span>${it.d}</span></p>
       ${img(`buy-model-${"abc"[i]}`, `${it.t} — ${it.d}`, 240, 180, ' class="oc-lineup__img"')}
+      <h3 class="oc-lineup__name">${it.t}</h3>
+      <p class="oc-lineup__text">${it.d}</p>
     </li>`,
     )
     .join("");
   return `<section class="oc-lineup oc-dark" id="models" aria-labelledby="lineup-title">
   <div class="oc-lineup__head">
-    ${eyebrow(m.eyebrow, "oc-eyebrow--muted")}
+    ${eyebrow(m.eyebrow)}
     <h2 class="oc-h2" id="lineup-title" data-split>${m.title}</h2>
     <p>${m.text}</p>
   </div>
   <ol class="oc-lineup__list">${items}</ol>
-  ${m.cta ? `<a class="oc-btn oc-btn--accent" href="#contact">${m.cta}</a>` : ""}
+  <div class="oc-lineup__foot">
+    <p class="oc-lineup__note">${m.note}</p>
+    <p class="oc-lineup__price">${m.price}<span>${m.priceNote}</span></p>
+    <a class="oc-btn oc-btn--accent" href="#contact">${m.cta}</a>
+  </div>
 </section>`;
 }
 
@@ -436,31 +454,30 @@ export function render(c, all, site, css, page = "home") {
       ${
         page === "host"
           ? [
-              buyHero(c.host, page),
-              buyWho(c.host),
-              buyMetrics(c.host),
-              steps(c.host),
+              hero(c, page),
+              who(c.host.who),
+              metrics(c.host),
+              steps(c.host.steps),
               hostCoop(c.host),
               contact(c),
               marquee(),
             ].join("\n      ")
           : page === "buy"
             ? [
-                buyHero(c.buy, page),
-                buyWho(c.buy),
-                buyMetrics(c.buy),
-                buyGuests(c.buy),
-                calc(c),
-                buyKit(c.buy),
-                buyLineup(c.buy),
+                hero(c, page),
+                who(c.buy.who),
+                metrics(c.buy),
+                steps(c.buy.steps, "benefits"),
+                kit(c.buy.kit),
+                lineup(c.buy.lineup),
                 contact(c),
                 marquee(),
               ].join("\n      ")
             : [
-                hero(c),
+                hero(c, page),
                 about(c),
                 calc(c),
-                steps(c),
+                steps(c.steps),
                 models(c),
                 slider(c, "where", "where"),
                 faq(c),

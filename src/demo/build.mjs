@@ -21,7 +21,7 @@ const css = [
     "models",
     "slider",
     "faq",
-    "contact",
+    "split",
     "marquee",
     "buy",
     "footer",

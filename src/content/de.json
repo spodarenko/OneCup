@@ -238,64 +238,77 @@
       "title": "OneCup Kaffeestation kaufen — Ihr Kaffee, Ihr Business",
       "description": "Schlüsselfertige Selbstbedienungs-Kaffeestation: Kaffeevollautomat, Schrank, Becher und Unterstützung beim Start. Modelle ab 6.000 €."
     },
+    "nav": [
+      ["benefits", "Vorteile"],
+      ["kit", "Paket"],
+      ["models", "Modelle"],
+      ["host", "Station aufstellen"],
+      ["contact", "Kontakt"]
+    ],
+    "navCta": "Station kaufen",
     "hero": {
-      "title": "OneCup<br>Ihr Kaffee. Ihr Business",
-      "subtitle": "Sie möchten zusätzliches Einkommen, ohne ein Café zu eröffnen?",
-      "cta": "Kaufanfrage",
-      "kit": "Was ist enthalten",
+      "title": "<span class=\"oc-accent\">OneCup</span><br>Ihr Kaffee. Ihr Business",
+      "subtitle": "Sie möchten <span class=\"oc-accent\">zusätzliches Einkommen</span> ohne eigenes Café? Sie erhalten ein komplett ausgestattetes Geschäftsmodell, sofort einsatzbereit: aufstellen, anschließen, starten.",
+      "cta": "Station kaufen",
       "imgAlt": "OneCup Kaffeevollautomat mit einem Becher Kaffee"
     },
     "who": {
       "eyebrow": "[ Für wen ]",
-      "before": "Zusätzliches Einkommen ohne eigenes Café?",
-      "after": "Fertige Station — aufstellen, anschließen und starten",
+      "before": "Ohne Erfahrung, Umbau und Personal",
+      "after": "— die Station arbeitet selbst, Sie verdienen",
       "img1": "OneCup Kaffeestation",
       "img2": "OneCup Kaffeebecher"
     },
     "metrics": [
       {
+        "v": "1",
+        "u": "m²",
+        "t": "Fläche",
+        "d": "Etwa 1 m² freie Fläche. Passt an die Wand oder in die Ecke — ohne Umbau"
+      },
+      {
         "v": "230",
         "u": "V",
         "t": "Strom",
-        "d": "Normale Steckdose —<br>keine eigene Leitung nötig"
+        "d": "Normale Steckdose — keine eigene Leitung nötig"
       },
       {
-        "v": "24",
-        "u": "/7",
-        "t": "Betrieb",
-        "d": "Gäste bedienen sich selbst —<br>Ihr Team wird nicht gestört"
-      },
-      {
-        "v": "~1",
-        "u": "m²",
-        "t": "Fläche",
-        "d": "Passt an die Wand oder in die Ecke —<br>ohne Umbau"
+        "v": "12",
+        "u": "+",
+        "t": "Tassen pro Tag",
+        "d": "Schon ein kleines Büro oder Studio reicht. Jede weitere Tasse ist Ihr Plus"
       }
     ],
-    "guests": {
-      "eyebrow": "[ Für Ihre Gäste ]",
+    "steps": {
+      "eyebrow": "[ Ihre Vorteile ]",
+      "title": "Ihre Vorteile",
       "items": [
         {
-          "t": "Ohne Warteschlange",
-          "d": "Gäste wählen am Bildschirm und haben ihr Getränk in einer Minute"
+          "n": "01",
+          "label": "Ohne Erfahrung",
+          "text": "Kein Fachwissen nötig — die Station ist direkt nach der Aufstellung startklar."
         },
         {
-          "t": "Karte oder bar",
-          "d": "Jede bequeme Zahlungsart vor Ort"
+          "n": "02",
+          "label": "Einfache Bedienung",
+          "text": "Ein klares Menü auf dem Bildschirm — für Sie und Ihre Gäste."
         },
         {
-          "t": "Frisch gemahlen",
-          "d": "Jede Tasse wird direkt vor der Zubereitung gemahlen"
+          "n": "03",
+          "label": "Kompakt",
+          "text": "Rund 1 m² — passt in jeden Raum: Büro, Studio, Lobby."
         },
         {
-          "t": "Kaffee to go",
-          "d": "Becher und Deckel direkt daneben"
+          "n": "04",
+          "label": "Wenig Pflege",
+          "text": "Bohnen und Wasser auffüllen, Tank leeren — das ist alles."
         }
       ]
     },
     "kit": {
       "eyebrow": "[ Was ist enthalten ]",
-      "title": "Alles für den Start — in einem Paket",
+      "title": "Alles in einem Paket",
+      "note": "Aufstellen, anschließen, starten",
       "items": [
         {
           "t": "Kaffeevollautomat",
@@ -337,27 +350,26 @@
     },
     "lineup": {
       "eyebrow": "[ Modelle ]",
-      "title": "OneCup Kaffeestation",
-      "text": "Eine Station — drei Schrankvarianten für Ihren Raum",
-      "from": "ab",
-      "cta": "Kaufanfrage",
+      "title": "Wählen Sie Ihre Station",
+      "text": "Zusätzliches Einkommen ohne eigenes Café? Ein komplett ausgestattetes Geschäftsmodell: aufstellen, anschließen, starten.",
       "items": [
         {
-          "t": "Modell A",
-          "p": "6.000 €",
-          "d": "Schrank Compact"
+          "t": "Schrank Compact",
+          "d": "Für ein kleines Büro oder Studio"
         },
         {
-          "t": "Modell B",
-          "p": "10.000 €",
-          "d": "Schrank Classic"
+          "t": "Schrank Classic",
+          "d": "Für Lobby, Empfang, Wartebereich"
         },
         {
-          "t": "Modell C",
-          "p": "20.000 €",
-          "d": "Schrank Premium"
+          "t": "Schrank Premium",
+          "d": "Mit Getränkekühlschrank — für viel Laufkundschaft"
         }
-      ]
+      ],
+      "note": "Schon 10–15 verkaufte Getränke pro Tag können bis zu ~1.000 € Gewinn im Monat bringen — je nach Standort und Kosten.",
+      "price": "ab 6.000 €",
+      "priceNote": "je nach Schrank",
+      "cta": "Station kaufen"
     }
   },
   "host": {

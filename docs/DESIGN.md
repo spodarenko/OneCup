@@ -29,18 +29,25 @@ The design project (research, brief, agents) is `../OneCup/`. It stays outside t
 
 ## Buy page `kaufen/` (top → bottom)
 
-Figma node `266:4358` «Station kaufen». One per language: `/kaufen/`, `/en/kaufen/`, `/uk/kaufen/`. Content: `buy` in `src/content/<lang>.json`; UA copy from Figma, EN/DE translated.
+Figma node `333:2861` «Station kaufen». One per language: `/kaufen/`, `/en/kaufen/`, `/uk/kaufen/`. Content: `buy` in `src/content/<lang>.json` (own header menu `nav` + `navCta`); UA copy from Figma, EN/DE translated.
 
-| #   | Section                      | Reuses           |
-| --- | ---------------------------- | ---------------- |
-| 1   | Hero (machine render, glow)  | hero             |
-| 2   | Who it's for (word-fill)     | about            |
-| 3   | Metrics 230 V · 24/7 · ~1 m² | —                |
-| 4   | For your guests              | —                |
-| 5   | Revenue calculator           | calc             |
-| 6   | What's included (9 rows)     | —                |
-| 7   | Models A / B / C with prices | —                |
-| 8   | Contact, Marquee, Footer     | contact, marquee |
+Hero → Who it's for (quote) → Metrics → Your benefits (steps) → What's included (split) → Models (list with price and CTA) → Contact → Marquee → Footer.
+
+## Shared blocks
+
+Every page is built from the same functions in `src/demo/render.mjs`, so a change to a block shows on all pages:
+
+| Block                   | Function                            | Used on                                                          |
+| ----------------------- | ----------------------------------- | ---------------------------------------------------------------- |
+| Hero                    | `hero(c, page)`                     | home (scroll orbit), buy, host (still render)                    |
+| Quote                   | `quote()` via `about()` / `who()`   | home, buy, host                                                  |
+| Metrics                 | `metrics()`                         | buy, host                                                        |
+| Numbered rows           | `steps(s, id)`                      | home «How it works», buy «Your benefits», host «For your guests» |
+| Split 280 + 824         | `split()` via `contact()` / `kit()` | all pages (contact), buy (kit)                                   |
+| Two models cards        | `models()` / `hostCoop()`           | home, host                                                       |
+| Marquee, footer, header | `marquee()`, `footer()`, `header()` | all pages                                                        |
+
+Buttons: one size everywhere, 16/24 SemiBold, 12×24 padding, 24 radius (50px); the header WhatsApp/secondary buttons are 14/20 (38px).
 
 ## Host page `standort/` (top → bottom)
 

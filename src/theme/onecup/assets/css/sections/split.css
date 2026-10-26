@@ -1,5 +1,6 @@
-/* Contact — Figma 333:2474 */
-.oc-contact {
+/* Split block — 280px head + 824px rows (Figma 333:2474 Contact, 333:3036 Kit).
+   Contact and the buy-page kit share it, so a change here shows on every page. */
+.oc-split {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: var(--oc-space-80);
@@ -8,66 +9,85 @@
   color: var(--oc-text-cream);
 }
 
-.oc-contact__head {
+.oc-split__head {
   display: grid;
   align-content: start;
   gap: var(--oc-space-20);
 }
 
-.oc-contact__note {
+.oc-split__note {
   margin: 0;
   font: var(--oc-body-18);
   color: var(--oc-text-muted);
 }
 
-.oc-contact__list {
+.oc-split__rows {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.oc-contact__list li + li {
+.oc-split__rows li + li {
   border-top: 1px solid var(--oc-line-dark);
 }
 
-.oc-contact__row {
+.oc-row {
   display: flex;
   align-items: center;
   gap: var(--oc-space-32);
   padding: var(--oc-space-32) 0;
 }
 
-.oc-contact__label {
+/* Kit rows are text-only and tighter (Figma 333:3043: 24px padding, 48px gap) */
+.oc-row--compact {
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-24) 0;
+}
+
+.oc-row__label {
   flex: 1;
   font: var(--oc-h5);
   transition: color 0.3s var(--oc-ease);
 }
 
 /* Same hover as FAQ: title turns accent */
-.oc-contact__row:hover .oc-contact__label {
+.oc-row--link:hover .oc-row__label,
+.oc-row--accent .oc-row__label {
   color: var(--oc-accent);
 }
 
-.oc-contact__row--accent .oc-contact__label {
-  color: var(--oc-accent);
-}
-
-.oc-contact__value {
+.oc-row__value {
   font: var(--oc-h5);
   color: var(--oc-text-muted);
 }
 
-.oc-contact__icon {
+.oc-row__text {
+  flex: 0 0 216px;
+  font: var(--oc-body-16);
+  color: var(--oc-text-dim);
+}
+
+.oc-row__icon {
   font-size: 24px;
 }
 
 @media (max-width: 1100px) {
-  .oc-contact {
+  .oc-split {
     grid-template-columns: 1fr;
     padding: var(--oc-space-64) var(--oc-space-24);
   }
 
-  .oc-contact__value {
+  .oc-row__value {
     display: none;
+  }
+
+  .oc-row:not(.oc-row--link) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--oc-space-8);
+  }
+
+  .oc-row__text {
+    flex: none;
   }
 }
