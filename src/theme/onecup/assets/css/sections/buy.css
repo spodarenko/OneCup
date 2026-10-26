@@ -27,6 +27,8 @@
   margin-top: var(--oc-hero-buy-overlap);
   /* The 95% scale is for the home orbit only */
   scale: none;
+  /* The render's backdrop is a shade lighter than the page: fade its edges out */
+  mask-image: linear-gradient(to bottom, black 75%, transparent);
 }
 
 .oc-hero--buy .oc-hero__media::after {
