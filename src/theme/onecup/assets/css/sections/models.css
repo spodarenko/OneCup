@@ -87,3 +87,24 @@
     font: var(--oc-h5);
   }
 }
+
+/* Host page terms — Figma 333:3783: line on top, bold value, muted note */
+.oc-model__terms {
+  display: grid;
+  gap: var(--oc-space-4);
+  width: 100%;
+  margin: auto 0 0;
+  padding-top: var(--oc-space-24);
+  border-top: 1px solid var(--oc-glass-line);
+  font: var(--oc-body-16);
+  color: var(--oc-text-muted-dark);
+}
+
+.oc-model__terms strong {
+  font: var(--oc-h5);
+  color: var(--oc-choice-text);
+}
+
+.oc-model:not(.oc-model--accent) .oc-model__terms {
+  color: var(--oc-choice-text);
+}

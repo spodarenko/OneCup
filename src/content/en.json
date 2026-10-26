@@ -363,7 +363,7 @@
     },
     "hero": {
       "title": "A smart coffee station for your location",
-      "subtitle": "Fresh coffee for your guests around the clock — no waiting, no complicated orders.",
+      "subtitle": "Quality coffee — fast, simple and always available. Your guests get fresh coffee around the clock: no waiting, no complicated ordering, paid by card or cash.",
       "cta": "Offer a location",
       "more": "Ways to partner",
       "imgAlt": "OneCup coffee station with cabinet"
@@ -374,46 +374,6 @@
       "after": "OneCup is a modern self-service coffee concept from Cologne.",
       "img1": "OneCup coffee station",
       "img2": "OneCup coffee cup"
-    },
-    "guests": {
-      "eyebrow": "[ For your guests ]",
-      "items": [
-        {
-          "t": "Quality coffee",
-          "d": "Fast, simple and always available"
-        },
-        {
-          "t": "No waiting",
-          "d": "Guests don't have to queue"
-        },
-        {
-          "t": "Easy ordering",
-          "d": "An automated station without complicated steps"
-        },
-        {
-          "t": "Easy payment",
-          "d": "Contactless or cash"
-        }
-      ]
-    },
-    "lineup": {
-      "eyebrow": "[ Models ]",
-      "title": "OneCup Kaffeestation",
-      "text": "We'll match the cabinet to the format and space of your location",
-      "items": [
-        {
-          "t": "Model A",
-          "d": "Compact cabinet"
-        },
-        {
-          "t": "Model B",
-          "d": "Classic cabinet"
-        },
-        {
-          "t": "Model C",
-          "d": "Premium cabinet"
-        }
-      ]
     },
     "metrics": [
       {
@@ -434,6 +394,51 @@
         "t": "Footprint",
         "d": "Fits by a wall or in a corner —<br>no renovation"
       }
-    ]
+    ],
+    "steps": {
+      "eyebrow": "[ For your guests ]",
+      "title": "What your guests get",
+      "items": [
+        {
+          "n": "01",
+          "label": "No queue",
+          "text": "Guests pick a drink on the screen and take fresh coffee in a minute — no barista, no queue."
+        },
+        {
+          "n": "02",
+          "label": "Card or cash",
+          "text": "The terminal takes cards, phones and cash — the money arrives instantly."
+        },
+        {
+          "n": "03",
+          "label": "Freshly ground beans",
+          "text": "Beans are ground for every order, so guests get café taste, not capsules."
+        },
+        {
+          "n": "04",
+          "label": "Coffee to go",
+          "text": "Cups and lids right next to it — guests take their coffee with them, we restock."
+        }
+      ]
+    },
+    "coop": {
+      "eyebrow": "[ Ways to work together ]",
+      "title": "Choose your model",
+      "bgAlt": "OneCup coffee station",
+      "items": [
+        {
+          "t": "Coffee station as a service for your company",
+          "d": "We install the station for your staff, clients and visitors. Cleaning, refilling and maintenance are on us — you don’t have to think about anything.",
+          "term": "Fixed monthly fee",
+          "note": "amount agreed individually"
+        },
+        {
+          "t": "Revenue share, no investment",
+          "d": "You provide a location with high, steady footfall. We cover the investment, operation and maintenance of the station.",
+          "term": "20 % of revenue — yours",
+          "note": "no financial risk or effort"
+        }
+      ]
+    }
   }
 }

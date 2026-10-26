@@ -44,9 +44,9 @@ Figma node `266:4358` «Station kaufen». One per language: `/kaufen/`, `/en/kau
 
 ## Host page `standort/` (top → bottom)
 
-Figma node `266:5465` «Standort anbieten». One per language: `/standort/`, `/en/standort/`, `/uk/standort/`. Content: `host` in `src/content/<lang>.json`; UA copy from Figma, EN/DE translated. Same section functions as the buy page; hidden Figma frames («Для кого» cards, «Варіанти співпраці») are not built.
+Figma node `266:5465` «Standort anbieten». One per language: `/standort/`, `/en/standort/`, `/uk/standort/`. Content: `host` in `src/content/<lang>.json`; UA copy from Figma, EN/DE translated. Same section functions as the buy page; hidden Figma frames («Для кого» cards) are not built.
 
-Hero (station render) → About quote → Metrics → For your guests → Models A / B / C (no prices) → Contact → Marquee → Footer.
+Hero (station render) → About quote → Metrics (230 V · 24/7 · ~1 m²) → For your guests (steps 01–04, home layout) → Cooperation models (Figma 333:3783: home models layout, terms instead of buttons) → Contact → Marquee → Footer.
 
 All sections are dark. Calculator: monthly revenue = drinks per day × `calcPrice` × `calcDays` (`src/config/site.json`).
 

@@ -363,7 +363,7 @@
     },
     "hero": {
       "title": "Smarte Kaffeestation für Ihren Standort",
-      "subtitle": "Frischer Kaffee für Ihre Gäste rund um die Uhr — ohne Warten und ohne komplizierte Bestellung.",
+      "subtitle": "Hochwertiger Kaffee – schnell, einfach und jederzeit verfügbar. Ihre Gäste genießen rund um die Uhr frischen Kaffee: ohne Wartezeit, ohne komplizierte Bestellung, bezahlt kontaktlos oder bar.",
       "cta": "Standort anbieten",
       "more": "Kooperationsmodelle",
       "imgAlt": "OneCup Kaffeestation mit Schrank"
@@ -374,46 +374,6 @@
       "after": "OneCup ist ein modernes Selbstbedienungs-Kaffeekonzept aus Köln.",
       "img1": "OneCup Kaffeestation",
       "img2": "OneCup Kaffeebecher"
-    },
-    "guests": {
-      "eyebrow": "[ Für Ihre Gäste ]",
-      "items": [
-        {
-          "t": "Guter Kaffee",
-          "d": "Schnell, einfach und immer verfügbar"
-        },
-        {
-          "t": "Ohne Warten",
-          "d": "Gäste müssen nicht anstehen"
-        },
-        {
-          "t": "Einfach bestellen",
-          "d": "Automatisierte Station ohne komplizierte Schritte"
-        },
-        {
-          "t": "Bequem bezahlen",
-          "d": "Kontaktlos oder bar"
-        }
-      ]
-    },
-    "lineup": {
-      "eyebrow": "[ Modelle ]",
-      "title": "OneCup Kaffeestation",
-      "text": "Wir wählen den Schrank passend zu Format und Platz Ihres Standorts",
-      "items": [
-        {
-          "t": "Modell A",
-          "d": "Schrank Compact"
-        },
-        {
-          "t": "Modell B",
-          "d": "Schrank Classic"
-        },
-        {
-          "t": "Modell C",
-          "d": "Schrank Premium"
-        }
-      ]
     },
     "metrics": [
       {
@@ -434,6 +394,51 @@
         "t": "Fläche",
         "d": "Passt an die Wand oder in die Ecke —<br>ohne Umbau"
       }
-    ]
+    ],
+    "steps": {
+      "eyebrow": "[ Für Ihre Gäste ]",
+      "title": "Was Ihre Gäste bekommen",
+      "items": [
+        {
+          "n": "01",
+          "label": "Ohne Warteschlange",
+          "text": "Der Gast wählt sein Getränk am Display und nimmt in einer Minute frischen Kaffee mit – ohne Barista und Schlange."
+        },
+        {
+          "n": "02",
+          "label": "Karte oder bar",
+          "text": "Das Terminal akzeptiert Karten, Smartphones und Bargeld – das Geld kommt sofort an."
+        },
+        {
+          "n": "03",
+          "label": "Frisch gemahlene Bohnen",
+          "text": "Wir mahlen für jede Bestellung frisch – Café-Geschmack statt Kapsel."
+        },
+        {
+          "n": "04",
+          "label": "Kaffee to go",
+          "text": "Becher und Deckel direkt daneben – der Gast nimmt seinen Kaffee mit, wir füllen nach."
+        }
+      ]
+    },
+    "coop": {
+      "eyebrow": "[ Formen der Zusammenarbeit ]",
+      "title": "Wählen Sie Ihr Modell",
+      "bgAlt": "OneCup-Kaffeestation",
+      "items": [
+        {
+          "t": "Kaffeestation als Service für Ihr Unternehmen",
+          "d": "Wir installieren die Station für Ihre Mitarbeiter, Kunden und Besucher. Reinigung, Nachfüllung und Wartung übernehmen wir – Sie müssen sich um nichts kümmern.",
+          "term": "Monatliche Pauschale",
+          "note": "Höhe individuell vereinbart"
+        },
+        {
+          "t": "Umsatzbeteiligung ohne Investition",
+          "d": "Sie stellen einen Standort mit hohem und konstantem Besucheraufkommen. Investition, Betrieb und Wartung der Station übernehmen wir.",
+          "term": "20 % vom Umsatz – für Sie",
+          "note": "ohne finanzielles Risiko oder Aufwand"
+        }
+      ]
+    }
   }
 }

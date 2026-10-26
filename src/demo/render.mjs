@@ -333,6 +333,24 @@ function buyLineup(b) {
 </section>`;
 }
 
+// Host page cooperation models — Figma 333:3783 (B7): the home models layout, terms instead of buttons
+function hostCoop(h) {
+  const m = h.coop;
+  const card = (it, i) => `<article class="oc-model${i === 0 ? " oc-model--accent" : ""}">
+      <h3 class="oc-model__title">${it.t}</h3>
+      <p class="oc-model__text">${it.d}</p>
+      <p class="oc-model__terms"><strong>${it.term}</strong>${it.note}</p>
+    </article>`;
+  return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
+  <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2880" height="1936" loading="lazy" decoding="async">
+  <div class="oc-models__head">
+    ${eyebrow(m.eyebrow)}
+    <h2 class="oc-h2" id="models-title" data-split>${m.title}</h2>
+  </div>
+  <div class="oc-models__cards">${m.items.map(card).join("")}</div>
+</section>`;
+}
+
 function jsonLd(c, site, page, url) {
   return [
     {
@@ -420,8 +438,8 @@ export function render(c, all, site, css, page = "home") {
               buyHero(c.host, page),
               buyWho(c.host),
               buyMetrics(c.host),
-              buyGuests(c.host),
-              buyLineup(c.host),
+              steps(c.host),
+              hostCoop(c.host),
               contact(c),
               marquee(),
             ].join("\n      ")
