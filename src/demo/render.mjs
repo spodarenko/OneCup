@@ -62,7 +62,7 @@ function header(c, all, page) {
 
 // Hero — one block for every page: the home page orbits the station on scroll,
 // the buy and host pages show a still render
-const heroImg = { buy: ["buy-hero", 1024, 683], host: ["host-hero", 1122, 1402] };
+const heroImg = { buy: ["buy-hero", 2880, 1460], host: ["host-hero", 1122, 1402] };
 
 function hero(c, page) {
   const home = page === "home";
@@ -364,6 +364,7 @@ function hostCoop(h) {
       <h3 class="oc-model__title">${it.t}</h3>
       <p class="oc-model__text">${it.d}</p>
       <p class="oc-model__terms"><strong>${it.term}</strong>${it.note}</p>
+      <a class="oc-btn ${i === 0 ? "oc-btn--accent" : "oc-btn--outline"}" href="#contact">${it.cta}</a>
     </article>`;
   return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
   <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2880" height="1936" loading="lazy" decoding="async">
