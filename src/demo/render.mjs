@@ -17,7 +17,12 @@ function header(c, all, page) {
   const sub = pages[page];
   const p = c[page];
   // A page can bring its own menu (Figma per page); otherwise the home sections
-  const anchor = (id) => (id === "host" ? `{{base}}${c.path}standort/` : `#${id}`);
+  const anchor = (id) =>
+    id === "host"
+      ? `{{base}}${c.path}standort/`
+      : id === "buy"
+        ? `{{base}}${c.path}kaufen/`
+        : `#${id}`;
   const navLinks = p?.nav
     ? p.nav.map(([id, label]) => [anchor(id), label])
     : [

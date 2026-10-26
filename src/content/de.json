@@ -239,13 +239,12 @@
       "description": "Schlüsselfertige Selbstbedienungs-Kaffeestation: Kaffeevollautomat, Schrank, Becher und Unterstützung beim Start. Modelle ab 6.000 €."
     },
     "nav": [
-      ["benefits", "Vorteile"],
       ["kit", "Paket"],
       ["models", "Modelle"],
-      ["host", "Station aufstellen"],
+      ["host", "Aufstellen"],
       ["contact", "Kontakt"]
     ],
-    "navCta": "Station kaufen",
+    "navCta": "Kaufen",
     "hero": {
       "title": "<span class=\"oc-accent\">OneCup</span><br>Ihr Kaffee. Ihr Business",
       "subtitle": "Sie möchten <span class=\"oc-accent\">zusätzliches Einkommen</span> ohne eigenes Café? Sie erhalten ein komplett ausgestattetes Geschäftsmodell, sofort einsatzbereit: aufstellen, anschließen, starten.",
@@ -373,6 +372,13 @@
     }
   },
   "host": {
+    "nav": [
+      ["models", "Kooperation"],
+      ["how", "Für Gäste"],
+      ["buy", "Kaufen"],
+      ["contact", "Kontakt"]
+    ],
+    "navCta": "Aufstellen",
     "meta": {
       "title": "OneCup Kaffeestation an Ihrem Standort aufstellen",
       "description": "Eine smarte Kaffeestation für Ihren Standort: frischer Kaffee für Ihre Gäste rund um die Uhr, den Service übernehmen wir. Köln und ganz Deutschland."
