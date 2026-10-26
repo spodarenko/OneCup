@@ -452,13 +452,15 @@
           "t": "Coffee station as a service for your company",
           "d": "We install the station for your staff, clients and visitors. Cleaning, refilling and maintenance are on us — you don’t have to think about anything.",
           "term": "Fixed monthly fee",
-          "note": "amount agreed individually"
+          "note": "amount agreed individually",
+          "cta": "Request to buy"
         },
         {
           "t": "Revenue share, no investment",
           "d": "You provide a location with high, steady footfall. We cover the investment, operation and maintenance of the station.",
           "term": "20 % of revenue — yours",
-          "note": "no financial risk or effort"
+          "note": "no financial risk or effort",
+          "cta": "Request to host"
         }
       ]
     }

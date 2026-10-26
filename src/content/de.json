@@ -452,13 +452,15 @@
           "t": "Kaffeestation als Service für Ihr Unternehmen",
           "d": "Wir installieren die Station für Ihre Mitarbeiter, Kunden und Besucher. Reinigung, Nachfüllung und Wartung übernehmen wir – Sie müssen sich um nichts kümmern.",
           "term": "Monatliche Pauschale",
-          "note": "Höhe individuell vereinbart"
+          "note": "Höhe individuell vereinbart",
+          "cta": "Kaufanfrage"
         },
         {
           "t": "Umsatzbeteiligung ohne Investition",
           "d": "Sie stellen einen Standort mit hohem und konstantem Besucheraufkommen. Investition, Betrieb und Wartung der Station übernehmen wir.",
           "term": "20 % vom Umsatz – für Sie",
-          "note": "ohne finanzielles Risiko oder Aufwand"
+          "note": "ohne finanzielles Risiko oder Aufwand",
+          "cta": "Standortanfrage"
         }
       ]
     }
