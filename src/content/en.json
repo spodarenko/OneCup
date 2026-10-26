@@ -8,10 +8,14 @@
     "description": "Buy a turnkey self-service coffee station as your own business or have one placed at your venue — we handle the service. Freshly ground beans, delivery across Germany."
   },
   "nav": {
+    "calc": "Revenue",
+    "models": "Models",
+    "uses": "Use cases",
     "buy": "Buy",
     "host": "Host",
     "materials": "Materials",
     "contact": "Contact",
+    "reach": "Contact",
     "whatsapp": "WhatsApp",
     "request": "Enquire",
     "language": "Language",

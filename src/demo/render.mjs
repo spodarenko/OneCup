@@ -26,10 +26,11 @@ function header(c, all, page) {
     <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="183" height="43">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
-    <a href="{{base}}${c.path}kaufen/"${page === "buy" ? ' aria-current="page"' : ""}>${c.nav.buy}</a>
-    <a href="{{base}}${c.path}standort/"${page === "host" ? ' aria-current="page"' : ""}>${c.nav.host}</a>
+    <a href="${h}#calc">${c.nav.calc}</a>
+    <a href="${h}#models">${c.nav.models}</a>
+    <a href="${h}#where">${c.nav.uses}</a>
     <a href="${h}#how">${c.nav.materials}</a>
-    <a href="#contact">${c.nav.contact}</a>
+    <a href="#contact">${c.nav.reach}</a>
     <a class="oc-header__menu-only" href="#contact">${c.nav.request}</a>
   </nav>
   <div class="oc-header__actions">
@@ -78,7 +79,7 @@ function about(c) {
 function calc(c) {
   const k = c.calc;
   const marks = [10, 50, 100, 150, 200].map((n) => `<span>${n}</span>`).join("");
-  return `<section class="oc-calc oc-dark" aria-labelledby="calc-title">
+  return `<section class="oc-calc oc-dark" id="calc" aria-labelledby="calc-title">
   <img class="oc-calc__bg" src="{{base}}assets/img/calc-bg.webp" alt="${attr(k.bgAlt)}" width="2880" height="1152" loading="lazy" decoding="async">
   <div class="oc-calc__head">
     ${eyebrow(k.eyebrow)}

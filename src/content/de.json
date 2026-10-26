@@ -8,10 +8,14 @@
     "description": "Schlüsselfertige Selbstbedienungs-Kaffeestation kaufen oder bei Ihnen aufstellen lassen — den Service übernehmen wir. Frisch gemahlene Bohnen, Lieferung in ganz Deutschland."
   },
   "nav": {
+    "calc": "Rechner",
+    "models": "Modelle",
+    "uses": "Einsatz",
     "buy": "Kaufen",
     "host": "Aufstellen",
     "materials": "Materialien",
     "contact": "Kontakt",
+    "reach": "Kontakt",
     "whatsapp": "WhatsApp",
     "request": "Anfrage",
     "language": "Sprache",
