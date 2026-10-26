@@ -34,11 +34,11 @@ a {
   align-items: center;
   justify-content: center;
   gap: var(--oc-space-4);
-  /* One button size everywhere (Figma CTAs): 14/20 SemiBold, 12×24 padding, 46px tall */
+  /* One button size everywhere (Figma CTAs): 16/24 SemiBold, 12×24 padding, 50px tall */
   padding: var(--oc-space-12) var(--oc-space-24);
   border: 1px solid transparent;
   border-radius: var(--oc-radius-24);
-  font: 600 14px/20px var(--oc-font);
+  font: 600 16px/24px var(--oc-font);
   color: var(--oc-bg-soft);
   white-space: nowrap;
   cursor: pointer;
