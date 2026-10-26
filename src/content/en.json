@@ -239,13 +239,12 @@
       "description": "A turnkey self-service coffee station: coffee machine, cabinet, cups and launch support. Models from €6,000."
     },
     "nav": [
-      ["benefits", "Benefits"],
       ["kit", "Kit"],
       ["models", "Models"],
-      ["host", "Host a station"],
+      ["host", "Host"],
       ["contact", "Contact"]
     ],
-    "navCta": "Buy a station",
+    "navCta": "Buy",
     "hero": {
       "title": "<span class=\"oc-accent\">OneCup</span><br>Your coffee. Your business",
       "subtitle": "Want <span class=\"oc-accent\">extra income</span> without your own café? You get a fully equipped business model, ready to run from day one: place it, plug it in, start.",
@@ -373,6 +372,13 @@
     }
   },
   "host": {
+    "nav": [
+      ["models", "Cooperation"],
+      ["how", "For guests"],
+      ["buy", "Buy"],
+      ["contact", "Contact"]
+    ],
+    "navCta": "Host",
     "meta": {
       "title": "Host a OneCup coffee station at your location",
       "description": "A smart coffee station for your location: fresh coffee for your guests around the clock, we handle the service. Cologne and all of Germany."

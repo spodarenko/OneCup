@@ -231,3 +231,8 @@
 .oc-header.is-hidden {
   transform: translateY(-100%);
 }
+
+/* Figma 333:3245 / 266:5619: header CTAs are a fixed 120px */
+.oc-header__ctas .oc-btn {
+  width: var(--oc-header-btn-w);
+}
