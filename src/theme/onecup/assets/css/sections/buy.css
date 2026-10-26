@@ -20,10 +20,13 @@
   pointer-events: none;
 }
 
+/* Figma 333:2868: 1440×730 render, overlapped 24px by the title and the text */
 .oc-hero--buy .oc-hero__media {
   width: min(1440px, 140%);
-  aspect-ratio: 1024 / 683;
-  margin-top: -60px;
+  aspect-ratio: 2880 / 1460;
+  margin-top: var(--oc-hero-buy-overlap);
+  /* The 95% scale is for the home orbit only */
+  scale: none;
 }
 
 .oc-hero--buy .oc-hero__media::after {

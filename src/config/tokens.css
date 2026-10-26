@@ -44,7 +44,7 @@
   --oc-buy-glow: rgb(97 80 72);
   --oc-buy-glow-soft: rgb(97 80 72 / 0.2);
   /* Buy hero geometry (Figma 333:2863): text overlaps the render, 184px below */
-  --oc-hero-buy-overlap: -228px;
+  --oc-hero-buy-overlap: -24px;
   --oc-hero-buy-pb: 184px;
 
   /* Motion — eases mirror the coffee-tech.com reference (power2.out) */
