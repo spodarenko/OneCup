@@ -1,7 +1,8 @@
 /* How it works, 4 steps — Figma 238:271 (home v4) */
 .oc-steps {
   position: relative;
-  padding: var(--oc-space-64) var(--oc-gutter);
+  /* Each step is a 276px row (64 + 148 + 64), as in Figma */
+  padding: 0 var(--oc-gutter);
 }
 
 .oc-steps > .oc-eyebrow {
@@ -13,7 +14,7 @@
 .oc-steps__list {
   margin: 0 0 0 auto;
   padding: 0;
-  max-width: 882px;
+  max-width: 824px;
   list-style: none;
 }
 
@@ -24,8 +25,8 @@
   padding: var(--oc-space-64) 0;
 }
 
-.oc-step:first-child {
-  padding-top: 0;
+.oc-step__text {
+  min-height: 148px;
 }
 
 .oc-step__n {

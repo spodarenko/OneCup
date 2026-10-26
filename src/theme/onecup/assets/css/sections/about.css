@@ -1,14 +1,16 @@
-/* About — Figma 174:10169 */
+/* About — Figma 245:651 */
 .oc-about__inner {
   display: grid;
-  grid-template-columns: 1fr 882px;
-  gap: var(--oc-space-48);
+  grid-template-columns: 280px 1fr;
+  gap: var(--oc-space-80);
   padding: var(--oc-space-96) var(--oc-gutter);
 }
 
 .oc-about__quote {
   margin: 0;
-  font: 600 52px/60px var(--oc-font);
+  /* Figma lays words out with 9px gaps and 2px between 60px rows */
+  font: 600 52px/62px var(--oc-font);
+  word-spacing: -6px;
   color: var(--oc-text-cream);
 }
 
