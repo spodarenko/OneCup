@@ -22,9 +22,9 @@ function header(c, all, page) {
     ? p.nav.map(([id, label]) => [anchor(id), label])
     : [
         [`${h}#calc`, c.nav.calc],
+        [`${h}#how`, c.nav.materials],
         [`${h}#models`, c.nav.models],
         [`${h}#where`, c.nav.uses],
-        [`${h}#how`, c.nav.materials],
         ["#contact", c.nav.reach],
       ];
   const others = all
