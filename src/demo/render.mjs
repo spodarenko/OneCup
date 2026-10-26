@@ -127,11 +127,11 @@ function models(c) {
   return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
   <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2880" height="1936" loading="lazy" decoding="async">
   <div class="oc-models__head">
-    ${eyebrow(m.eyebrow, "oc-models__eyebrow")}
-    <h2 class="oc-models__title" id="models-title" data-split>${m.title}</h2>
+    ${eyebrow(m.eyebrow)}
+    <h2 class="oc-h2" id="models-title" data-split>${m.title}</h2>
   </div>
   <div class="oc-models__cards">
-    ${card("buy", "oc-btn--accent oc-model__btn--lg")}
+    ${card("buy", "oc-btn--accent")}
     ${card("host", "oc-btn--outline")}
   </div>
 </section>`;

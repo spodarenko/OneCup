@@ -26,17 +26,6 @@
 .oc-models__head {
   display: grid;
   gap: var(--oc-space-16);
-  color: var(--oc-choice-text);
-}
-
-.oc-models__eyebrow {
-  font: 600 14px/1.45 var(--oc-font);
-  opacity: 0.7;
-}
-
-.oc-models__title {
-  margin: 0;
-  font: 600 52px/1.08 var(--oc-font);
 }
 
 .oc-models__cards {
@@ -73,10 +62,6 @@
   opacity: 0.5;
 }
 
-.oc-model__btn--lg {
-  font: 600 16px/24px var(--oc-font);
-}
-
 @media (max-width: 1100px) {
   .oc-models {
     min-height: 0;
@@ -87,10 +72,6 @@
     top: 0;
     height: 100%;
     translate: -50% 0;
-  }
-
-  .oc-models__title {
-    font-size: 36px;
   }
 
   .oc-models__cards {
