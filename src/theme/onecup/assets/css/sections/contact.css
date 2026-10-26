@@ -1,9 +1,11 @@
-/* Contact — Figma 238:451 */
+/* Contact — Figma 333:2474 */
 .oc-contact {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: var(--oc-space-80);
   padding: var(--oc-space-96) var(--oc-gutter);
+  background: var(--oc-bg-raised);
+  color: var(--oc-text-cream);
 }
 
 .oc-contact__head {
@@ -22,6 +24,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.oc-contact__list li + li {
   border-top: 1px solid var(--oc-line-dark);
 }
 
@@ -30,12 +35,11 @@
   align-items: center;
   gap: var(--oc-space-32);
   padding: var(--oc-space-32) 0;
-  border-bottom: 1px solid var(--oc-line-dark);
 }
 
 .oc-contact__label {
   flex: 1;
-  font: var(--oc-h3);
+  font: var(--oc-h5);
   transition: color 0.3s var(--oc-ease);
 }
 
@@ -49,7 +53,7 @@
 }
 
 .oc-contact__value {
-  font: var(--oc-body-16);
+  font: var(--oc-h5);
   color: var(--oc-text-muted);
 }
 
@@ -61,11 +65,6 @@
   .oc-contact {
     grid-template-columns: 1fr;
     padding: var(--oc-space-64) var(--oc-space-24);
-  }
-
-  .oc-contact__label {
-    font-size: 24px;
-    line-height: 32px;
   }
 
   .oc-contact__value {
