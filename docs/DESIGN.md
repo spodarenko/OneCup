@@ -57,6 +57,10 @@ Hero (station render) → About quote → Metrics (230 V · 24/7 · ~1 m²) → 
 
 All sections are dark. Calculator: monthly revenue = drinks per day × `calcPrice` × `calcDays` (`src/config/site.json`).
 
+## Interactions
+
+- **Materials** — accordion with 3 items (Beans / Cups / Technology). One item open at a time; the open item shows its description. States in Figma section `191:731`
+
 ## Motion
 
 Reference: https://www.coffee-tech.com (Webflow + GSAP, ScrollTrigger, SplitText, smooth scroll). Implemented in `src/theme/onecup/assets/js/main.js`:
