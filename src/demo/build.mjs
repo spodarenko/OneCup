@@ -12,21 +12,9 @@ const langs = site.languages.map((l) => read(`src/content/${l}.json`));
 const css = [
   "config/tokens.css",
   "assets/css/base.css",
-  ...[
-    "header",
-    "hero",
-    "about",
-    "calc",
-    "steps",
-    "models",
-    "slider",
-    "faq",
-    "split",
-    "marquee",
-    "buy",
-    "footer",
-    "home",
-  ].map((s) => `assets/css/sections/${s}.css`),
+  ...["header", "hero", "calc", "models", "slider", "faq", "buy", "footer", "home"].map(
+    (s) => `assets/css/sections/${s}.css`,
+  ),
 ];
 
 rmSync(out, { recursive: true, force: true });

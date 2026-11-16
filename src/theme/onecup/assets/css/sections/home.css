@@ -122,6 +122,11 @@
   margin: 0;
 }
 
+/* Words fill in on scroll (main.js); without JS the text stays fully visible */
+.oc-intro__text .oc-word {
+  opacity: 0.15;
+}
+
 .oc-intro__icons {
   display: flex;
   gap: var(--oc-space-16);

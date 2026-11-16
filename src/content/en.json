@@ -388,6 +388,60 @@
       "price": "from €6,000",
       "priceNote": "depending on the cabinet",
       "cta": "Buy a station"
+    },
+    "v5": {
+      "title": "<span class=\"oc-accent\">OneCup</span> – Your coffee.<br>Your business",
+      "lead": "Want extra income without opening a café? You get a fully equipped business concept, ready to go – just set it up, plug it in and start.",
+      "metricsTitle": "All you <span class=\"oc-accent\">need</span>",
+      "metrics": [
+        {
+          "v": "1",
+          "u": "m²",
+          "t": "Free space",
+          "d": "about 1 m² of free space – fits against a wall or in a corner"
+        },
+        {
+          "v": "230",
+          "u": "V",
+          "t": "230 V socket",
+          "d": "A normal socket —<br>no dedicated line needed"
+        },
+        {
+          "v": "10-15",
+          "u": "day",
+          "t": "Popular location",
+          "d": "Depending on location and costs, up to about €1,000 profit a month"
+        }
+      ],
+      "benefitsTitle": "Your benefits",
+      "benefits": [
+        "No experience needed",
+        "Easy to operate",
+        "Space-saving concept",
+        "Low maintenance",
+        "Ideal for indoor spaces"
+      ],
+      "cta": "Send a request",
+      "startTitle": "Everything for <span class=\"oc-accent\">your start</span>",
+      "startName": "Coffee station",
+      "startList": [
+        "Professional bean-to-cup coffee machine",
+        "Custom cabinet with built-in organiser for lids, syrups, sugar, napkins and stirrers",
+        "2 cup dispensers",
+        "19-litre water tank",
+        "12-litre tank for liquid waste",
+        "500 premium coffee cups",
+        "500 lids",
+        "1 pack of sugar sticks",
+        "1 pack of stirrers",
+        "Drink recipes tailored to you",
+        "Personal guidance and support during the start-up phase"
+      ],
+      "priceLabel": "OneCup coffee station",
+      "price": "from €6,000",
+      "priceNote": "depending on the cabinet model",
+      "models": ["Classic model", "Arc model", "Wood model"],
+      "formTitle": "Your coffee station enquiry"
     }
   },
   "host": {
@@ -482,6 +536,49 @@
           "cta": "Request to host"
         }
       ]
+    },
+    "v5": {
+      "title": "The smart <span class=\"oc-accent\">coffee station</span> for your location",
+      "lead": "Do you have a good location? Our goal is to make quality coffee fast, simple and available at any time",
+      "aboutTitle": "About <span class=\"oc-accent\">OneCup</span>",
+      "about": [
+        "OneCup is a modern self-service coffee concept in Cologne.",
+        "With our automated coffee station, guests enjoy fresh coffee around the clock – no waiting and no complicated ordering. Payment is contactless or cash."
+      ],
+      "metricsTitle": "Only a few<br><span class=\"oc-accent\">requirements</span>",
+      "metrics": [
+        {
+          "v": "1",
+          "u": "m²",
+          "t": "Free space",
+          "d": "about 1 m² of free space – fits against a wall or in a corner"
+        },
+        {
+          "v": "230",
+          "u": "V",
+          "t": "230 V socket",
+          "d": "A normal socket —<br>no dedicated line needed"
+        }
+      ],
+      "coopTitle": "Ways to work together",
+      "coopText": "We offer different forms of cooperation – depending on which model suits you best:",
+      "coop": [
+        {
+          "t": "Service for companies",
+          "d": "We set up the station for your staff, customers and visitors. Cleaning, refilling and maintenance are on us – you don't have to think about anything.",
+          "term": "Monthly flat fee",
+          "note": "amount agreed individually",
+          "cta": "Request service"
+        },
+        {
+          "t": "Revenue share, no investment",
+          "d": "You provide a steady location with high footfall. We cover all investment and maintenance.",
+          "term": "Share of revenue",
+          "note": "no financial risk or extra effort",
+          "cta": "Request partnership"
+        }
+      ],
+      "formTitle": "Tell us about your location"
     }
   },
   "form": {

@@ -388,6 +388,60 @@
       "price": "ab 6.000 €",
       "priceNote": "je nach Schrank",
       "cta": "Station kaufen"
+    },
+    "v5": {
+      "title": "<span class=\"oc-accent\">OneCup</span> – Dein Kaffee.<br>Dein Business",
+      "lead": "Sie möchten zusätzliches Einkommen erzielen, ohne ein Café zu eröffnen? Sie erhalten ein komplett ausgestattetes und sofort einsatzbereites Geschäftskonzept – einfach aufstellen, anschließen und starten.",
+      "metricsTitle": "Sie benötigen <span class=\"oc-accent\">lediglich</span>",
+      "metrics": [
+        {
+          "v": "1",
+          "u": "m²",
+          "t": "Freie Fläche",
+          "d": "ca. 1 m² freie Fläche – passt an die Wand oder in die Ecke"
+        },
+        {
+          "v": "230",
+          "u": "V",
+          "t": "230-V-Steckdose",
+          "d": "Normale Steckdose —<br>keine eigene Leitung nötig"
+        },
+        {
+          "v": "10-15",
+          "u": "Tag",
+          "t": "Beliebter Standort",
+          "d": "Je nach Standort und Kosten bis zu ca. 1.000 € Gewinn im Monat"
+        }
+      ],
+      "benefitsTitle": "Ihre Vorteile",
+      "benefits": [
+        "Ohne Vorkenntnisse",
+        "Einfache Bedienung",
+        "Platzsparendes Konzept",
+        "Geringe Wartung",
+        "Ideal für Innenbereiche"
+      ],
+      "cta": "Jetzt anfragen",
+      "startTitle": "Alles für <span class=\"oc-accent\">Ihren Start</span>",
+      "startName": "Kaffeestation",
+      "startList": [
+        "Professioneller Kaffeevollautomat",
+        "Maßgefertigter Schrank mit integriertem Organizer für Deckel, Sirupe, Zucker, Servietten und Rührstäbchen",
+        "2 Becherspender",
+        "19-Liter-Wasserbehälter",
+        "12-Liter-Behälter für Flüssigabfälle",
+        "500 Premium-Kaffeebecher",
+        "500 Deckel",
+        "1 Packung Zuckersticks",
+        "1 Packung Rührstäbchen",
+        "Individuell abgestimmte Getränkerezepte",
+        "Persönliche Begleitung und Unterstützung während der Startphase"
+      ],
+      "priceLabel": "OneCup Kaffeestation",
+      "price": "ab 6.000 €",
+      "priceNote": "je nach Schrankmodell",
+      "models": ["Modell Classic", "Modell Arc", "Modell Wood"],
+      "formTitle": "Ihre Anfrage zur Kaffeestation"
     }
   },
   "host": {
@@ -482,6 +536,49 @@
           "cta": "Standortanfrage"
         }
       ]
+    },
+    "v5": {
+      "title": "Die smarte <span class=\"oc-accent\">Kaffeestation</span> für Ihren Standort",
+      "lead": "Haben Sie einen guten Standort? Unser Ziel ist es, hochwertigen Kaffee schnell, einfach und jederzeit verfügbar zu machen",
+      "aboutTitle": "Über <span class=\"oc-accent\">OneCup</span>",
+      "about": [
+        "OneCup ist ein modernes Selbstbedienungs-Kaffeekonzept in Köln.",
+        "Mit unserer automatisierten Kaffeestation können Gäste rund um die Uhr frischen Kaffee genießen – ohne Wartezeit und ohne komplizierte Bestellung. Die Bezahlung erfolgt bequem kontaktlos oder bar."
+      ],
+      "metricsTitle": "Nur wenige<br><span class=\"oc-accent\">Voraussetzungen</span>",
+      "metrics": [
+        {
+          "v": "1",
+          "u": "m²",
+          "t": "Freie Fläche",
+          "d": "ca. 1 m² freie Fläche – passt an die Wand oder in die Ecke"
+        },
+        {
+          "v": "230",
+          "u": "V",
+          "t": "230-V-Steckdose",
+          "d": "Normale Steckdose —<br>keine eigene Leitung nötig"
+        }
+      ],
+      "coopTitle": "Formen der Zusammenarbeit",
+      "coopText": "Wir bieten verschiedene Formen der Zusammenarbeit an – je nachdem, welches Modell am besten Ihnen passt:",
+      "coop": [
+        {
+          "t": "Dienstleistung für Unternehmen",
+          "d": "Wir stellen die Station für Ihre Mitarbeiter, Kunden und Besucher auf. Reinigung, Befüllung und Wartung übernehmen wir, Sie müssen an nichts denken.",
+          "term": "Monatliche Pauschale",
+          "note": "Höhe individuell vereinbart",
+          "cta": "Service anfragen"
+        },
+        {
+          "t": "Umsatzbeteiligung ohne Investitionen",
+          "d": "Sie bieten einen stabilen Standort mit hohem Besucheraufkommen. Wir übernehmen alle Investitionen und Wartung.",
+          "term": "Beteiligung am Umsatz",
+          "note": "ohne finanzielles Risiko oder zusätzlichen Aufwand",
+          "cta": "Partnerschaft anfragen"
+        }
+      ],
+      "formTitle": "Erzählen Sie uns von Ihrem Standort"
     }
   },
   "form": {

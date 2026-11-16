@@ -101,6 +101,19 @@
     });
   }
 
+  /* Buy page model switcher: a thumb shows its station in the big photo */
+  $$(".oc-start__media").forEach((m) => {
+    const photos = $$(".oc-start__photo img", m);
+    const thumbs = $$("[data-model]", m);
+    thumbs.forEach((t) =>
+      t.addEventListener("click", () => {
+        const i = Number(t.dataset.model);
+        photos.forEach((p, j) => (p.hidden = j !== i));
+        thumbs.forEach((b) => b.setAttribute("aria-pressed", String(b === t)));
+      }),
+    );
+  });
+
   /* Sliders: buttons scroll by one card */
   $$(".oc-slider").forEach((s) => {
     const track = $(".oc-slider__track", s);
@@ -233,25 +246,13 @@
         } else if (n.nodeType === 1 && n.tagName !== "IMG") walk(n);
       });
     walk(fill);
-    gsap.set($$(".oc-about__pill", fill), { opacity: 0.15 });
-    gsap.to($$(".oc-word, .oc-about__pill", fill), {
+    gsap.to($$(".oc-word", fill), {
       opacity: 1,
       ease: "none",
       stagger: 0.1,
       scrollTrigger: { trigger: fill, start: "top 80%", end: "bottom 45%", scrub: true },
     });
   }
-
-  /* Steps: number slides up from a mask, texts follow */
-  $$(".oc-step").forEach((step) => {
-    step.removeAttribute("data-reveal");
-    const tl = gsap.timeline({ scrollTrigger: { trigger: step, start: "top 80%", once: true } });
-    tl.from($(".oc-step__n span", step), { yPercent: 100, duration: 0.9, ease: "power3.out" }).from(
-      $$(".oc-step__label, .oc-step__body", step),
-      { y: 30, autoAlpha: 0, duration: 0.7, stagger: 0.08, ease },
-      0.15,
-    );
-  });
 
   /* Blocks fade up */
   $$("[data-reveal]").forEach((el) =>
@@ -269,15 +270,13 @@
     }),
   );
 
-  /* Lists stagger in: calc card, model cards, FAQ, contact rows, footer, buy-page lists */
+  /* Lists stagger in: calc card, model cards, FAQ, footer, metrics */
   [
     [".oc-calc", ".oc-calc__card"],
     [".oc-models__cards", ".oc-model"],
     [".oc-faq__list", ".oc-faq__item"],
-    [".oc-split__rows", "li"],
     [".oc-footer", ".oc-footer > * > *"],
     [".oc-metrics__list", ".oc-metric"],
-    [".oc-lineup__list", ".oc-lineup__row"],
   ].forEach(([scope, items]) => {
     const root = $(scope);
     const els = root ? $$(items, root.parentElement) : [];
@@ -321,19 +320,4 @@
       scrollTrigger: { trigger: t, start: "top 85%", once: true },
     }),
   );
-
-  /* Marquee reacts to scroll direction and speed */
-  const track = $(".oc-marquee__track");
-  if (track) {
-    track.style.animation = "none";
-    const loop = gsap.to(track, { xPercent: -50, duration: 30, ease: "none", repeat: -1 });
-    ScrollTrigger.create({
-      trigger: ".oc-marquee",
-      onUpdate: (self) => {
-        const v = gsap.utils.clamp(-6, 6, self.getVelocity() / 300);
-        gsap.to(loop, { timeScale: v === 0 ? 1 : v, duration: 0.3, overwrite: true });
-        gsap.to(loop, { timeScale: self.direction, duration: 1, delay: 0.3 });
-      },
-    });
-  }
 })();
