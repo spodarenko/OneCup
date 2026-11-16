@@ -9,12 +9,7 @@
 
 .oc-hero--buy .oc-hero__title,
 .oc-hero--host .oc-hero__title {
-  margin-top: -298px;
   max-width: 864px;
-}
-
-.oc-hero--host .oc-hero__title {
-  margin-top: -274px;
 }
 
 .oc-hero--buy .oc-hero__ctas,
