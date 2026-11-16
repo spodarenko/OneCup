@@ -69,7 +69,9 @@
 
 .oc-v5 .oc-hero__media {
   margin-top: 0;
-  width: min(1147px, 100%);
+  /* The text and CTAs sit over the render's bottom, so capping the render's height
+     at the viewport keeps title, description and buttons on the first screen */
+  width: min(1147px, 100%, (100svh - var(--oc-hero-v5-fit)) * 1147 / 640);
   margin-inline: auto;
   translate: none;
   scale: 1;
@@ -81,6 +83,29 @@
   font: var(--oc-h2);
   text-transform: uppercase;
   color: var(--oc-text-on-dark);
+}
+
+/* Desktop: render and text share one grid cell, text pinned to the render's bottom,
+   so the hero is as tall as the render on every page whatever the text length */
+@media (min-width: 601px) {
+  .oc-v5 .oc-hero {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    justify-items: center;
+  }
+
+  .oc-v5 .oc-hero__media {
+    grid-area: 1 / 1 / 4 / 2;
+  }
+
+  .oc-v5 .oc-hero__title {
+    grid-area: 2 / 1;
+    margin-top: 0;
+  }
+
+  .oc-v5 .oc-hero__body {
+    grid-area: 3 / 1;
+  }
 }
 
 .oc-v5 .oc-hero__body {
@@ -257,13 +282,21 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Figma 425:3628: the render sinks into black under the cards */
   background: linear-gradient(180deg, transparent 33%, var(--oc-hero-v4-bg) 98%);
   pointer-events: none;
 }
 
+/* Figma frames the scene wider than cover would: the whole render at ~1090px, centred
+   from the top, so the station roof and logo sit ~105px below the edge. Side edges
+   dissolve into the section background. */
 .oc-v5 .oc-models__bg {
-  height: 100%;
-  object-position: center bottom;
+  top: 0;
+  width: min(var(--oc-models-render), 150vw);
+  height: auto;
+  translate: -50% 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 
 .oc-v5 .oc-models__title,
@@ -311,6 +344,24 @@
 
 .oc-v5 .oc-slider__track {
   align-self: stretch;
+  /* proximity: mandatory snapping cancels smooth programmatic scroll in Safari */
+  scroll-snap-type: x proximity;
+}
+
+/* Controls — Figma 425:3675: filled #262626 circles, no outline, disabled at 30% */
+.oc-v5 .oc-slider__controls {
+  display: flex;
+  gap: var(--oc-space-16);
+}
+
+.oc-v5 .oc-slider .oc-round {
+  border: 0;
+  background: var(--oc-btn-dark);
+  color: var(--oc-text-on-dark);
+}
+
+.oc-v5 .oc-slider .oc-round:hover {
+  color: var(--oc-bg-dark);
 }
 
 /* FAQ — 425:3682: one centred column of filled items */

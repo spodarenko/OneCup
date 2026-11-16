@@ -227,9 +227,12 @@
 }
 
 /* Scroll states (main.js): hide on scroll down, show on scroll up */
+/* Scrolled: translucent bar in the colour of the block underneath (main.js sets --oc-header-bg) */
 .oc-header.is-scrolled {
   padding-block: var(--oc-space-16);
-  background: var(--oc-bg-dark);
+  background: color-mix(in srgb, var(--oc-header-bg, var(--oc-bg-dark)) 85%, transparent);
+  -webkit-backdrop-filter: blur(var(--oc-header-blur));
+  backdrop-filter: blur(var(--oc-header-blur));
 }
 
 /* Over light sections (main.js): dark text, light bar */

@@ -17,6 +17,7 @@
   if (header) {
     let last = scrollY;
     const lights = $$(".oc-light");
+    const blocks = $$("main section, .oc-footer");
     addEventListener(
       "scroll",
       () => {
@@ -31,6 +32,16 @@
             }),
         );
         header.classList.toggle("is-scrolled", y > 40);
+        // Bar takes the colour of the block under it (CSS fades between them)
+        const under = blocks.find((s) => {
+          const r = s.getBoundingClientRect();
+          return r.top <= mid && r.bottom >= mid;
+        });
+        const bg = under && getComputedStyle(under).backgroundColor;
+        header.style.setProperty(
+          "--oc-header-bg",
+          bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "var(--oc-bg-dark)",
+        );
         header.classList.toggle("is-hidden", y > last && y > 200 && !(lang && lang.open));
         last = y;
       },
@@ -118,19 +129,21 @@
   $$(".oc-slider").forEach((s) => {
     const track = $(".oc-slider__track", s);
     const [prev, next] = $$(".oc-round", s);
-    const step = () => {
-      const card = $(".oc-card", track);
-      return card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 24);
+    const cards = $$(".oc-card", track);
+    // Scroll to the next / previous card's own position (Safari drops smooth scrollBy on snap tracks)
+    const go = (dir) => {
+      const x = track.scrollLeft;
+      const lefts = cards.map((c) => c.offsetLeft - cards[0].offsetLeft);
+      const i = lefts.findIndex((l) => l > x + 2);
+      const cur = i === -1 ? lefts.length - 1 : i - 1;
+      const to = lefts[Math.max(0, Math.min(lefts.length - 1, cur + dir))];
+      track.scrollTo({ left: to, behavior: reduced ? "auto" : "smooth" });
     };
     const sync = () => {
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
     };
-    [prev, next].forEach((b) =>
-      b.addEventListener("click", () =>
-        track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: "smooth" }),
-      ),
-    );
+    [prev, next].forEach((b) => b.addEventListener("click", () => go(Number(b.dataset.dir))));
     track.addEventListener("scroll", sync, { passive: true });
     sync();
   });

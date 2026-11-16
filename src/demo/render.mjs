@@ -360,8 +360,9 @@ function footer(c, page) {
     <a class="oc-round oc-footer__top-btn" href="#top" aria-label="${attr(f.toTop)}">${icon("caret-up")}</a>
   </div>
   <div class="oc-footer__bottom">
-    <p>© OneCupCoffee® {{year}}</p>
-    <p>${f.legal}</p>
+    <p><span class="oc-accent">© OneCupCoffee®</span> {{year}}. ${f.rights}</p>
+    <p class="oc-footer__legal">${f.legal}</p>
+    <p class="oc-footer__dev">${f.devBy} <span>Intelliweb</span></p>
   </div>
 </footer>`;
 }
