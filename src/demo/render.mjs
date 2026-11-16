@@ -434,7 +434,9 @@ export function render(c, all, site, css, page = "home") {
     <meta property="og:title" content="${attr(meta.title)}">
     <meta property="og:description" content="${attr(meta.description)}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="${site.url}assets/img/station.webp">
+    <meta property="og:image" content="${site.url}assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="${c.ogLocale}">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="{{base}}favicon.svg" type="image/svg+xml">
