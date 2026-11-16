@@ -1,0 +1,627 @@
+/* Home v5 — Figma 425:3517. Scoped to body.oc-v5 so the buy and host pages keep v4.
+   Values only from config/tokens.css (.oc-v5 block). */
+
+/* Shared: caps headings, buttons, round icons */
+.oc-v5 .oc-h2 {
+  margin: 0;
+  font: var(--oc-h2);
+  text-transform: uppercase;
+  color: var(--oc-text-cream);
+}
+
+.oc-center {
+  text-align: center;
+}
+
+.oc-v5 .oc-btn {
+  font: var(--oc-label-16);
+  text-transform: uppercase;
+}
+
+.oc-v5 .oc-btn--sm {
+  font: var(--oc-label-14);
+  font-weight: 700;
+}
+
+.oc-v5 .oc-btn--accent {
+  border-color: var(--oc-orange-line);
+  color: var(--oc-hero-v4-bg);
+}
+
+.oc-v5 .oc-btn--accent:hover {
+  color: var(--oc-hero-v4-bg);
+}
+
+.oc-v5 .oc-btn--outline,
+.oc-btn--dark {
+  border-color: transparent;
+  background: var(--oc-btn-dark);
+  color: var(--oc-bg-soft);
+}
+
+.oc-v5 .oc-btn--outline:hover,
+.oc-btn--dark:hover {
+  color: var(--oc-bg-dark);
+}
+
+.oc-badge {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+}
+
+.oc-badge--glyph {
+  border-radius: var(--oc-radius-full);
+  background: var(--oc-brown-disc);
+}
+
+.oc-badge--glyph img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Hero — 425:3524: render on top, title and CTAs overlap its faded bottom */
+.oc-v5 .oc-hero {
+  padding: var(--oc-space-80) 0;
+}
+
+.oc-v5 .oc-hero__media {
+  margin-top: 0;
+  width: min(1147px, 100%);
+  margin-inline: auto;
+  translate: none;
+  scale: 1;
+  aspect-ratio: 1147 / 640;
+}
+
+.oc-v5 .oc-hero__title {
+  margin-top: -190px;
+  font: var(--oc-h2);
+  text-transform: uppercase;
+  color: var(--oc-text-on-dark);
+}
+
+.oc-v5 .oc-hero__body {
+  margin-top: var(--oc-space-16);
+  max-width: calc(var(--oc-hero-v5-text) + 2 * var(--oc-space-24));
+  gap: var(--oc-space-16);
+}
+
+.oc-v5 .oc-hero__subtitle {
+  font: var(--oc-body-16);
+  color: var(--oc-text-cream);
+}
+
+.oc-v5 .oc-hero__ctas {
+  gap: var(--oc-space-16);
+}
+
+/* About — 426:4176 */
+.oc-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-space-20);
+  background: var(--oc-bg-v5);
+}
+
+.oc-intro__text {
+  max-width: var(--oc-text-v5);
+  font: var(--oc-body-16-long);
+  text-align: center;
+}
+
+.oc-intro__text p {
+  margin: 0 0 25px;
+}
+
+.oc-intro__text p:last-child {
+  margin: 0;
+}
+
+/* Words fill in on scroll (main.js); without JS the text stays fully visible */
+.oc-intro__text .oc-word {
+  opacity: 0.15;
+}
+
+.oc-intro__icons {
+  display: flex;
+  gap: var(--oc-space-16);
+}
+
+/* Calculator — 425:3565: centred column, glass card, note below */
+.oc-v5 .oc-calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-space-20);
+  background: var(--oc-calc-v5-bg);
+}
+
+.oc-v5 .oc-calc__bg,
+.oc-v5 .oc-calc::before {
+  top: 0;
+  height: 100%;
+  translate: none;
+}
+
+.oc-v5 .oc-calc::before {
+  background: radial-gradient(70% 45% at 50% 55%, transparent 0%, var(--oc-bg-dark) 100%);
+}
+
+.oc-v5 .oc-calc__card {
+  width: min(var(--oc-wide-v5), 100%);
+  padding: var(--oc-space-48) var(--oc-space-64);
+  border: 0;
+  border-radius: var(--oc-radius-32);
+  background: var(--oc-card-v5);
+  -webkit-backdrop-filter: blur(var(--oc-blur-card));
+  backdrop-filter: blur(var(--oc-blur-card));
+}
+
+.oc-v5 .oc-calc__label {
+  font: var(--oc-label-16);
+}
+
+.oc-v5 .oc-calc__label > span:first-child {
+  color: var(--oc-text-on-dark);
+  opacity: 0.5;
+}
+
+.oc-calc__value {
+  color: var(--oc-text-cream);
+}
+
+.oc-v5 .oc-calc__label output {
+  position: static;
+  width: auto;
+  height: auto;
+  clip-path: none;
+}
+
+.oc-v5 .oc-calc__result-label,
+.oc-v5 .oc-calc__result {
+  align-self: center;
+}
+
+.oc-v5 .oc-calc__result-label {
+  font: var(--oc-label-14);
+}
+
+.oc-calc__note {
+  margin: 0;
+  max-width: var(--oc-text-v5);
+  font: var(--oc-body-16);
+  text-align: center;
+}
+
+/* How it works — 426:4403: four glass cards in a row */
+.oc-how {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-128) var(--oc-space-20);
+  background: var(--oc-bg-v5);
+}
+
+.oc-how__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--oc-space-16);
+  width: min(var(--oc-cards-v5), 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oc-howcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-16);
+  min-height: var(--oc-how-card-h);
+  padding: var(--oc-space-32);
+  border-radius: var(--oc-radius-24);
+  background: var(--oc-card-v5);
+  -webkit-backdrop-filter: blur(var(--oc-blur-card));
+  backdrop-filter: blur(var(--oc-blur-card));
+  color: var(--oc-text-cream);
+  text-align: center;
+}
+
+.oc-howcard__title {
+  margin: 0;
+  font: var(--oc-h6);
+  text-transform: uppercase;
+}
+
+.oc-howcard__text {
+  margin: calc(var(--oc-space-8) - var(--oc-space-16)) 0 0;
+  font: var(--oc-body-16);
+}
+
+/* Two models — 425:3627: render behind, centred title, brown + grey glass cards */
+.oc-v5 .oc-models {
+  align-items: center;
+  min-height: 768px;
+  padding-inline: var(--oc-gutter);
+}
+
+.oc-v5 .oc-models::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 33%, var(--oc-hero-v4-bg) 98%);
+  pointer-events: none;
+}
+
+.oc-v5 .oc-models__bg {
+  height: 100%;
+  object-position: center bottom;
+}
+
+.oc-v5 .oc-models__title,
+.oc-v5 .oc-models__cards {
+  width: min(var(--oc-wide-v5), 100%);
+}
+
+.oc-v5 .oc-models__cards {
+  gap: var(--oc-space-16);
+}
+
+.oc-v5 .oc-model {
+  border: 0;
+  border-radius: var(--oc-radius-16);
+  background: var(--oc-card-v5-strong);
+  -webkit-backdrop-filter: blur(var(--oc-blur-model));
+  backdrop-filter: blur(var(--oc-blur-model));
+}
+
+.oc-v5 .oc-model--accent {
+  background: var(--oc-brown-disc);
+}
+
+.oc-v5 .oc-model--accent .oc-model__text {
+  color: var(--oc-text-on-dark);
+  opacity: 1;
+}
+
+.oc-v5 .oc-model__title {
+  text-transform: uppercase;
+}
+
+.oc-v5 .oc-model .oc-btn {
+  width: min(var(--oc-model-btn), 100%);
+  margin-top: auto;
+}
+
+/* Where — 425:3646: centred heading, controls under the track */
+.oc-v5 .oc-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+}
+
+.oc-v5 .oc-slider__track {
+  align-self: stretch;
+}
+
+/* FAQ — 425:3682: one centred column of filled items */
+.oc-v5 .oc-faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-space-20);
+}
+
+.oc-v5 .oc-faq__list {
+  display: grid;
+  gap: var(--oc-space-16);
+  width: min(var(--oc-wide-v5), 100%);
+}
+
+.oc-v5 .oc-faq__item {
+  padding: 0 var(--oc-space-32);
+  border-radius: var(--oc-radius-16);
+  background: var(--oc-faq-v5);
+}
+
+.oc-v5 .oc-faq__item summary {
+  padding: var(--oc-space-32) 0;
+}
+
+.oc-v5 .oc-faq__item[open] summary {
+  padding: var(--oc-space-24) 0 var(--oc-space-8);
+}
+
+.oc-v5 .oc-faq__item h3 {
+  text-transform: uppercase;
+}
+
+.oc-v5 .oc-faq__answer p {
+  max-width: none;
+  padding: 0 var(--oc-space-40) var(--oc-space-24) 0;
+  font: var(--oc-body-16);
+  color: var(--oc-text-soft-strong);
+}
+
+/* Already running — 466:234: three photo cards */
+.oc-live {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-gutter);
+}
+
+.oc-live__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--oc-space-16);
+  width: min(var(--oc-container), 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oc-livecard {
+  position: relative;
+  height: var(--oc-live-card-h);
+  overflow: hidden;
+  border-radius: var(--oc-radius-24);
+}
+
+.oc-livecard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.8s var(--oc-ease);
+}
+
+.oc-livecard:hover img {
+  scale: 1.05;
+}
+
+.oc-livecard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 66%, rgb(0 0 0 / 0.7) 86%);
+  pointer-events: none;
+}
+
+/* Contact form — 425:3862 */
+.oc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-space-20);
+  background: var(--oc-bg-raised);
+}
+
+.oc-form__head {
+  display: grid;
+  gap: var(--oc-space-16);
+  justify-items: center;
+}
+
+.oc-form__note {
+  margin: 0;
+  font: var(--oc-body-18);
+  color: var(--oc-text-muted);
+}
+
+.oc-form__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-space-16);
+  width: min(var(--oc-text-v5), 100%);
+  padding: var(--oc-space-48) var(--oc-space-96);
+  border-radius: var(--oc-radius-32);
+  background: var(--oc-form-v5);
+}
+
+.oc-topic {
+  display: grid;
+  justify-items: center;
+  gap: var(--oc-space-16);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.oc-form__title {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--oc-space-16);
+  padding: 0;
+  font: var(--oc-h5);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--oc-text-cream);
+}
+
+.oc-topic__opts {
+  display: flex;
+  gap: var(--oc-space-8);
+}
+
+.oc-topic__opt input {
+  position: absolute;
+  opacity: 0;
+}
+
+.oc-topic__opt span {
+  display: block;
+  width: var(--oc-form-btn);
+  padding: var(--oc-space-8) var(--oc-space-24);
+  border-radius: var(--oc-radius-24);
+  background: var(--oc-orange-soft);
+  font: var(--oc-label-16);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--oc-orange);
+  cursor: pointer;
+  transition:
+    background var(--oc-dur) var(--oc-ease),
+    color var(--oc-dur) var(--oc-ease);
+}
+
+.oc-topic__opt input:checked + span {
+  background: var(--oc-orange);
+  color: var(--oc-bg-raised);
+}
+
+.oc-topic__opt input:focus-visible + span {
+  outline: 2px solid var(--oc-orange);
+  outline-offset: 2px;
+}
+
+.oc-field input,
+.oc-field textarea {
+  display: block;
+  width: 100%;
+  padding: var(--oc-space-16) var(--oc-space-20);
+  border: 1px solid transparent;
+  border-radius: var(--oc-radius-16);
+  background: var(--oc-card-v5);
+  font: var(--oc-body-16);
+  color: var(--oc-text-cream);
+  resize: vertical;
+  transition: border-color var(--oc-dur) var(--oc-ease);
+}
+
+.oc-field input::placeholder,
+.oc-field textarea::placeholder {
+  color: var(--oc-input-placeholder);
+}
+
+.oc-field input:focus,
+.oc-field textarea:focus {
+  border-color: var(--oc-orange);
+  outline: 0;
+}
+
+.oc-check {
+  display: flex;
+  gap: var(--oc-space-16);
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.oc-check input {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border-radius: var(--oc-radius-8);
+  background: var(--oc-card-v5-strong);
+  accent-color: var(--oc-orange);
+  appearance: none;
+  cursor: pointer;
+}
+
+.oc-check input:checked {
+  appearance: auto;
+}
+
+.oc-form__submit {
+  width: 100%;
+}
+
+.oc-alt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--oc-space-32);
+}
+
+.oc-alt__link {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-8);
+  width: 214px;
+  font: var(--oc-h5);
+  text-transform: uppercase;
+  color: var(--oc-text-muted);
+  transition: color 0.3s var(--oc-ease);
+}
+
+.oc-alt__link:hover {
+  color: var(--oc-orange);
+}
+
+@media (max-width: 1100px) {
+  .oc-v5 .oc-h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .oc-how__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .oc-live {
+    padding-inline: var(--oc-space-24);
+  }
+
+  .oc-live__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .oc-v5 .oc-models {
+    padding-inline: var(--oc-space-24);
+  }
+
+  .oc-form__card {
+    padding: var(--oc-space-32) var(--oc-space-20);
+  }
+}
+
+@media (max-width: 600px) {
+  .oc-v5 .oc-h2 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .oc-v5 .oc-hero__title {
+    margin-top: -60px;
+  }
+
+  .oc-how__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .oc-howcard {
+    min-height: 0;
+  }
+
+  .oc-v5 .oc-calc__card {
+    padding: var(--oc-space-32) var(--oc-space-20);
+  }
+
+  .oc-v5 .oc-calc__label {
+    flex-direction: column;
+    gap: var(--oc-space-4);
+  }
+
+  .oc-v5 .oc-calc__result {
+    font-size: 72px;
+    line-height: 80px;
+  }
+
+  .oc-alt {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--oc-space-16);
+  }
+}

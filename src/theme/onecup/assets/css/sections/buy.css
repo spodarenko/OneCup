@@ -1,79 +1,76 @@
-/* Buy and host pages — Figma 333:2861, 266:5465. Hero, quote, steps, split and
-   contact come from the shared blocks; this file holds their page-only parts. */
+/* Buy and host pages v5 — Figma 429:4610 «Station kaufen», 475:1861 «Standort anbieten».
+   Hero, form, About and the models cards come from home.css; this file holds the page-only blocks. */
 
-/* Hero: machine render with a warm glow behind it */
-.oc-hero--buy {
-  background: var(--oc-bg-dark);
+/* Hero: still render instead of the orbit, title overlaps its faded bottom */
+.oc-hero--buy .oc-hero__media,
+.oc-hero--host .oc-hero__media {
+  aspect-ratio: 1147 / 640;
 }
 
-.oc-hero--buy::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 45%,
-    var(--oc-buy-glow) 0,
-    var(--oc-buy-glow-soft) 20%,
-    transparent 35%
-  );
-  filter: blur(60px);
-  pointer-events: none;
+.oc-hero--buy .oc-hero__title,
+.oc-hero--host .oc-hero__title {
+  margin-top: -298px;
+  max-width: 864px;
 }
 
-/* Figma 333:2868: 1440×730 render, overlapped 24px by the title and the text */
-.oc-hero--buy .oc-hero__media {
-  width: min(1440px, 140%);
-  aspect-ratio: 2880 / 1460;
-  margin-top: var(--oc-hero-buy-overlap);
-  /* The 95% scale is for the home orbit only */
-  scale: none;
-  /* The render's backdrop is a shade lighter than the page: fade its edges out */
-  mask-image: linear-gradient(to bottom, black 75%, transparent);
+.oc-hero--host .oc-hero__title {
+  margin-top: -274px;
 }
 
-.oc-hero--buy .oc-hero__media::after {
-  content: none;
+.oc-hero--buy .oc-hero__ctas,
+.oc-hero--host .oc-hero__ctas {
+  justify-content: center;
 }
 
-.oc-hero--buy {
-  padding-bottom: var(--oc-hero-buy-pb);
+.oc-hero--buy .oc-hero__ctas .oc-btn,
+.oc-hero--host .oc-hero__ctas .oc-btn {
+  flex: 0 0 226px;
 }
 
-.oc-hero--buy .oc-hero__body {
-  margin-top: var(--oc-hero-buy-overlap);
-}
-
-/* Metrics: three big numbers */
+/* Metrics — 429:4697 / 477:2345: centred heading, orange numbers */
 .oc-metrics {
-  padding: var(--oc-space-96) var(--oc-gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-space-20);
+  background: var(--oc-metrics-bg);
 }
 
 .oc-metrics__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--oc-space-64);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--oc-space-48);
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--oc-line-light);
+  text-align: center;
+}
+
+.oc-metric {
+  width: var(--oc-metric-w);
 }
 
 .oc-metric__value {
   display: flex;
+  justify-content: center;
   gap: var(--oc-space-12);
   margin: 0 0 var(--oc-space-12);
-  font: var(--oc-display-128);
-  letter-spacing: -0.07em;
+  font: var(--oc-h0);
+  text-transform: uppercase;
+  color: var(--oc-orange);
 }
 
 .oc-metric__value span {
-  font: var(--oc-h0);
-  letter-spacing: 0;
+  font: var(--oc-h4);
 }
 
 .oc-metric__title {
   margin: 0;
   font: var(--oc-h6);
+  text-transform: uppercase;
+  color: var(--oc-line-light);
 }
 
 .oc-metric__text {
@@ -82,177 +79,226 @@
   color: var(--oc-text-soft);
 }
 
-/* Models list — Figma 333:3128: photo, name, text; price and CTA below */
-.oc-lineup {
+/* Benefits — 429:5980: five icons in a row */
+.oc-points {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--oc-space-48);
-  padding: var(--oc-space-96) var(--oc-gutter);
+  padding: var(--oc-space-96) var(--oc-space-20);
+  background: var(--oc-bg-v5);
 }
 
-.oc-lineup__head {
-  display: grid;
-  gap: var(--oc-space-16);
-}
-
-.oc-lineup__head p {
-  max-width: 640px;
-  margin: 0;
-  font: var(--oc-body-16);
-  color: var(--oc-text-dim);
-}
-
-.oc-lineup__list {
+.oc-points__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.oc-lineup__row {
-  display: grid;
-  grid-template-columns: 240px 420px 1fr;
-  align-items: center;
-  gap: var(--oc-space-48);
-  padding: var(--oc-space-32) 0;
-}
-
-.oc-lineup__row + .oc-lineup__row {
-  border-top: 1px solid var(--oc-line-soft);
-}
-
-.oc-lineup__img {
-  width: 240px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: var(--oc-radius-8);
-  transition: transform var(--oc-dur) var(--oc-ease);
-}
-
-.oc-lineup__row:hover .oc-lineup__img {
-  transform: scale(1.04);
-}
-
-.oc-lineup__name {
-  margin: 0;
-  font: var(--oc-h3);
-}
-
-.oc-lineup__text,
-.oc-lineup__note {
-  margin: 0;
-  font: var(--oc-body-16);
-  color: var(--oc-text-soft-strong);
-}
-
-.oc-lineup__foot {
+.oc-points__list li {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: var(--oc-space-20);
+  width: var(--oc-point-w);
+  padding: 0 var(--oc-space-24);
+  font: var(--oc-h6);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--oc-text-cream);
+}
+
+/* Everything for your start — 466:418: photo + switcher, kit list, price */
+.oc-start {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oc-space-48);
+  padding: var(--oc-space-96) var(--oc-gutter);
+  background: var(--oc-start-bg);
+}
+
+.oc-start__grid {
+  display: grid;
+  grid-template-columns: var(--oc-start-photo) 1fr;
   gap: var(--oc-space-64);
 }
 
-.oc-lineup__note {
-  flex: 1;
+.oc-start__media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--oc-space-16);
 }
 
-.oc-lineup__price {
-  display: grid;
-  gap: var(--oc-space-4);
+.oc-start__photo {
+  width: 100%;
+  height: var(--oc-start-photo-h);
+  overflow: hidden;
+  border-radius: var(--oc-radius-8);
+}
+
+.oc-start__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: oc-fade var(--oc-dur) var(--oc-ease);
+}
+
+.oc-start__photo img[hidden] {
+  display: none;
+}
+
+@keyframes oc-fade {
+  from {
+    opacity: 0;
+    scale: 0.97;
+  }
+}
+
+.oc-start__thumbs {
+  display: flex;
+  gap: var(--oc-space-12);
+}
+
+.oc-start__thumb {
+  width: var(--oc-thumb);
+  height: var(--oc-thumb);
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: var(--oc-radius-16);
+  background: none;
+  cursor: pointer;
+  transition: border-color var(--oc-dur) var(--oc-ease);
+}
+
+.oc-start__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oc-start__thumb[aria-pressed="true"],
+.oc-start__thumb:hover {
+  border-color: var(--oc-orange);
+}
+
+.oc-start__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--oc-space-8);
+}
+
+.oc-start__name,
+.oc-start__price {
   margin: 0;
   font: var(--oc-h3);
+  text-transform: uppercase;
+  color: var(--oc-text-cream);
 }
 
-.oc-lineup__price span {
-  font: var(--oc-body-14);
+.oc-start__list {
+  display: grid;
+  gap: var(--oc-space-8);
+  margin: var(--oc-space-12) 0 var(--oc-space-24);
+  padding: 0;
+  list-style: none;
+  font: var(--oc-body-15);
+  color: var(--oc-text-cream-85);
+}
+
+.oc-start__list li::before {
+  content: "✓  ";
+  white-space: pre;
+}
+
+.oc-start__label {
+  margin: 0;
+  font: var(--oc-label-16);
+  color: var(--oc-text-cream-60);
+}
+
+.oc-start__label--light {
+  font: var(--oc-body-16);
+}
+
+/* Host cooperation — 477:2292: subtitle, terms line, wide buttons */
+.oc-models__sub {
+  margin: var(--oc-space-16) 0 0;
+  font: var(--oc-body-16);
+}
+
+.oc-models--coop .oc-models__head {
+  width: min(var(--oc-wide-v5), 100%);
+}
+
+.oc-models--coop .oc-model {
+  gap: var(--oc-space-16);
+}
+
+.oc-models--coop .oc-model__text {
+  margin: 0;
+}
+
+.oc-model__terms {
+  display: grid;
+  gap: var(--oc-space-4);
+  width: 100%;
+  margin: 0;
+  padding-top: var(--oc-space-24);
+  border-top: 1px solid var(--oc-glass-line);
+  font: var(--oc-body-16);
   color: var(--oc-text-dim);
 }
 
-/* Single CTA is 280px wide in Figma 333:2873 */
-.oc-hero--buy .oc-hero__ctas {
-  max-width: 280px;
+.oc-model__terms strong {
+  font: var(--oc-h6);
+  text-transform: uppercase;
+  color: var(--oc-text-cream);
 }
 
-.oc-hero__title .oc-accent {
-  color: var(--oc-accent);
+.oc-models--coop .oc-model .oc-btn {
+  width: min(var(--oc-coop-btn), 100%);
 }
 
 @media (max-width: 1100px) {
-  .oc-metrics,
-  .oc-lineup {
-    padding: var(--oc-space-64) var(--oc-space-24);
+  .oc-start {
+    padding-inline: var(--oc-space-24);
   }
 
-  .oc-metrics__list {
+  .oc-start__grid {
     grid-template-columns: 1fr;
-    gap: var(--oc-space-40);
+    gap: var(--oc-space-32);
   }
 
-  .oc-metric__value {
-    font-size: 88px;
-    line-height: 96px;
-  }
-
-  .oc-lineup__row {
-    grid-template-columns: 1fr;
-    gap: var(--oc-space-16);
-  }
-
-  .oc-lineup__img {
-    width: 100%;
-    max-width: 360px;
+  .oc-start__photo {
     height: auto;
     aspect-ratio: 4 / 3;
   }
 
-  .oc-lineup__foot {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--oc-space-24);
-  }
-
-  .oc-hero--buy .oc-hero__body {
-    margin-top: -40%;
+  .oc-start__name,
+  .oc-start__price {
+    font: var(--oc-h5);
   }
 }
 
-/* Host page hero: tall station render, bottom fades into the background */
-.oc-hero--host {
-  background: var(--oc-bg-dark);
-}
-
-.oc-hero--host::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 45%,
-    var(--oc-buy-glow) 0,
-    var(--oc-buy-glow-soft) 20%,
-    transparent 35%
-  );
-  filter: blur(60px);
-  pointer-events: none;
-}
-
-.oc-hero--host .oc-hero__media {
-  width: min(731px, 90%);
-  aspect-ratio: 1122 / 1402;
-  margin-top: -12px;
-}
-
-.oc-hero--host .oc-hero__media::after {
-  background: linear-gradient(180deg, transparent 55%, var(--oc-bg-dark) 85%);
-}
-
-.oc-hero--host .oc-hero__body {
-  margin-top: -213px;
-}
-
-@media (max-width: 1100px) {
-  .oc-hero--host .oc-hero__media {
-    width: 90%;
+@media (max-width: 600px) {
+  .oc-hero--buy .oc-hero__title,
+  .oc-hero--host .oc-hero__title {
+    margin-top: -60px;
   }
 
-  .oc-hero--host .oc-hero__body {
-    margin-top: -25%;
+  .oc-metric__value {
+    font: var(--oc-h2);
+  }
+
+  .oc-points__list li {
+    width: 50%;
+    padding: 0 var(--oc-space-8) var(--oc-space-24);
+    font: var(--oc-h6);
   }
 }

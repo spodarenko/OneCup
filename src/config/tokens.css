@@ -107,3 +107,60 @@
   --oc-caption: 400 10px/12px var(--oc-font);
   --oc-header-btn-w: 120px;
 }
+
+/* Home v5 (Figma 425:3517): Inter Bold caps headings, orange accent.
+   Composite fonts are redeclared here because they resolve --oc-font where defined. */
+.oc-v5 {
+  --oc-font: "Inter", system-ui, sans-serif;
+  --oc-orange: #f89717;
+  --oc-orange-line: #c8603d;
+  --oc-orange-soft: rgb(248 151 23 / 0.1);
+  --oc-brown-disc: rgb(135 87 23 / 0.5);
+  --oc-bg-v5: #161616;
+  --oc-btn-dark: #262626;
+  --oc-calc-v5-bg: #202020;
+  --oc-card-v5: rgb(255 255 255 / 0.05);
+  --oc-card-v5-strong: rgb(255 255 255 / 0.1);
+  --oc-faq-v5: rgb(243 237 227 / 0.08);
+  --oc-form-v5: rgb(243 237 227 / 0.04);
+  --oc-input-placeholder: #797979;
+  --oc-blur-card: 36px;
+  --oc-blur-model: 50px;
+  --oc-radius-32: 32px;
+  --oc-text-v5: 710px;
+  --oc-wide-v5: 954px;
+  --oc-cards-v5: 1196px;
+  --oc-how-card-h: 280px;
+  --oc-live-card-h: 480px;
+  --oc-form-btn: 166px;
+  --oc-model-btn: 260px;
+  --oc-hero-v5-h: 640px;
+  --oc-hero-v5-text: 464px;
+  /* Buy and host v5 (Figma 429:4610, 475:1861) */
+  --oc-metrics-bg: #120e09;
+  --oc-start-bg: #050604;
+  --oc-metric-w: 320px;
+  --oc-point-w: 236px;
+  --oc-start-photo: 640px;
+  --oc-start-photo-h: 480px;
+  --oc-thumb: 96px;
+  --oc-coop-btn: 320px;
+  --oc-text-cream-85: rgb(243 237 227 / 0.85);
+  --oc-text-cream-60: rgb(243 237 227 / 0.6);
+  --oc-h0: 700 72px/72px var(--oc-font);
+  --oc-h3: 700 36px/42px var(--oc-font);
+  --oc-body-15: 400 15px/22px var(--oc-font);
+  --oc-h2: 700 52px/60px var(--oc-font);
+  --oc-h4: 700 32px/36px var(--oc-font);
+  --oc-h5: 700 24px/32px var(--oc-font);
+  --oc-h6: 700 20px/28px var(--oc-font);
+  --oc-display-128: 700 128px/144px var(--oc-font);
+  --oc-body-18: 400 18px/28px var(--oc-font);
+  --oc-body-16: 400 16px/24px var(--oc-font);
+  --oc-body-16-long: 400 16px/25px var(--oc-font);
+  --oc-label-16: 700 16px/24px var(--oc-font);
+  --oc-label-14: 500 14px/20px var(--oc-font);
+  --oc-accent: var(--oc-orange);
+  --oc-accent-strong: var(--oc-orange);
+  font: var(--oc-body-16);
+}
