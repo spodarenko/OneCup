@@ -19,14 +19,17 @@
     "whatsapp": "WhatsApp",
     "request": "Anfrage",
     "language": "Sprache",
-    "menu": "Hauptmenü"
+    "menu": "Hauptmenü",
+    "buyFull": "Station kaufen",
+    "hostFull": "Station aufstellen"
   },
   "hero": {
     "title": "Selbstbedienungs-Kaffeestationen",
     "subtitle": "OneCup – Wake Up. Frischer Kaffee auf Knopfdruck: Kaufen Sie die Station als eigenes Business oder stellen Sie sie bei sich auf — ohne Aufwand für Ihr Team.",
     "ctaBuy": "Station kaufen",
     "ctaHost": "Station aufstellen",
-    "imgAlt": "Beleuchtete OneCup-Kaffeestation"
+    "imgAlt": "Beleuchtete OneCup-Kaffeestation",
+    "lead": "Frisch gemahlener Kaffee auf Knopfdruck – ohne Barista, platzsparend und flexibel einsetzbar"
   },
   "about": {
     "eyebrow": "[ Über OneCup ]",
@@ -34,7 +37,14 @@
     "text": "— Selbstbedienungs-Kaffeestationen aus Köln. Frisch gemahlene Bohnen, moderne Technologie und minimalistisches Design. Kaufen Sie die Station schlüsselfertig als eigenes Business oder stellen Sie sie bei sich auf — den Service übernehmen wir. Lieferung in ganz Deutschland",
     "inlineAfter": "Selbstbedienungs-Kaffeestationen",
     "imgMachine": "OneCup-Kaffeevollautomat",
-    "imgStation": "OneCup-Station in einer Lobby"
+    "imgStation": "OneCup-Station in einer Lobby",
+    "title": "Über <span class=\"oc-accent\">OneCup</span>",
+    "paras": [
+      "OneCup entwickelt Selbstbedienungs-Kaffeestationen aus Köln. Frisch gemahlene Bohnen, moderne Technologie und minimalistisches Design – jede Tasse wird auf Knopfdruck frisch zubereitet, ganz ohne Barista.",
+      "Sie können die Station schlüsselfertig als eigenes Business kaufen oder sie bei sich aufstellen lassen. In beiden Fällen erhalten Sie ein durchdachtes Konzept, das wenig Platz braucht und sich flexibel an Büros, Geschäfte, Tankstellen oder Wartebereiche anpasst.",
+      "Den Service übernehmen wir: von der Installation über die regelmäßige Wartung bis zur Versorgung mit frischen Bohnen. So bleibt Ihr Team entlastet, und Ihre Gäste genießen jederzeit guten Kaffee."
+    ],
+    "icons": ["Kaufen oder aufstellen", "Frischer Kaffee", "Service inklusive"]
   },
   "calc": {
     "eyebrow": "[ Rechner ]",
@@ -42,7 +52,11 @@
     "text": "Wählen Sie, wie viele Getränke pro Tag verkauft werden.",
     "label": "Getränke pro Tag",
     "result": "Geschätzter Monatsumsatz",
-    "bgAlt": "OneCup Becher zwischen Kaffeebohnen"
+    "bgAlt": "OneCup Becher zwischen Kaffeebohnen",
+    "heading": "Ihr Potenzial mit <span class=\"oc-accent\">OneCup</span>",
+    "hint": "Ziehen Sie den Regler, um Ihren Gewinn zu sehen",
+    "unit": "Getränke",
+    "note": "Beispielrechnung — nur ein Rechenbeispiel, keine Gewinngarantie.<br>Der tatsächliche Umsatz hängt vom Standort ab."
   },
   "steps": {
     "eyebrow": "[ So funktioniert OneCup ]",
@@ -68,7 +82,9 @@
         "label": "Genießen & profitieren",
         "text": "Ihre Kunden genießen ihren Kaffee – Sie profitieren von jedem verkauften Becher."
       }
-    ]
+    ],
+    "heading": "So funktioniert <span class=\"oc-accent\">OneCup</span>",
+    "cta": "Jetzt anfragen"
   },
   "models": {
     "eyebrow": "[ Zwei Modelle ]",
@@ -129,7 +145,8 @@
         "name": "Bäckereien",
         "text": "Kaffee zum Gebäck — ohne Barista"
       }
-    ]
+    ],
+    "heading": "Wo <span class=\"oc-accent\">OneCup</span> steht"
   },
   "faq": {
     "eyebrow": "[ FAQ ]",
@@ -159,7 +176,8 @@
         "q": "Wie schnell wird die Station aufgestellt?",
         "a": "Das hängt von Standort und Modell ab. Wir liefern in ganz Deutschland und stimmen den Aufstellungstermin direkt nach Annahme des Angebots ab."
       }
-    ]
+    ],
+    "heading": "Häufige Fragen"
   },
   "live": {
     "eyebrow": "[ Schon im Einsatz ]",
@@ -205,7 +223,8 @@
         "name": "Bäckereien",
         "text": "Kaffee zum Gebäck, ohne Barista"
       }
-    ]
+    ],
+    "heading": "<span class=\"oc-accent\">OneCup</span>-Stationen<br>laufen in Köln"
   },
   "contact": {
     "eyebrow": "[ Kontakt ]",
@@ -464,5 +483,18 @@
         }
       ]
     }
+  },
+  "form": {
+    "title": "Worum geht es?",
+    "topic": "Thema",
+    "buy": "kaufen",
+    "host": "aufstellen",
+    "name": "Name / Vor- und Nachname *",
+    "email": "E-Mail-Adresse *",
+    "phone": "Telefonnummer",
+    "message": "Ihre Nachricht",
+    "consent": "Ich habe die Allgemeinen Geschäftsbedingungen gelesen und verstanden",
+    "submit": "Anfrage senden",
+    "subject": "OneCup Anfrage"
   }
 }

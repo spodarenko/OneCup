@@ -19,14 +19,17 @@
     "whatsapp": "WhatsApp",
     "request": "Enquire",
     "language": "Language",
-    "menu": "Main menu"
+    "menu": "Main menu",
+    "buyFull": "Buy a station",
+    "hostFull": "Host a station"
   },
   "hero": {
     "title": "Self-service coffee stations",
     "subtitle": "OneCup – Wake Up. Fresh coffee at the touch of a button: buy the station as a business or host one at your venue — no effort for your team.",
     "ctaBuy": "Buy a station",
     "ctaHost": "Host a station",
-    "imgAlt": "Illuminated OneCup coffee station"
+    "imgAlt": "Illuminated OneCup coffee station",
+    "lead": "Freshly ground coffee at the touch of a button – no barista, compact and flexible"
   },
   "about": {
     "eyebrow": "[ About OneCup ]",
@@ -34,7 +37,14 @@
     "text": "— self-service coffee stations from Cologne. Freshly ground beans, modern technology and minimalist design. Buy a turnkey station as your own business or host one at your venue — we take care of the service. Delivered across Germany",
     "inlineAfter": "coffee stations",
     "imgMachine": "OneCup coffee machine",
-    "imgStation": "OneCup station in a lobby"
+    "imgStation": "OneCup station in a lobby",
+    "title": "About <span class=\"oc-accent\">OneCup</span>",
+    "paras": [
+      "OneCup builds self-service coffee stations in Cologne. Freshly ground beans, modern technology and minimalist design – every cup is made fresh at the touch of a button, no barista needed.",
+      "You can buy the station turnkey as your own business or have it set up at your place. Either way you get a well-thought-out concept that needs little space and fits offices, shops, petrol stations or waiting areas.",
+      "We take care of service: from installation and regular maintenance to the supply of fresh beans. Your team stays free, and your guests always enjoy good coffee."
+    ],
+    "icons": ["Buy or host", "Fresh coffee", "Service included"]
   },
   "calc": {
     "eyebrow": "[ Calculator ]",
@@ -42,7 +52,11 @@
     "text": "Choose how many drinks are sold per day.",
     "label": "Drinks per day",
     "result": "Estimated monthly revenue",
-    "bgAlt": "OneCup cup surrounded by coffee beans"
+    "bgAlt": "OneCup cup surrounded by coffee beans",
+    "heading": "Your potential with <span class=\"oc-accent\">OneCup</span>",
+    "hint": "Drag the slider to see your revenue",
+    "unit": "drinks",
+    "note": "Sample calculation only, not a revenue guarantee.<br>Actual revenue depends on the location."
   },
   "steps": {
     "eyebrow": "[ How it works ]",
@@ -68,7 +82,9 @@
         "label": "Enjoy & earn",
         "text": "Your customers enjoy their coffee — you earn on every cup sold."
       }
-    ]
+    ],
+    "heading": "How <span class=\"oc-accent\">OneCup</span> works",
+    "cta": "Send a request"
   },
   "models": {
     "eyebrow": "[ Two models ]",
@@ -129,7 +145,8 @@
         "name": "Bakeries",
         "text": "Coffee with pastries — no barista"
       }
-    ]
+    ],
+    "heading": "Where <span class=\"oc-accent\">OneCup</span> stands"
   },
   "faq": {
     "eyebrow": "[ FAQ ]",
@@ -159,7 +176,8 @@
         "q": "How quickly is the station installed?",
         "a": "It depends on the venue and the model. We deliver across Germany and agree the installation date right after the offer is accepted."
       }
-    ]
+    ],
+    "heading": "FAQ"
   },
   "live": {
     "eyebrow": "[ Already running ]",
@@ -205,7 +223,8 @@
         "name": "Bakeries",
         "text": "Coffee with pastries, no barista"
       }
-    ]
+    ],
+    "heading": "<span class=\"oc-accent\">OneCup</span> stations<br>running in Cologne"
   },
   "contact": {
     "eyebrow": "[ Contact ]",
@@ -464,5 +483,18 @@
         }
       ]
     }
+  },
+  "form": {
+    "title": "What is it about?",
+    "topic": "Topic",
+    "buy": "buy",
+    "host": "host",
+    "name": "Name / full name *",
+    "email": "Email address *",
+    "phone": "Phone number",
+    "message": "Your message",
+    "consent": "I have read and understood the terms and conditions",
+    "submit": "Send request",
+    "subject": "OneCup request"
   }
 }

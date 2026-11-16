@@ -79,6 +79,28 @@
     update();
   });
 
+  /* Contact form (home): no backend yet, so submit opens a prefilled email.
+     Model buttons preselect the topic */
+  const form = $("[data-mailto]");
+  if (form) {
+    $$("a[data-topic]").forEach((a) =>
+      a.addEventListener("click", () => {
+        const r = $(`input[data-topic="${a.dataset.topic}"]`, form);
+        if (r) r.checked = true;
+      }),
+    );
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const d = new FormData(form);
+      const body = ["topic", "name", "email", "phone", "message"]
+        .map((k) => d.get(k))
+        .filter(Boolean)
+        .join("\n");
+      const subject = `${form.dataset.subject}: ${d.get("topic")}`;
+      location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
   /* Sliders: buttons scroll by one card */
   $$(".oc-slider").forEach((s) => {
     const track = $(".oc-slider__track", s);
@@ -154,8 +176,9 @@
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".oc-hero__title",
-          start: "top 24px",
+          // Home (Figma 425:3524) opens on the render, so it pins from the top
+          trigger: orbit.closest(".oc-hero"),
+          start: "top top",
           end: "+=150%",
           pin: ".oc-hero",
           scrub: 0.6,

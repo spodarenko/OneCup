@@ -1,31 +1,32 @@
 # Design → code
 
-Figma: «One cup coffee», `fileKey` in `figma.config.json`. Main page: node `238:133` (v4, dark), 1440 px, UA.
+Figma: «One cup coffee», `fileKey` in `figma.config.json`. Main page: node `425:3517` (v5, dark, DE), 1440 px. Buy and host pages still follow v4 (`238:133`).
 The design project (research, brief, agents) is `../OneCup/`. It stays outside this repo.
 
 ## Rules
 
 - Values only from `src/config/tokens.css`. A hex or pixel value not in tokens → add the token first
-- Font: Onest 400 / 500 / 600
-- Icons: Phosphor only, **Regular** weight. Use real icons, not text arrows (→, +)
+- Font: Onest 400 / 500 / 600 on buy and host; home v5 uses Inter 400 / 500 / 700, caps headings, orange `#f89717`. Scoped by `body.oc-v5` (tokens in the `.oc-v5` block, styles in `sections/home.css`)
+- Icons: Phosphor **Regular** for UI (carets, plus). Round 48 px brand icons on home come from Figma as SVG (`assets/img/icons/`). Use real icons, not text arrows (→, +)
 - Slogan «OneCup – Wake Up.» stays in English in every language; the H1 says what the brand does
 
-## Home page sections (top → bottom)
+## Home page sections (top → bottom), Figma 425:3517
 
-| #   | Section                       | Figma node |
-| --- | ----------------------------- | ---------- |
-| —   | Header                        | 238:536    |
-| 1   | Hero                          | 238:134    |
-| 2   | About OneCup                  | 245:651    |
-| 3   | Revenue calculator            | 246:741    |
-| 4   | How it works (4 steps)        | 238:271    |
-| 5   | Two models (glass cards)      | 317:365    |
-| 6   | Where it's installed (slider) | 238:347    |
-| 7   | FAQ                           | 238:387    |
-| 8   | Already running               | 238:411    |
-| 9   | Contact                       | 238:451    |
-| 10  | Marquee                       | 238:474    |
-| —   | Footer                        | 238:477    |
+| #   | Section                                | Figma node | Function        |
+| --- | -------------------------------------- | ---------- | --------------- |
+| —   | Header (Kaufen · Aufstellen · Kontakt) | 425:3802   | `header()`      |
+| 1   | Hero (render, «OneCup – Wake Up»)      | 425:3524   | `hero()`        |
+| 2   | About (text + 3 icons)                 | 426:4176   | `about()`       |
+| 3   | Revenue calculator                     | 425:3565   | `calc()`        |
+| 4   | How it works (4 cards + CTA)           | 426:4403   | `homeSteps()`   |
+| 5   | Two models                             | 425:3627   | `models()`      |
+| 6   | Where it's installed (slider)          | 425:3646   | `slider()`      |
+| 7   | FAQ (first item open)                  | 425:3682   | `faq()`         |
+| 8   | Already running (3 photos)             | 466:234    | `live()`        |
+| 9   | Contact form + WhatsApp / call / email | 425:3862   | `contactForm()` |
+| —   | Footer                                 | 426:4201   | `footer()`      |
+
+No marquee on home. The contact form has no backend yet: submit opens a prefilled email to `{{email}}`; model buttons preselect the topic.
 
 ## Buy page `kaufen/` (top → bottom)
 

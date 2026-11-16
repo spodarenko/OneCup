@@ -25,6 +25,7 @@ const css = [
     "marquee",
     "buy",
     "footer",
+    "home",
   ].map((s) => `assets/css/sections/${s}.css`),
 ];
 

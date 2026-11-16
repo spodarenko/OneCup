@@ -26,10 +26,8 @@ function header(c, all, page) {
   const navLinks = p?.nav
     ? p.nav.map(([id, label]) => [anchor(id), label])
     : [
-        [`${h}#calc`, c.nav.calc],
-        [`${h}#how`, c.nav.materials],
-        [`${h}#models`, c.nav.models],
-        [`${h}#where`, c.nav.uses],
+        [`{{base}}${c.path}kaufen/`, c.nav.buyFull],
+        [`{{base}}${c.path}standort/`, c.nav.hostFull],
         ["#contact", c.nav.reach],
       ];
   const others = all
@@ -73,9 +71,8 @@ const heroImg = { buy: ["buy-hero", 2880, 1460], host: ["host-hero", 1122, 1402]
 function hero(c, page) {
   const home = page === "home";
   const h = home ? c.hero : c[page].hero;
-  const subtitle = home
-    ? `<span class="oc-accent">{{slogan}}</span>${h.subtitle.replace("OneCup – Wake Up.", "")}`
-    : h.subtitle;
+  const subtitle = home ? h.lead : h.subtitle;
+  const title = home ? `<span class="oc-accent">OneCup</span> – Wake Up` : h.title;
   const ctas = home
     ? [
         [h.ctaBuy, `{{base}}${c.path}kaufen/`, "accent"],
@@ -90,9 +87,9 @@ function hero(c, page) {
     : `<div class="oc-hero__media">
     <img src="{{base}}assets/img/${src}.webp" alt="${attr(h.imgAlt)}" width="${w}" height="${ht}" fetchpriority="high" decoding="async">
   </div>`;
+  const h1 = `<h1 class="oc-hero__title" data-split>${title}</h1>`;
   return `<section class="oc-hero${home ? "" : ` oc-hero--${page}`}" id="top">
-  <h1 class="oc-hero__title" data-split>${h.title}</h1>
-  ${media}
+  ${home ? media + "\n  " + h1 : h1 + "\n  " + media}
   <div class="oc-hero__body" data-reveal>
     <p class="oc-hero__subtitle">${subtitle}</p>
     <div class="oc-hero__ctas">
@@ -115,14 +112,18 @@ function quote(eb, inner, label) {
 const pill = (n, alt) =>
   `<img class="oc-about__pill" src="{{base}}assets/img/${n}.webp" alt="${attr(alt)}" width="94" height="60" loading="lazy">`;
 
+// Round icon from Figma (48px, brown disc baked into the SVG)
+const badge = (name, alt = "") =>
+  `<img class="oc-badge" src="{{base}}assets/img/icons/${name}.svg" alt="${attr(alt)}" width="48" height="48" loading="lazy">`;
+
+// About — Figma 426:4176: centred heading, three paragraphs, three icons
 function about(c) {
   const a = c.about;
-  const [before, after] = a.text.split(a.inlineAfter);
-  return quote(
-    a.eyebrow,
-    `<span class="oc-about__mark">“</span> <strong>${a.brand}</strong> ${before}${a.inlineAfter} ${pill("about-machine", a.imgMachine)}${after} ${pill("about-station", a.imgStation)} <span aria-hidden="true">”</span>`,
-    `${a.brand} ${a.inlineAfter}`,
-  );
+  return `<section class="oc-intro oc-dark" id="about" aria-labelledby="about-title">
+  <h2 class="oc-h2 oc-center" id="about-title" data-split>${a.title}</h2>
+  <div class="oc-intro__text" data-reveal>${a.paras.map((p) => `<p>${p}</p>`).join("")}</div>
+  <div class="oc-intro__icons" data-reveal>${["ic-shop", "ic-cup", "ic-service"].map((n, i) => badge(n, a.icons[i])).join("")}</div>
+</section>`;
 }
 
 function who(w) {
@@ -138,24 +139,40 @@ function calc(c) {
   const marks = [10, 50, 100, 150, 200].map((n) => `<span>${n}</span>`).join("");
   return `<section class="oc-calc oc-dark" id="calc" aria-labelledby="calc-title">
   <img class="oc-calc__bg" src="{{base}}assets/img/calc-bg.webp" alt="${attr(k.bgAlt)}" width="2880" height="1152" loading="lazy" decoding="async">
-  <div class="oc-calc__head">
-    ${eyebrow(k.eyebrow)}
-    <h2 class="oc-calc__title" id="calc-title" data-split>${k.title}</h2>
-    <p class="oc-calc__text">${k.text}</p>
-  </div>
+  <h2 class="oc-h2 oc-center oc-calc__title" id="calc-title" data-split>${k.heading}</h2>
   <div class="oc-calc__card" data-calc data-price="{{calcPrice}}" data-days="{{calcDays}}" data-locale="${c.ogLocale.replace("_", "-")}">
     <div class="oc-calc__slider">
-      <label class="oc-calc__label" for="calc-cups"><span>${k.label}</span><output for="calc-cups">{{calcValue}}</output></label>
+      <label class="oc-calc__label" for="calc-cups"><span>${k.hint}</span><span class="oc-calc__value"><output for="calc-cups">{{calcValue}}</output> ${k.unit}</span></label>
       <input class="oc-calc__range" id="calc-cups" type="range" min="{{calcMin}}" max="{{calcMax}}" step="{{calcStep}}" value="{{calcValue}}">
       <div class="oc-calc__scale" aria-hidden="true">${marks}</div>
     </div>
     <p class="oc-calc__result-label" id="calc-result-label">${k.result}</p>
     <p class="oc-calc__result" aria-live="polite" aria-labelledby="calc-result-label"><span data-calc-sum></span><span class="oc-calc__cur">€</span></p>
   </div>
+  <p class="oc-calc__note">${k.note}</p>
 </section>`;
 }
 
 // Numbered rows — «How it works» on home, «Your benefits» on buy, «For your guests» on host
+// How it works on home — Figma 426:4403: four cards in a row + CTA
+function homeSteps(s) {
+  const glyphs = ["ic-pin", "g-cup", "g-card", "g-stars"];
+  const items = s.items
+    .map(
+      (it, i) => `<li class="oc-howcard" data-reveal>
+      ${i ? `<span class="oc-badge oc-badge--glyph"><img src="{{base}}assets/img/icons/${glyphs[i]}.svg" alt="" width="32" height="32" loading="lazy"></span>` : badge(glyphs[i])}
+      <h3 class="oc-howcard__title">${it.label}</h3>
+      <p class="oc-howcard__text">${it.text}</p>
+    </li>`,
+    )
+    .join("");
+  return `<section class="oc-how oc-dark" id="how" aria-labelledby="how-title">
+  <h2 class="oc-h2 oc-center" id="how-title" data-split>${s.heading}</h2>
+  <ol class="oc-how__cards">${items}</ol>
+  <a class="oc-btn oc-btn--accent" href="#contact">${s.cta}</a>
+</section>`;
+}
+
 function steps(s, id = "how") {
   const items = s.items
     .map(
@@ -180,17 +197,14 @@ function models(c) {
   const card = (k, btn) => `<article class="oc-model${k === "buy" ? " oc-model--accent" : ""}">
       <h3 class="oc-model__title">${m[k].title}</h3>
       <p class="oc-model__text">${m[k].text}</p>
-      <a class="oc-btn ${btn}" href="#contact">${m[k].cta}</a>
+      <a class="oc-btn ${btn}" href="#contact" data-topic="${k}">${m[k].cta}</a>
     </article>`;
   return `<section class="oc-models oc-dark" id="models" aria-labelledby="models-title">
   <img class="oc-models__bg" src="{{base}}assets/img/models-bg.webp" alt="${attr(m.bgAlt)}" width="2880" height="1936" loading="lazy" decoding="async">
-  <div class="oc-models__head">
-    ${eyebrow(m.eyebrow)}
-    <h2 class="oc-h2" id="models-title" data-split>${m.title}</h2>
-  </div>
+  <h2 class="oc-h2 oc-center oc-models__title" id="models-title" data-split>${m.title}</h2>
   <div class="oc-models__cards">
     ${card("buy", "oc-btn--accent")}
-    ${card("host", "oc-btn--outline")}
+    ${card("host", "oc-btn--dark")}
   </div>
 </section>`;
 }
@@ -206,17 +220,28 @@ function slider(c, key, id) {
     )
     .join("");
   return `<section class="oc-slider oc-dark" id="${id}" aria-labelledby="${id}-title">
-  <div class="oc-slider__head">
-    <div>
-      ${eyebrow(s.eyebrow)}
-      <h2 class="oc-h2" id="${id}-title" data-split>${s.title}</h2>
-    </div>
-    <div class="oc-slider__controls">
-      <button class="oc-round" type="button" data-dir="-1" aria-label="${attr(c.slider.prev)}">${icon("caret-left")}</button>
-      <button class="oc-round" type="button" data-dir="1" aria-label="${attr(c.slider.next)}">${icon("caret-right")}</button>
-    </div>
-  </div>
+  <h2 class="oc-h2 oc-center" id="${id}-title" data-split>${s.heading}</h2>
   <ul class="oc-slider__track" tabindex="0">${cards}</ul>
+  <div class="oc-slider__controls">
+    <button class="oc-round" type="button" data-dir="-1" aria-label="${attr(c.slider.prev)}">${icon("caret-left")}</button>
+    <button class="oc-round" type="button" data-dir="1" aria-label="${attr(c.slider.next)}">${icon("caret-right")}</button>
+  </div>
+</section>`;
+}
+
+// Already running — Figma 466:234: three photo cards, no slider
+function live(c) {
+  const s = c.live;
+  const cards = s.items
+    .slice(0, 3)
+    .map(
+      (it) =>
+        `<li class="oc-livecard" data-reveal>${img(it.img, `${it.name} — ${it.text}`, 720, 988)}</li>`,
+    )
+    .join("");
+  return `<section class="oc-live oc-dark" id="live" aria-labelledby="live-title">
+  <h2 class="oc-h2 oc-center" id="live-title" data-split>${s.heading}</h2>
+  <ul class="oc-live__cards">${cards}</ul>
 </section>`;
 }
 
@@ -224,17 +249,14 @@ function faq(c) {
   const f = c.faq;
   const items = f.items
     .map(
-      (it) => `<details class="oc-faq__item" name="faq">
+      (it, i) => `<details class="oc-faq__item" name="faq"${i ? "" : " open"}>
       <summary><h3>${it.q}</h3>${icon("plus")}</summary>
       <div class="oc-faq__answer"><p>${it.a}</p></div>
     </details>`,
     )
     .join("");
   return `<section class="oc-faq oc-dark" aria-labelledby="faq-title">
-  <div class="oc-faq__head">
-    ${eyebrow(f.eyebrow)}
-    <h2 class="oc-h2" id="faq-title" data-split>${f.title}</h2>
-  </div>
+  <h2 class="oc-h2 oc-center" id="faq-title" data-split>${f.heading}</h2>
   <div class="oc-faq__list">${items}</div>
 </section>`;
 }
@@ -270,6 +292,42 @@ function contact(c) {
     row("mailto:{{email}}", k.email, "{{email}}", "envelope-simple"),
     row("mailto:{{email}}?subject=OneCup", k.form, k.formNote, "arrow-right", "oc-row--accent"),
   ]);
+}
+
+// Contact form — Figma 425:3862 (home); buy and host keep the split rows.
+// No backend yet: submit opens a prefilled email (main.js)
+function contactForm(c) {
+  const k = c.contact;
+  const f = c.form;
+  const field = (name, label, type = "text", req = false) =>
+    `<label class="oc-field"><span class="oc-visually-hidden">${label}</span><input name="${name}" type="${type}" placeholder="${attr(label)}"${req ? " required" : ""}></label>`;
+  const topic = (v, label, on) =>
+    `<label class="oc-topic__opt"><input type="radio" name="topic" value="${attr(label)}" data-topic="${v}"${on ? " checked" : ""}><span>${label}</span></label>`;
+  const alt = (href, label, name, ext = "") =>
+    `<a class="oc-alt__link" href="${href}"${ext}>${badge(name)}<span>${label}</span></a>`;
+  return `<section class="oc-form oc-dark" id="contact" aria-labelledby="contact-title">
+  <div class="oc-form__head">
+    <h2 class="oc-h2 oc-center" id="contact-title" data-split>${k.title}</h2>
+    <p class="oc-form__note">${k.note}</p>
+  </div>
+  <form class="oc-form__card" data-mailto="{{email}}" data-subject="${attr(f.subject)}" data-reveal>
+    <fieldset class="oc-topic">
+      <legend class="oc-form__title">${f.title}</legend>
+      <div class="oc-topic__opts">${topic("buy", f.buy, true)}${topic("host", f.host)}</div>
+    </fieldset>
+    ${field("name", f.name, "text", true)}
+    ${field("email", f.email, "email", true)}
+    ${field("phone", f.phone, "tel")}
+    <label class="oc-field"><span class="oc-visually-hidden">${f.message}</span><textarea name="message" rows="1" placeholder="${attr(f.message)}"></textarea></label>
+    <label class="oc-check"><input type="checkbox" name="consent" required><span>${f.consent}</span></label>
+    <button class="oc-btn oc-btn--accent oc-form__submit" type="submit">${f.submit}</button>
+  </form>
+  <div class="oc-alt" data-reveal>
+    ${alt("{{whatsapp}}", k.whatsapp, "ic-whatsapp", ' target="_blank" rel="noopener"')}
+    ${alt("tel:{{phoneHref}}", k.call, "ic-phone")}
+    ${alt("mailto:{{email}}", k.email, "ic-mail")}
+  </div>
+</section>`;
 }
 
 function kit(k) {
@@ -454,12 +512,12 @@ export function render(c, all, site, css, page = "home") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="{{base}}assets/img/${page === "home" ? "orbit/00" : heroImg[page][0]}.webp" fetchpriority="high">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Onest:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Onest:wght@400;500;600&display=swap"></noscript>
     ${css.map((h) => `<link rel="stylesheet" href="{{base}}${h}">`).join("\n    ")}
     <script type="application/ld+json">${JSON.stringify(jsonLd(c, site, page, url))}</script>
   </head>
-  <body>
+  <body${page === "home" ? ' class="oc-v5"' : ""}>
     <a class="oc-skip" href="#main">${{ de: "Zum Inhalt springen", en: "Skip to content", uk: "Перейти до змісту" }[c.lang]}</a>
     ${header(c, all, page)}
     <main id="main">
@@ -489,13 +547,12 @@ export function render(c, all, site, css, page = "home") {
                 hero(c, page),
                 about(c),
                 calc(c),
-                steps(c.steps),
+                homeSteps(c.steps),
                 models(c),
                 slider(c, "where", "where"),
                 faq(c),
-                slider(c, "live", "live"),
-                contact(c),
-                marquee(),
+                live(c),
+                contactForm(c),
               ].join("\n      ")
       }
     </main>
