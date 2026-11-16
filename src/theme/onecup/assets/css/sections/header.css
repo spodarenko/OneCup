@@ -162,13 +162,13 @@
     transition: transform var(--oc-dur) var(--oc-ease-std);
   }
 
-  /* Open: the two lines meet in the middle */
+  /* Open: the two lines meet in the middle and cross */
   .oc-header.is-open .oc-burger span:first-child {
-    transform: translateY(5px);
+    transform: translateY(5px) rotate(45deg);
   }
 
   .oc-header.is-open .oc-burger span:last-child {
-    transform: translateY(-5px);
+    transform: translateY(-5px) rotate(-45deg);
   }
 }
 
