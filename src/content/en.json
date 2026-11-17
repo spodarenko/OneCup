@@ -52,7 +52,7 @@
     "text": "Choose how many drinks are sold per day.",
     "label": "Drinks per day",
     "result": "Estimated monthly revenue",
-    "bgAlt": "OneCup cup surrounded by coffee beans",
+    "bgAlt": "Coffee beans in a glowing swirl",
     "heading": "Your potential with <span class=\"oc-accent\">OneCup</span>",
     "hint": "Drag the slider to see your revenue",
     "unit": "drinks",

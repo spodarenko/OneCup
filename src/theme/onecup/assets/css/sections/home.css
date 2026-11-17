@@ -175,7 +175,7 @@
 }
 
 .oc-v5 .oc-calc::before {
-  background: radial-gradient(70% 45% at 50% 55%, transparent 0%, var(--oc-bg-dark) 100%);
+  background: radial-gradient(48.5% 44.7% at 50% 55.3%, transparent 0%, var(--oc-bg-dark) 100%);
 }
 
 .oc-v5 .oc-calc__card {
@@ -186,6 +186,11 @@
   background: var(--oc-card-v5);
   -webkit-backdrop-filter: blur(var(--oc-blur-card));
   backdrop-filter: blur(var(--oc-blur-card));
+}
+
+/* Figma 425:3568: label, track and scale 32px apart */
+.oc-v5 .oc-calc__slider {
+  gap: var(--oc-space-32);
 }
 
 .oc-v5 .oc-calc__label {
