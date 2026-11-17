@@ -16,6 +16,8 @@ function header(c, all, page) {
   const sub = pages[page];
   // One menu on every page (Figma 425:3802, 429:5064, 475:2047); the current page is marked
   const navLinks = [
+    // «Home» spelled out: not everyone knows the logo leads back
+    [`{{base}}${c.path}`, c.footer.home, "home"],
     [`{{base}}${c.path}kaufen/`, c.nav.buyFull, "buy"],
     [`{{base}}${c.path}standort/`, c.nav.hostFull, "host"],
     ["#contact", c.nav.reach],
