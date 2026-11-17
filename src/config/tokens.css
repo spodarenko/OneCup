@@ -60,6 +60,9 @@
   --oc-wa-green: #25d366;
   --oc-nav-text: #b2b2b2;
   --oc-pill-dark: #262626;
+  /* Hover on dark surfaces: one step lighter, same everywhere */
+  --oc-pill-hover: #363636;
+  --oc-faq-hover: rgb(243 237 227 / 0.13);
   --oc-drawer-bg: #131313;
   --oc-drawer-line: #222;
   --oc-drawer-w: 250px;
