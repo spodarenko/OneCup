@@ -213,6 +213,13 @@
   animation: oc-fade var(--oc-dur) var(--oc-ease);
 }
 
+/* Wood render is 4:3 — shown whole, side edges dissolve instead of a crop-and-zoom */
+.oc-start__photo img:nth-child(3) {
+  object-fit: contain;
+  -webkit-mask-image: var(--oc-start-wood-mask);
+  mask-image: var(--oc-start-wood-mask);
+}
+
 .oc-start__photo img[hidden] {
   display: none;
 }
