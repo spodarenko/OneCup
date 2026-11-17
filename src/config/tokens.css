@@ -171,6 +171,7 @@
   --oc-start-thumb-fade: rgb(13 14 19 / 0.8);
   --oc-thumb: 96px;
   --oc-coop-btn: 320px;
+  --oc-coop-render-shift: -110px;
   --oc-text-cream-85: rgb(243 237 227 / 0.85);
   --oc-text-cream-60: rgb(243 237 227 / 0.6);
   --oc-h0: 700 72px/72px var(--oc-font);
