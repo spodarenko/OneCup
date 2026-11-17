@@ -302,6 +302,10 @@
   font: var(--oc-body-16);
 }
 
+.oc-v5 .oc-models--coop .oc-models__bg {
+  top: var(--oc-coop-render-shift);
+}
+
 .oc-models--coop .oc-models__head {
   position: relative;
   isolation: isolate;
