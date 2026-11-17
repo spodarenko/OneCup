@@ -83,7 +83,17 @@
 }
 
 .oc-footer__legal {
-  color: var(--oc-text-cream);
+  color: var(--oc-nav-text);
+}
+
+/* Impressum / Datenschutz: header-style hover; pages not built yet (data-stub) */
+.oc-footer__legal a {
+  color: var(--oc-nav-text);
+  transition: color 0.3s ease;
+}
+
+.oc-footer__legal a:hover {
+  color: var(--oc-text-on-dark);
 }
 
 .oc-footer__dev {

@@ -112,6 +112,14 @@
     });
   }
 
+  /* Placeholder links (Impressum, Datenschutz): pages not built yet, stay put */
+  $$("a[data-stub]").forEach((a) =>
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }),
+  );
+
   /* Buy page model switcher: a thumb shows its station in the big photo */
   $$(".oc-start__media").forEach((m) => {
     const photos = $$(".oc-start__photo img", m);
