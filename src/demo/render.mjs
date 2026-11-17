@@ -368,7 +368,10 @@ function footer(c, page) {
   </div>
   <div class="oc-footer__bottom">
     <p><span class="oc-accent">© OneCupCoffee®</span> {{year}}. ${f.rights}</p>
-    <p class="oc-footer__legal">${f.legal}</p>
+    <p class="oc-footer__legal">${f.legal
+      .split(" · ")
+      .map((t) => `<a href="#" data-stub>${t}</a>`)
+      .join(" · ")}</p>
     <p class="oc-footer__dev">${f.devBy} <span>Intelliweb</span></p>
   </div>
 </footer>`;
