@@ -63,6 +63,7 @@
   /* Hover on dark surfaces: one step lighter, same everywhere */
   --oc-pill-hover: #363636;
   --oc-faq-hover: rgb(243 237 227 / 0.13);
+  --oc-shadow-menu: 0 12px 32px rgb(0 0 0 / 0.45);
   --oc-drawer-bg: #131313;
   --oc-drawer-line: #222;
   --oc-drawer-w: 250px;
