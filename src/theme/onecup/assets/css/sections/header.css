@@ -115,7 +115,8 @@
   padding: var(--oc-space-4);
   list-style: none;
   border-radius: var(--oc-radius-12);
-  background: var(--oc-drawer-bg);
+  /* Same colours as the burger / language pill */
+  background: var(--oc-pill-dark);
 }
 
 .oc-lang li a {
@@ -133,7 +134,7 @@
 
 .oc-lang li a:hover,
 .oc-lang li a[aria-current] {
-  background: var(--oc-hero-v4-bg);
+  background: var(--oc-pill-hover);
   color: var(--oc-text-on-dark);
 }
 
