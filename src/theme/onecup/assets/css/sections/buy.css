@@ -7,6 +7,21 @@
   aspect-ratio: 1147 / 640;
 }
 
+/* Scrim: a soft dark ellipse behind the title and text so they read over the bright render */
+.oc-hero--buy .oc-hero__media::after,
+.oc-hero--host .oc-hero__media::after {
+  background:
+    radial-gradient(
+      var(--oc-hero-scrim-size) at 50% 78%,
+      var(--oc-hero-scrim) 0%,
+      transparent 100%
+    ),
+    linear-gradient(180deg, var(--oc-hero-v4-bg) 0%, transparent 20%),
+    linear-gradient(180deg, transparent 50%, var(--oc-hero-v4-bg) 100%),
+    linear-gradient(90deg, var(--oc-hero-v4-bg) 0%, transparent 18%),
+    linear-gradient(270deg, var(--oc-hero-v4-bg) 0%, transparent 18%);
+}
+
 .oc-hero--buy .oc-hero__title,
 .oc-hero--host .oc-hero__title {
   max-width: 864px;

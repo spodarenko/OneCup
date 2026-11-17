@@ -156,6 +156,8 @@
   --oc-models-render: 1090px;
   /* Buy and host v5 (Figma 429:4610, 475:1861) */
   --oc-metrics-bg: #120e09;
+  --oc-hero-scrim: rgb(0 0 1 / 0.75);
+  --oc-hero-scrim-size: 48% 42%;
   --oc-start-bg: #050604;
   --oc-metric-w: 320px;
   --oc-point-w: 236px;
