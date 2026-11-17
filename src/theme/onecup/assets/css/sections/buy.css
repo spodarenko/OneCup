@@ -5,6 +5,12 @@
 .oc-hero--buy .oc-hero__media,
 .oc-hero--host .oc-hero__media {
   aspect-ratio: 1147 / 640;
+  overflow: hidden;
+  /* Edges dissolve into the page: no visible frame even while slides zoom and blur */
+  -webkit-mask-image: var(--oc-hero-edge-mask-x), var(--oc-hero-edge-mask-y);
+  mask-image: var(--oc-hero-edge-mask-x), var(--oc-hero-edge-mask-y);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 /* Scrim: a soft dark ellipse behind the title and text so they read over the bright render */
