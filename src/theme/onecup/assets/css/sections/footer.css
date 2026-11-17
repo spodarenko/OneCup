@@ -82,6 +82,15 @@
   margin: 0;
 }
 
+/* Figma 426:4255: brand orange, year grey */
+.oc-footer__copy {
+  color: var(--oc-text-muted);
+}
+
+.oc-footer__copy span {
+  color: var(--oc-orange);
+}
+
 .oc-footer__legal {
   color: var(--oc-nav-text);
 }
