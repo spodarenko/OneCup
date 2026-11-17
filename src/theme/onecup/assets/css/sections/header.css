@@ -1,58 +1,157 @@
-/* Header — Figma 238:536 (home v4). Overlays the hero. */
+/* Header — Figma 425:3802: logo, centred menu, WhatsApp + language pill.
+   ≤1100px the menu moves into a burger drawer from the right (shcherban-bau.de). */
 .oc-header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  transition:
-    transform 0.3s ease,
-    background-color var(--oc-dur-theme) ease,
-    color var(--oc-dur-theme) ease,
-    padding var(--oc-dur-theme) ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--oc-space-48);
-  padding: var(--oc-space-32) var(--oc-gutter);
-  /* Nav, buttons and language share one text size */
-  font: 600 14px/20px var(--oc-font);
-  color: var(--oc-text-cream);
+  gap: var(--oc-space-32);
+  height: var(--oc-header-h);
+  padding: 0 var(--oc-header-pad);
+  color: var(--oc-text-on-dark);
+  transition:
+    transform 0.3s ease,
+    background-color var(--oc-dur-theme) ease;
 }
 
-/* Logo — Figma 238:537. The cup rises above the wordmark; the wordmark (bottom 22px)
-   is what lines up with the nav, so the logo shifts up by half the cup's overhang */
+/* Logo — 425:3803: 184px; the cup rises above the wordmark, which lines up with the menu */
 .oc-header__logo img {
   display: block;
-  width: 183px;
+  width: 184px;
   height: auto;
-  translate: 0 calc((22px - 43px) / 2);
+  translate: 0 calc((24px - 42.8px) / 2);
 }
 
+/* Menu — 474:648: Inter 16 regular, grey; current page and hover turn white */
 .oc-header__nav {
   display: flex;
-  gap: var(--oc-space-32);
+  gap: var(--oc-space-8);
 }
 
 .oc-header__nav a {
-  transition: opacity 0.3s ease;
+  padding: var(--oc-space-8) var(--oc-space-16);
+  font: var(--oc-body-16);
+  color: var(--oc-nav-text);
+  transition: color 0.3s ease;
 }
 
-.oc-header__nav a:hover {
-  opacity: 0.6;
-}
-
-.oc-header .oc-btn {
-  font: inherit;
+.oc-header__nav a:hover,
+.oc-header__nav a[aria-current="page"] {
+  color: var(--oc-text-on-dark);
 }
 
 .oc-header__actions {
   display: flex;
   align-items: center;
-  gap: var(--oc-space-16);
+  gap: var(--oc-space-8);
 }
 
 .oc-header__ctas {
   display: flex;
+}
+
+/* WhatsApp — 425:3830: green pill, icon + black caps */
+.oc-btn--wa {
   gap: var(--oc-space-8);
+  padding: var(--oc-space-8) var(--oc-space-16);
+  border: 0;
+  background: var(--oc-wa-green);
+  font: var(--oc-label-16);
+  text-transform: uppercase;
+  color: var(--oc-text-primary);
+}
+
+.oc-btn--wa:hover {
+  color: var(--oc-text-primary);
+}
+
+.oc-btn--wa img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Language — 425:3836: flag in a dark 56×40 pill, list with flag + name */
+.oc-lang {
+  position: relative;
+}
+
+.oc-lang summary {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 40px;
+  border-radius: var(--oc-radius-full);
+  background: var(--oc-pill-dark);
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.oc-lang summary:hover,
+.oc-lang[open] summary {
+  background: var(--oc-menu-line);
+}
+
+.oc-lang summary::-webkit-details-marker {
+  display: none;
+}
+
+.oc-flag {
+  display: block;
+  width: 24px;
+  height: 20px;
+  border-radius: var(--oc-radius-2);
+  object-fit: cover;
+}
+
+.oc-lang ul {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 180px;
+  margin: var(--oc-space-8) 0 0;
+  padding: var(--oc-space-4);
+  list-style: none;
+  border-radius: var(--oc-radius-12);
+  background: var(--oc-drawer-bg);
+}
+
+.oc-lang li a {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-12);
+  padding: var(--oc-space-8) var(--oc-space-12);
+  border-radius: var(--oc-radius-8);
+  font: var(--oc-body-16);
+  color: var(--oc-nav-text);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.oc-lang li a:hover,
+.oc-lang li a[aria-current] {
+  background: var(--oc-hero-v4-bg);
+  color: var(--oc-text-on-dark);
+}
+
+.oc-header__menu-only,
+.oc-burger {
+  display: none;
+}
+
+/* Scrolled: translucent bar in the colour of the block underneath (main.js sets --oc-header-bg) */
+.oc-header.is-scrolled {
+  background: color-mix(in srgb, var(--oc-header-bg, var(--oc-bg-dark)) 85%, transparent);
+  -webkit-backdrop-filter: blur(var(--oc-header-blur));
+  backdrop-filter: blur(var(--oc-header-blur));
+}
+
+/* Scroll states (main.js): hide on scroll down, show on scroll up */
+.oc-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 @media (max-width: 1100px) {
@@ -60,87 +159,69 @@
     padding-inline: var(--oc-space-24);
   }
 
-  /* Mobile menu (coffee-tech.com): full-screen panel unclips from the top */
+  /* Drawer — 250px panel slides in from the right under the bar */
   .oc-header__nav {
     position: fixed;
-    inset: 0;
-    z-index: -1;
+    top: var(--oc-header-h);
+    right: 0;
+    bottom: 0;
     flex-direction: column;
     gap: 0;
-    padding: 96px var(--oc-space-24) var(--oc-space-24);
-    background: var(--oc-bg-dark);
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path var(--oc-dur) var(--oc-ease-std);
+    width: var(--oc-drawer-w);
+    padding-bottom: var(--oc-space-24);
+    background: var(--oc-drawer-bg);
     overflow-y: auto;
-  }
-
-  .oc-header__nav a {
-    padding-block: var(--oc-space-16);
-    color: var(--oc-text-cream);
-    font-size: 32px;
-    line-height: 1.3;
-    letter-spacing: -0.05em;
-  }
-
-  .oc-header__nav a:hover {
-    opacity: 1;
-    color: var(--oc-accent);
+    overscroll-behavior: contain;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .oc-header.is-open .oc-header__nav {
-    clip-path: inset(0);
+    transform: none;
   }
 
-  .oc-header.is-open {
-    color: var(--oc-text-cream);
+  .oc-header__nav > a {
+    padding: 14px var(--oc-space-12);
+    border-bottom: 1px solid var(--oc-drawer-line);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
   }
 
-  .oc-header.is-open.is-scrolled {
-    background: transparent;
+  .oc-header__nav > a:hover {
+    background: var(--oc-hero-v4-bg);
   }
-}
 
-.oc-header__menu-only {
-  display: none;
-}
-
-@media (max-width: 1100px) {
   .oc-header__menu-only {
     display: block;
   }
 
-  /* Bar keeps logo, WhatsApp and burger; language and the page CTA move into the menu */
-  .oc-header__actions .oc-lang,
-  .oc-header__ctas .oc-btn--outline {
+  /* Language moves into the drawer */
+  .oc-header__actions .oc-lang {
     display: none;
   }
 
   .oc-header__langs {
     display: flex;
-    gap: var(--oc-space-24);
-    margin: auto 0 0;
-    padding: var(--oc-space-24) 0 0;
+    gap: var(--oc-space-16);
+    margin: 0;
+    padding: var(--oc-space-20) var(--oc-space-12) 0;
     list-style: none;
   }
 
-  .oc-header__nav .oc-header__langs a {
-    padding-block: 0;
-    font: var(--oc-body-16);
-    font-weight: 600;
-    letter-spacing: 0;
-    opacity: 0.6;
+  .oc-header__langs a {
+    font: var(--oc-label-14);
+    color: var(--oc-nav-text);
   }
 
-  .oc-header__nav .oc-header__langs a[aria-current] {
-    opacity: 1;
+  .oc-header__langs a[aria-current] {
+    color: var(--oc-text-on-dark);
   }
-}
 
-.oc-burger {
-  display: none;
-}
+  .oc-header.is-open {
+    background: var(--oc-drawer-bg);
+  }
 
-@media (max-width: 1100px) {
   .oc-burger {
     display: flex;
     flex-direction: column;
@@ -172,96 +253,17 @@
   }
 }
 
-.oc-lang {
-  position: relative;
-  padding: 0;
-}
+@media (max-width: 600px) {
+  .oc-header__logo img {
+    width: 140px;
+  }
 
-.oc-lang summary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--oc-space-4);
-  padding: var(--oc-space-8) var(--oc-space-16);
-  list-style: none;
-  cursor: pointer;
-}
+  /* WhatsApp shrinks to its icon */
+  .oc-btn--wa {
+    padding: var(--oc-space-8);
+  }
 
-.oc-lang summary::-webkit-details-marker {
-  display: none;
-}
-
-.oc-lang[open] summary .oc-icon {
-  transform: rotate(180deg);
-}
-
-.oc-lang summary .oc-icon {
-  width: 11px;
-  height: 11px;
-  transition: transform 0.3s var(--oc-ease);
-}
-
-.oc-lang ul {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  margin: var(--oc-space-4) 0 0;
-  padding: var(--oc-space-4);
-  list-style: none;
-  background: var(--oc-menu-bg);
-  border: 1px solid var(--oc-menu-line);
-  border-radius: 9px;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-}
-
-.oc-lang li a {
-  display: block;
-  padding: var(--oc-space-8) var(--oc-space-16);
-  border-radius: var(--oc-radius-4);
-  transition: background-color 0.15s ease;
-}
-
-.oc-lang li a:hover,
-.oc-lang li a[aria-current] {
-  background: var(--oc-menu-hover);
-}
-
-/* Scroll states (main.js): hide on scroll down, show on scroll up */
-/* Scrolled: translucent bar in the colour of the block underneath (main.js sets --oc-header-bg) */
-.oc-header.is-scrolled {
-  padding-block: var(--oc-space-16);
-  background: color-mix(in srgb, var(--oc-header-bg, var(--oc-bg-dark)) 85%, transparent);
-  -webkit-backdrop-filter: blur(var(--oc-header-blur));
-  backdrop-filter: blur(var(--oc-header-blur));
-}
-
-/* Over light sections (main.js): dark text, light bar */
-.oc-header.is-light {
-  color: var(--oc-bg-dark);
-}
-
-.oc-header.is-light.is-scrolled {
-  background: var(--oc-bg-light);
-}
-
-.oc-header.is-light .oc-btn--outline {
-  border-color: var(--oc-bg-dark);
-  color: var(--oc-bg-dark);
-}
-
-.oc-header.is-light .oc-btn--outline::before {
-  background: var(--oc-bg-dark);
-}
-
-.oc-header.is-light .oc-btn--outline:hover {
-  color: var(--oc-text-cream);
-}
-
-.oc-header.is-hidden {
-  transform: translateY(-100%);
-}
-
-/* Figma 333:3245 / 266:5619: header CTAs are a fixed 120px */
-.oc-header__ctas .oc-btn {
-  width: var(--oc-header-btn-w);
+  .oc-btn--wa span {
+    display: none;
+  }
 }
