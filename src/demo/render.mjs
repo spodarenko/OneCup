@@ -20,15 +20,18 @@ function header(c, all, page) {
     [`{{base}}${c.path}standort/`, c.nav.hostFull, "host"],
     ["#contact", c.nav.reach],
   ];
+  // Language menu — Figma 425:3836: a flag in a dark pill, the list shows flag + name
+  const flag = (lang) =>
+    `<img class="oc-flag" src="{{base}}assets/img/flags/${lang}.svg" alt="" width="24" height="20">`;
   const others = all
     .map(
       (l) =>
-        `<li><a href="{{base}}${l.path}${sub}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${l.name}</a></li>`,
+        `<li><a href="{{base}}${l.path}${sub}" hreflang="${l.lang}" lang="${l.lang}"${l.lang === c.lang ? ' aria-current="true"' : ""}>${flag(l.lang)}${l.name}</a></li>`,
     )
     .join("");
   return `<header class="oc-header">
   <a class="oc-header__logo" href="{{base}}${c.path}" aria-label="OneCup">
-    <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="183" height="43">
+    <img src="{{base}}assets/img/logo.svg" alt="OneCup" width="184" height="43">
   </a>
   <nav class="oc-header__nav" aria-label="${attr(c.nav.menu)}">
     ${navLinks.map(([href, label, id]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`).join("\n    ")}
@@ -42,10 +45,10 @@ function header(c, all, page) {
   </nav>
   <div class="oc-header__actions">
     <div class="oc-header__ctas">
-      <a class="oc-btn oc-btn--sm oc-btn--green" href="{{whatsapp}}" target="_blank" rel="noopener">${c.nav.whatsapp}</a>
+      <a class="oc-btn oc-btn--wa" href="{{whatsapp}}" aria-label="${attr(c.nav.whatsapp)}" target="_blank" rel="noopener"><img src="{{base}}assets/img/icons/whatsapp.svg" alt="" width="24" height="24"><span>${c.nav.whatsapp}</span></a>
     </div>
     <details class="oc-lang">
-      <summary aria-label="${attr(c.nav.language)}">${c.label}${icon("caret-down")}</summary>
+      <summary aria-label="${attr(`${c.nav.language}: ${c.name}`)}">${flag(c.lang)}</summary>
       <ul>${others}</ul>
     </details>
   </div>

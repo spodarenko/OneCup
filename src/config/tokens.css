@@ -56,6 +56,15 @@
   --oc-dur-theme: 0.5s;
   --oc-menu-bg: rgb(45 45 48 / 0.8);
   --oc-header-blur: 16px;
+  /* Header v5 — Figma 425:3802; mobile drawer after shcherban-bau.de */
+  --oc-wa-green: #25d366;
+  --oc-nav-text: #b2b2b2;
+  --oc-pill-dark: #262626;
+  --oc-drawer-bg: #131313;
+  --oc-drawer-line: #222;
+  --oc-drawer-w: 250px;
+  --oc-header-h: 72px;
+  --oc-header-pad: 96px;
   --oc-menu-line: #555;
   --oc-menu-hover: rgb(255 255 255 / 0.07);
 
