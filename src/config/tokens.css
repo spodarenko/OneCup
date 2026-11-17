@@ -64,6 +64,8 @@
   --oc-pill-hover: #363636;
   --oc-faq-hover: rgb(243 237 227 / 0.13);
   --oc-shadow-menu: 0 12px 32px rgb(0 0 0 / 0.45);
+  /* Checkbox tick, stroke = form background (--oc-bg-raised #18191f) */
+  --oc-check-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%2318191f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --oc-drawer-bg: #131313;
   --oc-drawer-line: #222;
   --oc-drawer-w: 250px;
