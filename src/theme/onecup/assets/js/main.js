@@ -6,6 +6,20 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Host hero gallery: next photo every 5 s, paused while the tab is hidden */
+  const gallery = $("[data-gallery]");
+  if (gallery) {
+    const slides = $$("img", gallery);
+    let i = 0;
+    setInterval(() => {
+      if (document.hidden) return;
+      slides[i].classList.toggle("is-active", false);
+      i = (i + 1) % slides.length;
+      slides[(i + 1) % slides.length].loading = "eager";
+      slides[i].classList.toggle("is-active", true);
+    }, 5000);
+  }
+
   /* Language menu: close on outside click */
   const lang = $(".oc-lang");
   document.addEventListener("click", (e) => {
