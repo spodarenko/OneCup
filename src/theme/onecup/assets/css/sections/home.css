@@ -369,14 +369,21 @@
   gap: var(--oc-space-16);
 }
 
-.oc-v5 .oc-slider .oc-round {
+/* Round icon buttons (slider, back to top): dark pill, one step lighter on hover */
+.oc-v5 .oc-round {
   border: 0;
-  background: var(--oc-btn-dark);
+  background: var(--oc-pill-dark);
   color: var(--oc-text-on-dark);
+  transition: background-color 0.3s ease;
 }
 
-.oc-v5 .oc-slider .oc-round:hover {
-  color: var(--oc-bg-dark);
+.oc-v5 .oc-round::before {
+  display: none;
+}
+
+.oc-v5 .oc-round:hover {
+  background: var(--oc-pill-hover);
+  color: var(--oc-text-on-dark);
 }
 
 /* FAQ — 425:3682: one centred column of filled items */
@@ -398,14 +405,21 @@
   padding: 0 var(--oc-space-32);
   border-radius: var(--oc-radius-16);
   background: var(--oc-faq-v5);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover lights up the whole card (site-wide rule: dark surfaces get a little lighter) */
+.oc-v5 .oc-faq__item:hover {
+  background: var(--oc-faq-hover);
 }
 
 .oc-v5 .oc-faq__item summary {
   padding: var(--oc-space-32) 0;
 }
 
+/* Same top padding open or closed, so the question and its icon never move */
 .oc-v5 .oc-faq__item[open] summary {
-  padding: var(--oc-space-24) 0 var(--oc-space-8);
+  padding-bottom: var(--oc-space-8);
 }
 
 .oc-v5 .oc-faq__item h3 {
@@ -414,7 +428,7 @@
 
 .oc-v5 .oc-faq__answer p {
   max-width: none;
-  padding: 0 var(--oc-space-40) var(--oc-space-24) 0;
+  padding: 0 var(--oc-space-40) var(--oc-space-32) 0;
   font: var(--oc-body-16);
   color: var(--oc-text-soft-strong);
 }

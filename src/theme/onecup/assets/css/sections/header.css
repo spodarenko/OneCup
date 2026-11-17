@@ -91,7 +91,7 @@
 
 .oc-lang summary:hover,
 .oc-lang[open] summary {
-  background: var(--oc-menu-line);
+  background: var(--oc-pill-hover);
 }
 
 .oc-lang summary::-webkit-details-marker {
@@ -222,34 +222,51 @@
     background: var(--oc-drawer-bg);
   }
 
+  /* Burger — dark 56×40 pill with three lines, one step lighter on hover (like the language pill) */
   .oc-burger {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
-    width: 40px;
+    align-items: center;
+    gap: 5px;
+    width: 56px;
     height: 40px;
     padding: 0;
     border: 0;
-    background: none;
-    color: inherit;
+    border-radius: var(--oc-radius-full);
+    background: var(--oc-pill-dark);
+    color: var(--oc-text-on-dark);
     cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .oc-burger:hover,
+  .oc-header.is-open .oc-burger {
+    background: var(--oc-pill-hover);
   }
 
   .oc-burger span {
     display: block;
+    width: 22px;
     height: 2px;
+    border-radius: var(--oc-radius-2);
     background: currentColor;
-    transition: transform var(--oc-dur) var(--oc-ease-std);
+    transition:
+      transform var(--oc-dur) var(--oc-ease-std),
+      opacity 0.2s ease;
   }
 
-  /* Open: the two lines meet in the middle and cross */
+  /* Open: outer lines cross, the middle one fades */
   .oc-header.is-open .oc-burger span:first-child {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .oc-header.is-open .oc-burger span:nth-child(2) {
+    opacity: 0;
   }
 
   .oc-header.is-open .oc-burger span:last-child {
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 }
 

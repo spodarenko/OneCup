@@ -31,11 +31,6 @@
 .oc-faq__item h3 {
   margin: 0;
   font: var(--oc-h5);
-  transition: color 0.3s var(--oc-ease);
-}
-
-.oc-faq__item summary:hover h3 {
-  color: var(--oc-accent);
 }
 
 .oc-faq__item .oc-icon {

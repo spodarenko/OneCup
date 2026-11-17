@@ -48,17 +48,6 @@
   color: var(--oc-orange);
 }
 
-/* Back to top — filled #262626 circle like the slider controls */
-.oc-footer__top-btn {
-  border: 0;
-  background: var(--oc-btn-dark);
-  color: var(--oc-text-on-dark);
-}
-
-.oc-footer__top-btn:hover {
-  color: var(--oc-bg-dark);
-}
-
 /* Bottom row — 426:4253: © left, legal centred, developer right */
 .oc-footer__bottom {
   display: grid;

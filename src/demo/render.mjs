@@ -52,7 +52,7 @@ function header(c, all, page) {
       <ul>${others}</ul>
     </details>
   </div>
-  <button class="oc-burger" type="button" aria-label="${attr(c.nav.menu)}" aria-expanded="false"><span></span><span></span></button>
+  <button class="oc-burger" type="button" aria-label="${attr(c.nav.menu)}" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>`;
 }
 
