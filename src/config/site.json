@@ -11,10 +11,10 @@
   "languages": ["de", "en", "uk"],
   "defaultLanguage": "de",
   "year": 2026,
-  "calcMin": 10,
+  "calcMin": 0,
   "calcMax": 200,
   "calcStep": 5,
-  "calcValue": 50,
+  "calcValue": 100,
   "calcPrice": 2.7,
   "calcDays": 30
 }

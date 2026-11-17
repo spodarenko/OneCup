@@ -111,7 +111,9 @@ function about(c) {
 
 function calc(c) {
   const k = c.calc;
-  const marks = [10, 50, 100, 150, 200].map((n) => `<span>${n}</span>`).join("");
+  const marks = [0, 50, 100, 150, 200]
+    .map((n) => `<span style="--at:${n / 2}">${n}</span>`)
+    .join("");
   return `<section class="oc-calc oc-dark" id="calc" aria-labelledby="calc-title">
   <img class="oc-calc__bg" src="{{base}}assets/img/calc-bg.webp" alt="${attr(k.bgAlt)}" width="1024" height="435" loading="lazy" decoding="async">
   <h2 class="oc-h2 oc-center oc-calc__title" id="calc-title" data-split>${k.heading}</h2>
