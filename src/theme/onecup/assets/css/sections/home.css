@@ -604,14 +604,21 @@
   height: 24px;
   margin: 0;
   border-radius: var(--oc-radius-8);
-  background: var(--oc-card-v5-strong);
-  accent-color: var(--oc-orange);
+  background: var(--oc-card-v5-strong) center / 16px no-repeat;
   appearance: none;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+/* Checked: same 24px box and radius, orange fill, tick in the form's background colour */
 .oc-check input:checked {
-  appearance: auto;
+  background-color: var(--oc-orange);
+  background-image: var(--oc-check-tick);
+}
+
+.oc-check input:focus-visible {
+  outline: 2px solid var(--oc-orange);
+  outline-offset: 2px;
 }
 
 .oc-form__submit {
