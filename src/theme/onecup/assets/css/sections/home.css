@@ -23,8 +23,18 @@
   font-weight: 700;
 }
 
+/* No outline in any state (default, hover wipe, pressed): the fill alone shapes the button */
+.oc-v5 .oc-btn,
+.oc-v5 .oc-btn:hover,
+.oc-v5 .oc-btn:active {
+  border: 0;
+}
+
+.oc-v5 .oc-btn::before {
+  inset: 0;
+}
+
 .oc-v5 .oc-btn--accent {
-  border-color: var(--oc-orange-line);
   color: var(--oc-hero-v4-bg);
 }
 
