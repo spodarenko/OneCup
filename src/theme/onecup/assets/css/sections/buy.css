@@ -22,6 +22,33 @@
     linear-gradient(270deg, var(--oc-hero-v4-bg) 0%, transparent 18%);
 }
 
+/* Host gallery: slides stack, the active one fades in with a slow zoom, the old one blurs out */
+.oc-hero__media--gallery img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  scale: 1.08;
+  filter: blur(var(--oc-gallery-blur));
+  transition:
+    opacity var(--oc-gallery-fade) ease,
+    filter var(--oc-gallery-fade) ease,
+    scale var(--oc-gallery-zoom) linear;
+}
+
+.oc-hero__media--gallery img.is-active {
+  opacity: 1;
+  scale: 1;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-hero__media--gallery img {
+    scale: 1;
+    filter: none;
+    transition: opacity var(--oc-gallery-fade) ease;
+  }
+}
+
 .oc-hero--buy .oc-hero__title,
 .oc-hero--host .oc-hero__title {
   max-width: 864px;
@@ -276,7 +303,20 @@
 }
 
 .oc-models--coop .oc-models__head {
+  position: relative;
+  isolation: isolate;
   width: min(var(--oc-wide-v5), 100%);
+  text-shadow: var(--oc-text-shadow-on-photo);
+}
+
+/* Scrim: the heading sits on the bright station render — a dark ellipse keeps it readable */
+.oc-models--coop .oc-models__head::before {
+  content: "";
+  position: absolute;
+  inset: -40% -8%;
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--oc-hero-scrim) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .oc-models--coop .oc-model {

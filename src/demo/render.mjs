@@ -60,7 +60,9 @@ function header(c, all, page) {
 
 // Hero — one block for every page: the home page orbits the station on scroll,
 // the buy and host pages show a still render
-const heroImg = { buy: ["buy-hero", 2294, 1281], host: ["host-hero", 2294, 1281] };
+const heroImg = { buy: ["buy-hero", 2294, 1281], host: ["host-gallery/1", 2294, 1281] };
+// Host hero rotates through the Figma «Imgs» set (477:2459) — main.js swaps every 5 s
+const hostSlides = 8;
 
 function hero(c, page) {
   const home = page === "home";
@@ -79,7 +81,11 @@ function hero(c, page) {
     ? `<div class="oc-hero__media" data-orbit data-frames="72" data-src="{{base}}assets/img/orbit/">
     <img src="{{base}}assets/img/orbit/00.webp" alt="${attr(h.imgAlt)}" width="1920" height="1080" fetchpriority="high" decoding="async">
   </div>`
-    : `<div class="oc-hero__media">
+    : page === "host"
+      ? `<div class="oc-hero__media oc-hero__media--gallery" data-gallery>
+    ${Array.from({ length: hostSlides }, (_, i) => `<img${i ? ' loading="lazy"' : ' class="is-active" fetchpriority="high"'} src="{{base}}assets/img/host-gallery/${i + 1}.webp" alt="${i ? "" : attr(h.imgAlt)}" width="${w}" height="${ht}" decoding="async">`).join("\n    ")}
+  </div>`
+      : `<div class="oc-hero__media">
     <img src="{{base}}assets/img/${src}.webp" alt="${attr(h.imgAlt)}" width="${w}" height="${ht}" fetchpriority="high" decoding="async">
   </div>`;
   const h1 = `<h1 class="oc-hero__title" data-split>${title}</h1>`;

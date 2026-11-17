@@ -158,6 +158,10 @@
   --oc-metrics-bg: #120e09;
   --oc-hero-scrim: rgb(0 0 1 / 0.75);
   --oc-hero-scrim-size: 48% 42%;
+  --oc-gallery-fade: 1.4s;
+  --oc-gallery-zoom: 6.5s;
+  --oc-gallery-blur: 12px;
+  --oc-text-shadow-on-photo: 0 2px 16px rgb(0 0 1 / 0.8);
   --oc-start-bg: #050604;
   --oc-metric-w: 320px;
   --oc-point-w: 236px;
