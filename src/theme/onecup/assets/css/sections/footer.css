@@ -48,6 +48,27 @@
   color: var(--oc-orange);
 }
 
+/* Links behave like the header menu: grey, white on hover, no underline */
+.oc-footer__col a,
+.oc-footer__col a.oc-link {
+  background: none;
+  color: var(--oc-nav-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.oc-footer__col a:hover {
+  color: var(--oc-text-on-dark);
+}
+
+.oc-footer__col .oc-footer__phone {
+  color: var(--oc-orange);
+}
+
+.oc-footer__col .oc-footer__phone:hover {
+  color: var(--oc-text-on-dark);
+}
+
 /* Bottom row — 426:4253: © left, legal centred, developer right */
 .oc-footer__bottom {
   display: grid;
