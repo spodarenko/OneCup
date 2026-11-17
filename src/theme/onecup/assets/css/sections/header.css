@@ -115,9 +115,7 @@
   padding: var(--oc-space-4);
   list-style: none;
   border-radius: var(--oc-radius-12);
-  /* Light list stands out on the dark site and reads better */
-  background: var(--oc-bg-soft);
-  box-shadow: var(--oc-shadow-menu);
+  background: var(--oc-drawer-bg);
 }
 
 .oc-lang li a {
@@ -127,17 +125,16 @@
   padding: var(--oc-space-8) var(--oc-space-12);
   border-radius: var(--oc-radius-8);
   font: var(--oc-body-16);
-  color: var(--oc-text-primary);
-  transition: background-color 0.15s ease;
+  color: var(--oc-nav-text);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .oc-lang li a:hover,
 .oc-lang li a[aria-current] {
-  background: var(--oc-line-light);
-}
-
-.oc-lang li a[aria-current] {
-  font-weight: 600;
+  background: var(--oc-hero-v4-bg);
+  color: var(--oc-text-on-dark);
 }
 
 .oc-header__menu-only,
